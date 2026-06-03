@@ -1,0 +1,426 @@
+/* ============================================================
+   Vest Self — Design Tokens
+   Source of truth: "VS Brand & UI Guide" (2026).
+   Gold-led, dual-mode (dark-first + warm-light surfaces).
+   Type: Satoshi. Voice: premium, disciplined, human.
+   ============================================================ */
+
+/* ---------- FONTS: Satoshi (licensed files supplied) ---------- */
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  /* Guide uses a 600 "Semibold" weight; no 600 file supplied, so Bold covers 600–700. */
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Bold.otf") format("opentype");
+  font-weight: 600 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/Satoshi-Black.otf") format("opentype");
+  font-weight: 800 900; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ============================================================
+     BRAND COLORS (Color 3.1 / 3.2)
+     ============================================================ */
+
+  /* primary */
+  --off-white:     #FFFCF5;   /* Primary 01 — truest brand white, warm */
+  --gold:          #E6C15A;   /* Primary 02 — the brand gold */
+  --gold-variant:  #D8B518;   /* Primary 02 variant — deeper gold */
+  --midnight:      #111111;   /* Primary 03 — near-black surface */
+
+  /* secondary / gradient anchors */
+  --lightning-gold:#FFC919;   /* Secondary 05 — high-energy gold */
+  --champagne:     #F9F1C8;   /* Secondary 05 — soft warm light */
+  --oregon:        #9C3807;   /* deep amber-brown, gradient mid */
+  --void:          #0A0A0F;   /* all gradients dissolve to this */
+  --true-black:    #000000;
+
+  /* primary stop used when a single brand color is needed */
+  --brand:         var(--gold);
+  --brand-strong:  var(--gold-variant);
+  --brand-bright:  var(--lightning-gold);
+  --brand-soft:    rgba(230,193,90,0.16);
+
+  /* ---------- ACCENTS (Color 3.1 — Accent Colours 04) ---------- */
+  --accent-purple: #A13CFF;
+  --accent-blue:   #0E6BFF;
+  --accent-pink:   #DB139C;
+  --accent-orange: #EA671B;
+  --accent-green:  #0E9C32;
+
+  /* ============================================================
+     COLOR SCALE (Color 3.2) — 50 (light) → 900 (dark), per family
+     ============================================================ */
+
+  /* ink (warm-neutral, anchored on Midnight) */
+  --ink-25:   #FFFCF5;
+  --ink-50:   #F7F4EC;
+  --ink-100:  #ECE9E1;
+  --ink-200:  #D7D4CC;
+  --ink-300:  #B4B1AA;
+  --ink-400:  #8A8782;
+  --ink-500:  #646159;
+  --ink-600:  #48453F;
+  --ink-700:  #2E2C28;
+  --ink-800:  #1C1A18;
+  --ink-900:  #111111;
+  --ink-950:  #0A0A0F;
+  --ink-1000: #000000;
+
+  /* gold */
+  --gold-50:  #FDFAF2; --gold-100: #FBF4E1; --gold-200: #F7EAC7;
+  --gold-300: #F2DEA6; --gold-400: #ECD082; --gold-500: #E6C15A;
+  --gold-600: #BA9C4A; --gold-700: #8E783B; --gold-800: #62532B; --gold-900: #3A321D;
+
+  /* blue */
+  --blue-50:  #ECF3FF; --blue-100: #D4E4FF; --blue-200: #ADCDFF;
+  --blue-300: #7DAFFF; --blue-400: #488FFF; --blue-500: #0E6BFF;
+  --blue-600: #0D58CE; --blue-700: #0C449E; --blue-800: #0C316D; --blue-900: #0B1F41;
+
+  /* pink */
+  --pink-50:  #FCECF7; --pink-100: #F9D5ED; --pink-200: #F3AFDD;
+  --pink-300: #EC80CA; --pink-400: #E44CB4; --pink-500: #DB139C;
+  --pink-600: #B1117F; --pink-700: #870F62; --pink-800: #5E0E46; --pink-900: #380C2C;
+
+  /* orange */
+  --orange-50:  #FDF3ED; --orange-100: #FBE4D6; --orange-200: #F8CBB1;
+  --orange-300: #F4AD84; --orange-400: #EF8B52; --orange-500: #EA671B;
+  --orange-600: #BD5418; --orange-700: #904215; --orange-800: #642F12; --orange-900: #3B1E0F;
+
+  /* green */
+  --green-50:  #ECF7EF; --green-100: #D4EDDA; --green-200: #ADDDB9;
+  --green-300: #7DCA90; --green-400: #48B463; --green-500: #0E9C32;
+  --green-600: #0D7F2A; --green-700: #0C6223; --green-800: #0C441B; --green-900: #0B2A14;
+
+  /* purple */
+  --purple-50:  #F7EFFF; --purple-100: #EEDCFF; --purple-200: #DFBDFF;
+  --purple-300: #CC96FF; --purple-400: #B86BFF; --purple-500: #A13CFF;
+  --purple-600: #8332CE; --purple-700: #65289E; --purple-800: #461E6D; --purple-900: #2B1541;
+
+  /* ============================================================
+     GRADIENTS
+     Rules (Color 3.2): corner-anchored · single-hue per surface ·
+     fades to void (#0A0A0F) · no hard stops · never full-background.
+     ============================================================ */
+
+  /* The signature brand gradient: Lightning Gold → Oregon → void */
+  --grad-brand:  linear-gradient(135deg, #FFC919 0%, #9C3807 55%, #0A0A0F 100%);
+  --grad-brand-soft: linear-gradient(135deg, rgba(255,201,25,0.22) 0%, rgba(156,56,7,0.18) 55%, rgba(10,10,15,0) 100%);
+  --grad-gold:   linear-gradient(135deg, #FFC919 0%, #E6C15A 100%);
+  --grad-champagne: linear-gradient(135deg, #F9F1C8 0%, #E6C15A 100%);
+
+  /* Named usage gradients (Colour Gradients 3.2). Single-hue, corner-anchored,
+     dissolving into void. NOTE: exact stop values for these four are pending
+     the page-16 artwork — these are built to the stated rules and accent families. */
+  --grad-energy:     radial-gradient(120% 120% at 8% 8%, #FFC919 0%, #EA671B 38%, #0A0A0F 82%);  /* workouts, achievements, streaks */
+  --grad-focus:      radial-gradient(120% 120% at 92% 8%, #488FFF 0%, #0E6BFF 36%, #0A0A0F 82%); /* deep work, cognitive metrics */
+  --grad-growth:     radial-gradient(120% 120% at 8% 92%, #48B463 0%, #0E9C32 36%, #0A0A0F 82%); /* recovery, sleep, progress */
+  --grad-discipline: radial-gradient(120% 120% at 92% 92%, #B86BFF 0%, #A13CFF 36%, #0A0A0F 82%);/* premium, mindset, earned reward */
+
+  /* ============================================================
+     NEON BLUR (Elements 5.1) — the signature card treatment.
+     A soft multi-hue neon bloom rising from the bottom edge of a
+     dark or light card. PRINCIPLE: never a single standalone color —
+     the neon spectrum (purple → magenta → orange → gold) lifts the
+     gold and keeps the system modern. The card surface (near-black
+     or off-white) holds the top; the bloom dissolves up into it.
+     ============================================================ */
+  --neon-bloom:
+    radial-gradient(62% 130% at 14% 124%, #8B2BFF 0%, #8B2BFF 18%, rgba(139,43,255,0) 72%),
+    radial-gradient(70% 130% at 46% 128%, #DB139C 0%, #DB139C 20%, rgba(219,19,156,0) 72%),
+    radial-gradient(84% 142% at 83% 120%, #EA671B 0%, #EA671B 22%, rgba(234,103,27,0) 74%),
+    radial-gradient(54% 104% at 66% 134%, #FFC919 0%, #FFC919 16%, rgba(255,201,25,0) 66%);
+  /* cooler bloom variant (more purple/blue lift) */
+  --neon-bloom-cool:
+    radial-gradient(64% 130% at 16% 124%, #4B6BFF 0%, #4B6BFF 18%, rgba(75,107,255,0) 72%),
+    radial-gradient(70% 130% at 48% 128%, #8B2BFF 0%, #8B2BFF 20%, rgba(139,43,255,0) 72%),
+    radial-gradient(80% 138% at 84% 122%, #DB139C 0%, #DB139C 22%, rgba(219,19,156,0) 74%),
+    radial-gradient(54% 104% at 66% 134%, #FFC919 0%, #FFC919 14%, rgba(255,201,25,0) 64%);
+
+  /* ============================================================
+     SEMANTIC SURFACES — DARK (default)
+     ============================================================ */
+  --bg:           var(--void);        /* #0A0A0F page base */
+  --bg-elevated:  var(--midnight);    /* #111111 cards */
+  --bg-sunken:    var(--true-black);
+  --bg-card:      #16161B;
+
+  --surface-card:    rgba(255,252,245,0.04);
+  --surface-card-2:  rgba(255,252,245,0.06);
+  --surface-glass:   rgba(255,252,245,0.05);
+  --surface-overlay: rgba(10,10,15,0.74);
+
+  /* foreground on dark */
+  --fg-1: #FFFCF5;             /* primary */
+  --fg-2: rgba(255,252,245,0.74);
+  --fg-3: rgba(255,252,245,0.52);
+  --fg-4: rgba(255,252,245,0.34); /* placeholder / disabled */
+  --fg-on-brand: #111111;         /* text on gold */
+
+  /* borders on dark */
+  --border-1: rgba(255,252,245,0.08);
+  --border-2: rgba(255,252,245,0.14);
+  --border-3: rgba(255,252,245,0.22);
+  --border-focus: var(--gold);
+
+  /* ============================================================
+     STATE COLORS (mapped from accent families)
+     ============================================================ */
+  --success-500: var(--accent-green);   --success-bg: rgba(14,156,50,0.14);
+  --warning-500: var(--accent-orange);  --warning-bg: rgba(234,103,27,0.16);
+  --danger-500:  #E5484D;               --danger-bg:  rgba(229,72,77,0.15); /* ⚠ no red in guide — provisional */
+  --info-500:    var(--accent-blue);    --info-bg:    rgba(14,107,255,0.14);
+
+  /* ============================================================
+     TYPOGRAPHY (Typography 2.2–2.4)
+     ============================================================ */
+  --font-display: "Satoshi", "Segoe UI", system-ui, sans-serif;
+  --font-sans:    "Satoshi", -apple-system, "Segoe UI", system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", "SFMono-Regular", "Consolas", monospace;
+
+  /* DESKTOP type tokens — size / line-height (from guide) */
+  --text-hero:        76px;  --lh-hero:        80px;  /* w700 */
+  --text-hero-accent: 80px;  --lh-hero-accent: 100px;
+  --text-h1:          64px;  --lh-h1:          72px;  /* w700 */
+  --text-h2:          48px;  --lh-h2:          56px;  /* w700 */
+  --text-sh1:         32px;  --lh-sh1:         40px;  /* w600 */
+  --text-sh2:         24px;  --lh-sh2:         32px;  /* w600 */
+  --text-sh3:         20px;  --lh-sh3:         28px;  /* w600 */
+  --text-body:        18px;  --lh-body:        28px;  /* w400 */
+  --text-highlighted: 18px;  --lh-highlighted: 24px;  /* w500 */
+  --text-label:       16px;  --lh-label:       20px;  /* w500 */
+  --text-tag:         14px;  --lh-tag:         20px;  /* w600 */
+  --text-helper:      14px;  --lh-helper:      18px;  /* w400 */
+  --text-caption:     12px;  --lh-caption:     16px;  /* w400 */
+
+  /* MOBILE type tokens */
+  --text-hero-m:        44px; --lh-hero-m:        48px;
+  --text-hero-accent-m: 48px; --lh-hero-accent-m: 60px;
+  --text-h1-m:          40px; --lh-h1-m:          48px;
+  --text-h2-m:          32px; --lh-h2-m:          40px;
+  --text-sh1-m:         24px; --lh-sh1-m:         32px;
+  --text-sh2-m:         20px; --lh-sh2-m:         28px;
+  --text-sh3-m:         18px; --lh-sh3-m:         28px;
+  --text-body-m:        16px; --lh-body-m:        24px;
+  --text-highlighted-m: 16px; --lh-highlighted-m: 20px;
+
+  /* weights */
+  --w-regular: 400; --w-medium: 500; --w-semibold: 600; --w-bold: 700; --w-black: 900;
+
+  /* tracking */
+  --tracking-tightest: -0.03em;
+  --tracking-tight:    -0.02em;
+  --tracking-snug:     -0.01em;
+  --tracking-normal:    0;
+  --tracking-wide:      0.04em;
+  --tracking-wider:     0.12em;  /* eyebrow / all-caps labels */
+
+  /* ============================================================
+     SPACING (4pt grid) — not specified in guide; sensible default
+     ============================================================ */
+  --space-1: 4px;  --space-2: 8px;  --space-3: 12px; --space-4: 16px;
+  --space-5: 20px; --space-6: 24px; --space-8: 32px; --space-10: 40px;
+  --space-12: 48px; --space-16: 64px; --space-20: 80px; --space-24: 96px;
+
+  /* ---------- RADII ---------- */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 36px;
+  --radius-pill: 999px;
+
+  /* ---------- SHADOWS / GLOWS ---------- */
+  --shadow-sm: 0 2px 6px rgba(0,0,0,0.40);
+  --shadow-md: 0 12px 28px -10px rgba(0,0,0,0.58);
+  --shadow-lg: 0 28px 60px -20px rgba(0,0,0,0.72);
+  --shadow-inset-hairline: inset 0 0 0 1px rgba(255,252,245,0.06);
+
+  --glow-gold:   0 0 40px -8px rgba(255,201,25,0.50), 0 8px 24px -8px rgba(230,193,90,0.40);
+  --glow-blue:   0 0 32px -8px rgba(14,107,255,0.50);
+  --glow-green:  0 0 32px -8px rgba(14,156,50,0.45);
+  --glow-purple: 0 0 32px -8px rgba(161,60,255,0.50);
+
+  --ring-focus: 0 0 0 3px rgba(230,193,90,0.42);
+
+  /* ---------- MOTION ---------- */
+  --ease-standard:   cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out:        cubic-bezier(0, 0, 0.2, 1);
+  --dur-fast: 140ms; --dur-base: 220ms; --dur-slow: 360ms; --dur-hero: 620ms;
+
+  /* ---------- LAYOUT ---------- */
+  --container-md: 800px; --container-lg: 1080px; --container-xl: 1280px;
+
+  color-scheme: dark;
+}
+
+/* ============================================================
+   LIGHT SURFACE (Color in Use shows a warm-light card variant)
+   Use for marketing slabs, light cards, printed collateral.
+   ============================================================ */
+.surface-light, [data-theme="light"] {
+  --bg:          var(--off-white);
+  --bg-elevated: #FFFFFF;
+  --bg-sunken:   var(--champagne);
+  --bg-card:     #FFFFFF;
+  --surface-card:    #FFFFFF;
+  --surface-card-2:  var(--ink-50);
+  --surface-glass:   rgba(255,252,245,0.7);
+  --fg-1: #111111;
+  --fg-2: #48453F;
+  --fg-3: #646159;
+  --fg-4: #8A8782;
+  --fg-on-brand: #111111;
+  --border-1: rgba(17,17,17,0.10);
+  --border-2: rgba(17,17,17,0.16);
+  --border-3: rgba(17,17,17,0.24);
+  color-scheme: light;
+}
+
+/* ============================================================
+   SEMANTIC TYPE CLASSES
+   ============================================================ */
+.t-hero {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-hero); line-height: var(--lh-hero);
+  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+}
+.t-hero-accent {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-hero-accent); line-height: var(--lh-hero-accent);
+  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+}
+.t-h1 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-h1); line-height: var(--lh-h1);
+  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+}
+.t-h2 {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-h2); line-height: var(--lh-h2);
+  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+}
+.t-sh1 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: var(--text-sh1); line-height: var(--lh-sh1);
+  letter-spacing: var(--tracking-snug); color: var(--fg-1);
+}
+.t-sh2 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: var(--text-sh2); line-height: var(--lh-sh2);
+  letter-spacing: var(--tracking-snug); color: var(--fg-1);
+}
+.t-sh3 {
+  font-family: var(--font-display); font-weight: 600;
+  font-size: var(--text-sh3); line-height: var(--lh-sh3); color: var(--fg-1);
+}
+.t-body {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: var(--text-body); line-height: var(--lh-body); color: var(--fg-2);
+}
+.t-highlighted {
+  font-family: var(--font-sans); font-weight: 500;
+  font-size: var(--text-highlighted); line-height: var(--lh-highlighted); color: var(--fg-1);
+}
+.t-label {
+  font-family: var(--font-sans); font-weight: 500;
+  font-size: var(--text-label); line-height: var(--lh-label); color: var(--fg-1);
+}
+.t-tag {
+  font-family: var(--font-sans); font-weight: 600;
+  font-size: var(--text-tag); line-height: var(--lh-tag); color: var(--fg-2);
+}
+.t-helper {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: var(--text-helper); line-height: var(--lh-helper); color: var(--fg-3);
+}
+.t-caption {
+  font-family: var(--font-sans); font-weight: 400;
+  font-size: var(--text-caption); line-height: var(--lh-caption); color: var(--fg-3);
+}
+.t-eyebrow {
+  font-family: var(--font-sans); font-weight: 600;
+  font-size: var(--text-caption); line-height: 1;
+  letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--fg-3);
+}
+.t-numeric {
+  font-family: var(--font-display); font-weight: 700;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* MOBILE responsive type — display sizes step down (Typography 2.x) */
+@media (max-width: 640px) {
+  .t-hero        { font-size: var(--text-hero-m);        line-height: var(--lh-hero-m); }
+  .t-hero-accent { font-size: var(--text-hero-accent-m); line-height: var(--lh-hero-accent-m); }
+  .t-h1          { font-size: var(--text-h1-m);          line-height: var(--lh-h1-m); }
+  .t-h2          { font-size: var(--text-h2-m);          line-height: var(--lh-h2-m); }
+  .t-sh1         { font-size: var(--text-sh1-m);         line-height: var(--lh-sh1-m); }
+  .t-sh2         { font-size: var(--text-sh2-m);         line-height: var(--lh-sh2-m); }
+  .t-sh3         { font-size: var(--text-sh3-m);         line-height: var(--lh-sh3-m); }
+  .t-body        { font-size: var(--text-body-m);        line-height: var(--lh-body-m); }
+  .t-highlighted { font-size: var(--text-highlighted-m); line-height: var(--lh-highlighted-m); }
+}
+
+/* gold gradient text utility */
+.t-gradient {
+  background: var(--grad-gold);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+
+/* ============================================================
+   NEON BLUR CARD — reusable component (Elements 5.1)
+   <div class="neon-blur"> … </div>           dark surface
+   <div class="neon-blur is-light"> … </div>   off-white surface
+   <div class="neon-blur has-grain"> … </div>  + film grain
+   Photo variant:
+   <figure class="neon-photo"><img …><figcaption>…</figcaption></figure>
+   ============================================================ */
+.neon-blur {
+  position: relative; overflow: hidden; isolation: isolate;
+  border-radius: var(--radius-lg);
+  background: #0B0B0F; border: 1px solid var(--border-1);
+  color: var(--fg-1);
+}
+.neon-blur::after {
+  content: ""; position: absolute; left: -4%; right: -4%; bottom: -8%; height: 72%;
+  z-index: 0; background: var(--neon-bloom); filter: blur(10px); pointer-events: none;
+}
+.neon-blur.bloom-cool::after { background: var(--neon-bloom-cool); }
+.neon-blur.is-light { background: var(--off-white); color: var(--midnight); border-color: rgba(17,17,17,0.06); }
+.neon-blur.is-light::after { opacity: 0.92; }
+.neon-blur.has-grain::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; opacity: 0.5;
+  background-image: url("../assets/noise.svg"); background-size: 180px;
+  mix-blend-mode: overlay;
+}
+.neon-blur > * { position: relative; z-index: 2; }
+
+/* Photo neon-blur: Golden-Glow image with neon bleeding up from the base */
+.neon-photo {
+  position: relative; overflow: hidden; border-radius: var(--radius-xl);
+  background: #0A0A0F; isolation: isolate;
+}
+.neon-photo > img {
+  display: block; width: 100%; height: 100%; object-fit: cover;
+}
+.neon-photo::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 60%;
+  z-index: 1; background: var(--neon-bloom);
+  filter: blur(7px); pointer-events: none;
+}
+.neon-photo.bloom-cool::after { background: var(--neon-bloom-cool); }
+.neon-photo > figcaption, .neon-photo > .np-text { position: relative; z-index: 2; }
