@@ -85,13 +85,13 @@ img { display: block; max-width: 100%; }
 .goal-card .lbl { font-family: var(--mono); font-weight: 700; font-size: 10px; line-height: 15px; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 .goal-card .q { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.25; color: #E6C15A; white-space: nowrap; }
 /* staggered lower goal cards */
-.goal-card.gc-left { left: 16.2%; bottom: 37.5%; }
-.goal-card.gc-right { left: 57.3%; bottom: 32.7%; }
+.goal-card.gc-left { left: 16.2%; bottom: calc(37.5% - 96px); }
+.goal-card.gc-right { left: 57.3%; bottom: calc(32.7% - 96px); }
 
 /* floating task cards (supplied Figma exports) */
 .task-card { position: absolute; z-index: 2; width: 361px; max-width: 90vw; height: auto; filter: drop-shadow(0 10px 18px rgba(0,0,0,0.45)); }
-.task-card.tc-left { left: 19%; bottom: 26.8%; }
-.task-card.tc-right { left: 56%; bottom: 22%; }
+.task-card.tc-left { left: 19%; bottom: calc(26.8% - 96px); }
+.task-card.tc-right { left: 56%; bottom: calc(22% - 96px); }
 
 /* ============================================================
    STATS BAND — brand gradient
