@@ -47,7 +47,8 @@ img { display: block; max-width: 100%; }
 /* ============================================================
    HEADER
    ============================================================ */
-.header { position: sticky; top: 0; z-index: 80; background: rgba(0,0,0,0.8); backdrop-filter: blur(14px); transition: transform 0.35s var(--ease-standard); }
+.header { position: fixed; top: 0; left: 0; right: 0; z-index: 80; background: transparent; backdrop-filter: none; transition: transform 0.35s var(--ease-standard), background 0.3s var(--ease-standard), backdrop-filter 0.3s var(--ease-standard); }
+.header.scrolled { background: rgba(0,0,0,0.8); backdrop-filter: blur(14px); }
 .header.hidden { transform: translateY(-100%); }
 .header .shell { display: flex; align-items: center; justify-content: space-between; padding: 24px 40px; }
 .header .brand .wm { font-size: 20px; }
@@ -67,7 +68,7 @@ img { display: block; max-width: 100%; }
 .hero-bg::after { content: ""; position: absolute; inset: 0; background:
   linear-gradient(0deg, var(--woodsmoke) 0%, rgba(11,11,15,0.12) 20%, rgba(11,11,15,0) 44%, rgba(11,11,15,0) 70%, rgba(11,11,15,0.4) 100%); }
 .hero-scrim { position: absolute; z-index: 1; left: 50%; top: 40%; transform: translate(-50%,-50%); width: min(1040px, 92%); height: 660px; pointer-events: none; background: radial-gradient(ellipse 58% 54% at 50% 50%, rgba(0,0,0,0.74) 0%, rgba(0,0,0,0.5) 42%, rgba(0,0,0,0) 76%); }
-.hero-inner { position: relative; z-index: 3; width: 100%; max-width: 720px; padding-inline: 24px; margin-top: clamp(88px, 11.6vh, 152px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+.hero-inner { position: relative; z-index: 3; width: 100%; max-width: 720px; padding-inline: 24px; margin-top: clamp(178px, calc(90px + 11.6vh), 242px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
 .hero-icon { width: 67px; height: auto; }
 .hero-stack { display: flex; flex-direction: column; align-items: center; gap: 60px; width: 100%; }
 .hero-head { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }

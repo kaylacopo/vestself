@@ -1,13 +1,16 @@
 (function () {
-  // Header hides on scroll-down past 120px, returns on scroll-up.
+  // Header: transparent at the top, solid once scrolled; hides on scroll-down past 120px.
   var header = document.querySelector('.header');
   var lastY = window.scrollY;
-  window.addEventListener('scroll', function () {
+  function syncHeader() {
     var y = window.scrollY;
     if (y > lastY && y > 120) header.classList.add('hidden');
     else header.classList.remove('hidden');
+    header.classList.toggle('scrolled', y > 8);
     lastY = y;
-  }, { passive: true });
+  }
+  syncHeader();
+  window.addEventListener('scroll', syncHeader, { passive: true });
 
   // Reveal-on-scroll for [data-reveal] elements.
   var io = new IntersectionObserver(function (entries) {
