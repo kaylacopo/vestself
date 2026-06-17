@@ -40,37 +40,43 @@
   <section class="hero" id="top" data-screen-label="Hero">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-scrim" aria-hidden="true"></div>
-    <div class="goal-card gc-left" aria-hidden="true">
+
+    <div class="goal-card gc-left" data-reveal aria-hidden="true">
       <div class="lbl">Your goal</div>
-      <div class="q">"I want to train to run a marathon."</div>
+      <div class="q">"I want to run a marathon."</div>
     </div>
-    <div class="goal-card gc-right" aria-hidden="true">
+    <div class="goal-card gc-right" data-reveal aria-hidden="true">
       <div class="lbl">Your goal</div>
-      <div class="q">"I want to start my own business."</div>
+      <div class="q">"I want to launch my own business."</div>
     </div>
+    <img class="task-card tc-left" src="assets/hero/task-run.png" alt="" data-reveal aria-hidden="true" />
+    <img class="task-card tc-right" src="assets/hero/task-business.png" alt="" data-reveal aria-hidden="true" />
+
     <div class="hero-inner">
       <img class="hero-icon" src="assets/logo-icon.svg" alt="vest self" />
-      <h1 id="heroHeadline"><span class="g">Goals</span> into reality.</h1>
-      <p class="sub">Invest in your best self.</p>
-      <div class="hero-pills">
-        <span class="pill"><span class="dot" style="background:#2D7DFF;"></span><span>AI breaks down any goal into daily steps</span></span>
-        <span class="pill"><span class="dot" style="background:#FF2D55;"></span><span>GPS + photo verification keeps you honest</span></span>
-        <span class="pill"><span class="dot" style="background:#B72BC9;"></span><span>Social feed turns progress into momentum</span></span>
-      </div>
-      <div class="hero-form" id="join">
-        <form class="wl-form" data-waitlist>
-          <input type="hidden" name="access_key" value="9aafcadd-8120-4a13-9a49-c5b44d314265" />
-          <input type="hidden" name="subject" value="Vest Self Waitlist" />
-          <input type="hidden" name="from_name" value="Vest Self" />
-          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
-          <label class="field"><input type="email" name="email" placeholder="your@email.com" autocomplete="email" required /></label>
-          <button class="btn-gold" type="submit">Join the waitlist.</button>
-        </form>
-        <div class="wl-success" data-success style="margin-top:12px;">
-          <img class="ic-logo" src="assets/logo-icon.svg" alt="" />
-          <div><div class="tt">You're on the list. <i class="ph ph-check"></i></div><div class="ss">You're one of our founding members — we'll prioritise your early access.</div></div>
+      <div class="hero-stack">
+        <div class="hero-head">
+          <h1>Invest in your <span class="g">best self</span>.</h1>
+          <p class="sub">The app that makes sure you actually follow through. Join the waitlist to be the first to know when we launch.</p>
         </div>
-        <p class="wl-error" data-error role="alert">Something went wrong. Please try again.</p>
+        <div class="hero-join">
+          <div class="hero-form" id="join">
+            <form class="wl-form" data-waitlist>
+              <input type="hidden" name="access_key" value="9aafcadd-8120-4a13-9a49-c5b44d314265" />
+              <input type="hidden" name="subject" value="Vest Self Waitlist" />
+              <input type="hidden" name="from_name" value="Vest Self" />
+              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+              <label class="field"><input type="email" name="email" placeholder="your@email.com" autocomplete="email" required /></label>
+              <button class="btn-gold" type="submit">Join the waitlist.</button>
+            </form>
+            <div class="wl-success" data-success style="margin-top:12px;">
+              <img class="ic-logo" src="assets/logo-icon.svg" alt="" />
+              <div><div class="tt">You're on the list. <i class="ph ph-check"></i></div><div class="ss">You're one of our founding members — we'll prioritise your early access.</div></div>
+            </div>
+            <p class="wl-error" data-error role="alert">Something went wrong. Please try again.</p>
+          </div>
+          <p class="hero-microcopy">Founding members get early beta access, premium features and direct input.</p>
+        </div>
       </div>
     </div>
   </section>
