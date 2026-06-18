@@ -78,7 +78,7 @@ img { display: block; max-width: 100%; }
 .hero-join { display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%; }
 .hero-form { width: 100%; max-width: 672px; }
 .hero-form .btn-gold { padding: 16px 24px; }
-.hero-microcopy { margin: 0; font-family: var(--font-sans); font-weight: 500; font-size: 16px; line-height: 1.4; color: rgba(255,255,255,0.6); }
+.hero-microcopy { margin: 0; font-family: var(--font-sans); font-weight: 400; font-size: 16px; line-height: 1.4; color: rgba(255,255,255,0.6); }
 
 /* floating goal cards */
 .goal-card { position: absolute; z-index: 2; display: flex; flex-direction: column; gap: 8px; width: max-content; max-width: min(90vw, 460px); padding: 20px 24px; background: rgba(0,0,0,0.45); border: 1px solid rgba(255,255,255,0.1); border-radius: 4px; backdrop-filter: blur(20px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1); }
@@ -225,13 +225,13 @@ footer { background: var(--woodsmoke); border-top: 1px solid rgba(255,255,255,0.
   .hero-head { gap: 16px; }
   .hero h1 { font-size: 48px; line-height: 1.0; letter-spacing: -1.8px; white-space: normal; }
   .hero .sub { font-size: 16px; line-height: 20px; }
-  .hero-microcopy { font-size: 16px; line-height: 1.375; }
+  .hero-microcopy { font-size: 14px; line-height: 18px; }
   .goal-card { display: flex; position: absolute; bottom: auto; max-width: none; margin: 0; padding: 16px 19px; gap: 6px; }
   .goal-card .lbl { font-size: 8px; line-height: 11px; }
   .goal-card .q { font-size: 15px; line-height: 19px; }
   .task-card { display: block; position: absolute; bottom: auto; width: 271px; max-width: calc(100vw - 32px); margin: 0; filter: drop-shadow(0 8px 14px rgba(0,0,0,0.45)); }
-  .goal-card.gc-left { left: 16px; top: 63.8%; }
-  .task-card.tc-left { left: 16px; top: 69.8%; }
-  .goal-card.gc-right { left: auto; right: 16px; top: 79.6%; }
-  .task-card.tc-right { left: auto; right: 16px; top: 85.6%; }
+  .goal-card.gc-left { left: 16px; top: 63.8%; bottom: auto; }
+  .task-card.tc-left { left: 16px; top: 69.8%; bottom: auto; }
+  .goal-card.gc-right { left: 22.9%; right: auto; top: 79.6%; bottom: auto; }
+  .task-card.tc-right { left: 26.9%; right: auto; top: 85.6%; bottom: auto; }
 }
