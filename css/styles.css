@@ -64,12 +64,12 @@ img { display: block; max-width: 100%; }
    HERO
    ============================================================ */
 .hero { position: relative; min-height: max(100vh, 1150px); display: flex; align-items: flex-start; justify-content: center; overflow: hidden; isolation: isolate; }
-.hero-bg { position: absolute; inset: 0; z-index: 0; background-image: url("../assets/hero-bg.png?v=2"); background-size: cover; background-position: center top; }
+.hero-bg { position: absolute; inset: 0; z-index: 0; background-image: url("../assets/hero-bg.png?v=3"); background-size: cover; background-position: center top; }
 .hero-bg::after { content: ""; position: absolute; inset: 0; background:
   linear-gradient(0deg, var(--woodsmoke) 0%, rgba(11,11,15,0.12) 20%, rgba(11,11,15,0) 44%, rgba(11,11,15,0) 70%, rgba(11,11,15,0.4) 100%); }
 .hero-scrim { position: absolute; z-index: 1; left: 50%; top: 40%; transform: translate(-50%,-50%); width: min(1040px, 92%); height: 660px; pointer-events: none; background: radial-gradient(ellipse 58% 54% at 50% 50%, rgba(0,0,0,0.74) 0%, rgba(0,0,0,0.5) 42%, rgba(0,0,0,0) 76%); }
 .hero-inner { position: relative; z-index: 3; width: 100%; max-width: 720px; padding-inline: 24px; margin-top: clamp(178px, calc(90px + 11.6vh), 242px); display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
-.hero-icon { width: 67px; height: auto; }
+.hero-icon { width: 67px; height: auto; opacity: 0.4; }
 .hero-stack { display: flex; flex-direction: column; align-items: center; gap: 60px; width: 100%; }
 .hero-head { display: flex; flex-direction: column; align-items: center; gap: 24px; width: 100%; }
 .hero h1 { position: relative; z-index: 1; margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.95; letter-spacing: -0.0225em; color: #fff; white-space: nowrap; }
@@ -215,23 +215,23 @@ footer { background: var(--woodsmoke); border-top: 1px solid rgba(255,255,255,0.
   .feat-grid { grid-template-columns: 1fr; }
   .stats .shell { grid-template-columns: 1fr; gap: 40px; }
   .perks { flex-wrap: wrap; gap: 20px 16px; }
-  .hero-bg { background-image: url("../assets/hero-bg-mobile.png"); background-position: center top; }
-  .hero { min-height: 100svh; flex-direction: column; align-items: center; justify-content: flex-start; }
-  .hero-icon { width: 67px; }
-  .hero-inner { order: 0; margin-top: 168px; padding-block: 0; padding-inline: 16px; gap: 24px; max-width: 100%; }
+  .hero-bg { background-image: url("../assets/hero-bg-mobile.png?v=3"); background-position: top center; background-size: cover; }
+  /* size hero to the bg image's aspect (786x2622) so it renders 1:1, no zoom/crop */
+  .hero { min-height: calc(100vw * 3.3359); padding-bottom: 0; }
+  .hero-icon { width: 50px; opacity: 0.4; }
+  /* content + cards placed at the Figma mobile frame coordinates (393x1311) */
+  .hero-inner { position: absolute; top: 20.5%; left: 0; right: 0; margin: 0; padding-inline: 16px; gap: 24px; max-width: 100%; }
   .hero-stack { gap: 40px; }
   .hero-head { gap: 16px; }
   .hero h1 { font-size: 48px; line-height: 1.0; letter-spacing: -1.8px; white-space: normal; }
   .hero .sub { font-size: 16px; line-height: 20px; }
   .hero-microcopy { font-size: 16px; line-height: 1.375; }
-  /* show floating cards as a staggered stack, scaled 0.75 */
-  .goal-card { display: flex; position: static; left: auto; bottom: auto; max-width: none; padding: 16px 19px; gap: 6px; }
+  .goal-card { display: flex; position: absolute; bottom: auto; max-width: none; margin: 0; padding: 16px 19px; gap: 6px; }
   .goal-card .lbl { font-size: 8px; line-height: 11px; }
   .goal-card .q { font-size: 15px; line-height: 19px; }
-  .task-card { display: block; position: static; left: auto; bottom: auto; width: 271px; max-width: calc(100vw - 32px); filter: drop-shadow(0 8px 14px rgba(0,0,0,0.45)); }
-  .goal-card.gc-left { order: 1; align-self: flex-start; margin: 80px 0 0 16px; }
-  .task-card.tc-left { order: 2; align-self: flex-start; margin: 12px 0 0 16px; }
-  .goal-card.gc-right { order: 3; align-self: flex-end; margin: 56px 16px 0 0; }
-  .task-card.tc-right { order: 4; align-self: flex-end; margin: 12px 16px 0 0; }
-  .hero { padding-bottom: 64px; }
+  .task-card { display: block; position: absolute; bottom: auto; width: 271px; max-width: calc(100vw - 32px); margin: 0; filter: drop-shadow(0 8px 14px rgba(0,0,0,0.45)); }
+  .goal-card.gc-left { left: 16px; top: 63.8%; }
+  .task-card.tc-left { left: 16px; top: 69.8%; }
+  .goal-card.gc-right { left: auto; right: 16px; top: 79.6%; }
+  .task-card.tc-right { left: auto; right: 16px; top: 85.6%; }
 }
