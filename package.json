@@ -1,0 +1,22 @@
+{
+  "name": "vestself",
+  "version": "1.0.0",
+  "description": "Vest Self — invest in your best self. AI-powered goal achievement platform.",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kaylacopo/vestself.git"
+  },
+  "keywords": ["analytics", "vercel", "vestself"],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kaylacopo/vestself/issues"
+  },
+  "homepage": "https://github.com/kaylacopo/vestself#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
