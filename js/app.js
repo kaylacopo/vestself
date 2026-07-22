@@ -18,13 +18,8 @@
   }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   document.querySelectorAll('[data-reveal]').forEach(function (el) { io.observe(el); });
 
-  // Waitlist: validate, submit to Web3Forms, dedupe, swap to success card.
-  var KEY = 'vestself.waitlist';
-  function getList() { try { return JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { return []; } }
-
-  function showSuccess(form, email) {
-    var list = getList();
-    if (list.indexOf(email) === -1) { list.push(email); localStorage.setItem(KEY, JSON.stringify(list)); }
+  // Waitlist: validate, submit to Web3Forms, swap to success card.
+  function showSuccess(form) {
     var success = form.parentElement.querySelector('[data-success]');
     form.style.display = 'none';
     if (success) success.classList.add('show');
@@ -47,9 +42,6 @@
         return;
       }
 
-      // Already joined from this browser — show success without re-submitting.
-      if (getList().indexOf(email) !== -1) { showSuccess(form, email); return; }
-
       var btn = form.querySelector('button[type=submit]');
       var errEl = form.parentElement.querySelector('[data-error]');
       var label = btn.textContent;
@@ -67,7 +59,7 @@
         .then(function (r) { return r.json(); })
         .then(function (json) {
           if (json && json.success) {
-            showSuccess(form, email);
+            showSuccess(form);
           } else {
             throw new Error((json && json.message) || 'Submission failed');
           }
