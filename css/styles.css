@@ -140,8 +140,8 @@ img { display: block; max-width: 100%; }
 .step-text h3::after { content: ""; position: absolute; left: 0; bottom: 0; width: 48px; height: 3px; border-radius: 2px; background: #111; }
 .step-text p { margin: 0; font-family: var(--font-sans); font-weight: 400; font-size: 18px; line-height: 1.6; color: rgba(17,17,17,0.7); max-width: 30ch; }
 .step-media { position: relative; flex: none; display: flex; justify-content: center; isolation: isolate; }
-.step-media::before { content: ""; position: absolute; z-index: 0; left: 50%; top: 50%; width: 120%; height: 78%; transform: translate(-50%,-50%); background: radial-gradient(closest-side, rgba(156,56,7,0.28), rgba(156,56,7,0) 72%); filter: blur(50px); pointer-events: none; }
-.phone { position: relative; z-index: 1; height: clamp(440px, 56vh, 660px); width: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.28)); transition: transform 0.5s var(--ease-standard); }
+.step-media::before { content: ""; position: absolute; z-index: 0; left: 50%; top: 50%; width: 86%; height: 74%; transform: translate(-50%,-50%); background: radial-gradient(closest-side, rgba(156,56,7,0.28), rgba(156,56,7,0) 72%); filter: blur(50px); pointer-events: none; }
+.phone { position: relative; z-index: 1; height: clamp(500px, 64vh, 720px); width: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.28)); transition: transform 0.5s var(--ease-standard); }
 .phone:hover { transform: translateY(-10px); }
 
 /* per-step scroll-in: text & phone slide from opposite sides */
@@ -169,6 +169,8 @@ img { display: block; max-width: 100%; }
 .perk { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .perk i { font-size: 18px; color: rgba(255,255,255,0.45); }
 .perk span { font-family: var(--mono); font-weight: 700; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; color: rgba(255,255,255,0.45); text-align: center; white-space: nowrap; }
+.credibility { display: inline-flex; align-items: center; gap: 8px; margin: 8px 0 0; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); font-family: var(--mono); font-weight: 500; font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+.credibility i { font-size: 15px; color: rgba(230,193,90,0.75); }
 
 /* ============================================================
    FOOTER
@@ -205,6 +207,7 @@ footer { background: var(--woodsmoke); border-top: 1px solid rgba(255,255,255,0.
   .step-text p { max-width: 46ch; }
   .step-text h3::after { left: 50%; transform: translateX(-50%); }
   .step-num { font-size: 80px; }
+  .phone { height: clamp(460px, 58vh, 620px); }
 }
 @media (max-width: 600px) {
   .header .shell { padding: 24px 16px; }
@@ -215,6 +218,9 @@ footer { background: var(--woodsmoke); border-top: 1px solid rgba(255,255,255,0.
   .feat-grid { grid-template-columns: 1fr; }
   .stats .shell { grid-template-columns: 1fr; gap: 40px; }
   .perks { flex-wrap: wrap; gap: 20px 16px; }
+  .credibility { font-size: 10px; letter-spacing: 1px; text-align: center; }
+  .step-media { width: 100%; }
+  .phone { height: auto; width: 100%; max-width: 380px; margin-inline: auto; }
   .hero-bg { background-image: url("../assets/hero-bg-mobile.png?v=3"); background-position: top center; background-size: cover; }
   /* size hero to the bg image's aspect (786x2622) so it renders 1:1, no zoom/crop */
   .hero { min-height: calc(100vw * 3.3359); padding-bottom: 0; }
