@@ -36,18 +36,17 @@
 
 const SHEET_NAME = 'Signups';
 
+// Kept deliberately lean. Referrer, landing page and user agent were dropped as
+// noise — Source already carries the useful part of the referrer. Goal was dropped
+// because the form does not collect one; add the column back here AND in appendRow
+// if that changes.
 const HEADERS = [
-  'Timestamp',      // server-side, not the browser clock
+  'Timestamp',   // server-side, not the browser clock
   'Email',
-  'Goal',           // reserved — the form does not collect this yet
   'Source',
   'Medium',
   'Campaign',
-  'Referrer',
-  'Landing page',
-  'Form',           // which form on the page: Hero or Join CTA
-  'Duplicate',      // TRUE if this email already appears above
-  'User agent'
+  'Form'         // which form on the page: Hero or Join CTA
 ];
 
 /** Run once from the editor to create and format the tab. */
@@ -68,8 +67,7 @@ function getSheet_() {
       .setFontColor('#e6c15a');
     sheet.setFrozenRows(1);
     sheet.setColumnWidth(1, 170);  // Timestamp
-    sheet.setColumnWidth(2, 240);  // Email
-    sheet.setColumnWidth(3, 260);  // Goal
+    sheet.setColumnWidth(2, 260);  // Email
   }
   return sheet;
 }
@@ -116,21 +114,15 @@ function doPost(e) {
     if (!lock.tryLock(25000)) return json_({ ok: false, error: 'busy' });
 
     try {
-      const sheet = getSheet_();
-      const duplicate = emailExists_(sheet, email);
-
-      sheet.appendRow([
+      // Repeat signups are still RECORDED as their own row, never skipped — an
+      // earlier landing page silently dropped genuine re-signups (see 45c7a95).
+      getSheet_().appendRow([
         new Date(),
         email,
-        str_(data.goal, 500),
         str_(data.source, 120),
         str_(data.medium, 120),
         str_(data.campaign, 120),
-        str_(data.referrer, 500),
-        str_(data.landing, 500),
-        str_(data.form, 60),
-        duplicate,
-        str_(data.ua, 400)
+        str_(data.form, 60)
       ]);
 
       // Return nothing about the sheet's contents. Echoing the duplicate flag
@@ -149,21 +141,6 @@ function doPost(e) {
 
 function str_(v, max) {
   return String(v == null ? '' : v).slice(0, max);
-}
-
-/**
- * Duplicate signups are RECORDED, never dropped. An earlier version of the
- * landing page silently skipped repeat submissions and lost real re-signups
- * (see commit 45c7a95); this flags them instead so the row still exists.
- */
-function emailExists_(sheet, email) {
-  const last = sheet.getLastRow();
-  if (last < 2) return false;
-  const values = sheet.getRange(2, 2, last - 1, 1).getValues();
-  for (let i = 0; i < values.length; i++) {
-    if (String(values[i][0]).trim().toLowerCase() === email) return true;
-  }
-  return false;
 }
 
 /** Crude global throttle: at most 30 writes per rolling minute. */

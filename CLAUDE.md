@@ -82,6 +82,29 @@ could POST an address and learn whether that person was on the waitlist. Duplica
 are still recorded in the sheet's `Duplicate` column; they are just never disclosed in
 the response. **Do not add data to the endpoint's response.**
 
+### Sheet layout
+
+`Signups` tab, columns: **Timestamp · Email · Source · Medium · Campaign · Form**.
+Referrer, landing page, user agent, goal and the duplicate flag were dropped as noise
+in Sept 2026. Adding a column back means editing `HEADERS` **and** `appendRow` in
+`tools/waitlist-sheet.gs` together, or rows land misaligned.
+
+**Founders sit at the top (rows 2-5) with `Source = founder`** — Kayla, Rafa,
+gonegarnergonest@, hello@vestself.app. They are at the top deliberately:
+`appendRow` writes to the bottom, so a block at the top is never disturbed, whereas a
+block at the bottom would end up stranded mid-table after the first new signup.
+
+`I1` holds the live count, `=COUNTA(B2:B)-COUNTIF(C2:C,"founder")`, which is why the
+founder marker matters. Keep stray notes out of column B or the count drifts.
+
+### Redeploying the script
+
+Editing the Apps Script and saving does **not** change what the live `/exec` URL runs —
+a web app deployment is pinned to a version. After any edit: Deploy → Manage
+deployments → pencil → Version → **New version** → Deploy. The URL stays the same, so
+`js/app.js` needs no change. Forgetting this is silent: the sheet keeps taking writes
+in the old shape.
+
 Acquisition source is captured on **first touch** and kept in `sessionStorage`, so it
 records how someone arrived rather than where they were when they submitted. UTM tags
 win; otherwise the referrer host is mapped to a known name (instagram, linkedin,
