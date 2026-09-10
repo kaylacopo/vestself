@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Source for og-default.jpg. Render from this directory:
+     chrome --headless=new --force-device-scale-factor=2 --window-size=1200,630 \
+       --screenshot=card@2x.png file://$PWD/_source.card.html
+     then downscale 2400x1260 -> 1200x630 and save as JPEG q95 (keep under ~300KB,
+     WhatsApp drops larger previews). Ship under a NEW filename, don't overwrite. --><html><head><meta charset="utf-8"/>
+<style>
+@font-face{font-family:"Satoshi";src:url("../fonts/Satoshi-Regular.otf") format("opentype");font-weight:400}
+@font-face{font-family:"Satoshi";src:url("../fonts/Satoshi-Medium.otf") format("opentype");font-weight:500}
+@font-face{font-family:"Satoshi";src:url("../fonts/Satoshi-Bold.otf") format("opentype");font-weight:600 700}
+@font-face{font-family:"Satoshi";src:url("../fonts/Satoshi-Black.otf") format("opentype");font-weight:800 900}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{
+  background:#0A0A0F;
+  font-family:"Satoshi",system-ui,sans-serif;
+  position:relative;
+  color:#FFFCF5;
+}
+
+/* Corner-anchored bloom, dissolving to void — never a full-bleed gradient. */
+.bloom{position:absolute;inset:0;z-index:0;pointer-events:none}
+.bloom::before{
+  content:"";position:absolute;right:-8%;bottom:-34%;width:78%;height:130%;
+  background:
+    radial-gradient(58% 62% at 62% 74%, #FFC919 0%, rgba(255,201,25,0) 68%),
+    radial-gradient(66% 66% at 78% 84%, #EA671B 0%, rgba(234,103,27,0) 70%),
+    radial-gradient(56% 60% at 40% 92%, #9C3807 0%, rgba(156,56,7,0) 72%);
+  filter:blur(28px);opacity:.62;
+}
+.bloom::after{
+  content:"";position:absolute;left:-14%;top:-30%;width:52%;height:88%;
+  background:radial-gradient(60% 60% at 40% 50%, rgba(161,60,255,.30) 0%, rgba(219,19,156,.16) 44%, rgba(10,10,15,0) 74%);
+  filter:blur(34px);
+}
+.grain{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:.34;
+  background-image:url("../noise.svg");background-size:200px;mix-blend-mode:overlay}
+
+.wrap{position:relative;z-index:2;height:100%;display:flex;align-items:center;padding:0 0 0 78px}
+
+.left{width:640px;flex:0 0 640px}
+
+.wm{display:flex;align-items:baseline;gap:.34ch;font-weight:700;font-size:40px;letter-spacing:-.03em;margin-bottom:40px}
+.wm .b{color:#FFFCF5}
+.wm .s{background:linear-gradient(135deg,#FFC919 0%,#E6C15A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+h1{font-weight:700;font-size:72px;line-height:1.04;letter-spacing:-.032em;margin-bottom:26px}
+h1 .g{background:linear-gradient(135deg,#FFC919 0%,#E6C15A 62%,#D8B518 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+p.sub{font-weight:400;font-size:25px;line-height:1.42;color:rgba(255,252,245,.72);max-width:560px;margin-bottom:40px}
+
+.pill{display:inline-flex;align-items:center;gap:12px;
+  background:linear-gradient(135deg,#FFC919 0%,#E6C15A 100%);
+  color:#111111;font-weight:700;font-size:21px;letter-spacing:-.01em;
+  padding:15px 30px;border-radius:999px;
+  box-shadow:0 0 44px -8px rgba(255,201,25,.46), 0 10px 28px -10px rgba(0,0,0,.6);}
+.pill .dom{font-weight:500;opacity:.62}
+
+/* Phone bleeds off the right edge — decorative, safe to crop. */
+.phone{position:absolute;right:-52px;top:50%;transform:translateY(-50%) rotate(-7deg);
+  width:468px;z-index:1;
+  filter:drop-shadow(0 46px 90px rgba(0,0,0,.66)) drop-shadow(0 0 70px rgba(230,193,90,.22));}
+.phone img{display:block;width:100%}
+</style></head>
+<body>
+  <div class="bloom"></div>
+  <div class="phone"><img src="../screens/01-goal.png" alt=""/></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="wm"><span class="b">vest</span><span class="s">self</span></div>
+      <h1>Invest in your<br/><span class="g">best self.</span></h1>
+      <p class="sub">AI breaks any goal into daily steps, verifies your progress, and turns it into momentum.</p>
+      <div class="pill">Join the waitlist <span class="dom">· vestself.app</span></div>
+    </div>
+  </div>
+  <div class="grain"></div>
+</body></html>
