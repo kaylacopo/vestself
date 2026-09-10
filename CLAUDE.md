@@ -50,8 +50,28 @@ python3 -m http.server 4321
 
 ## The waitlist form — read this before touching it
 
-There is **no database and no backend.** Both forms POST straight to Web3Forms,
-which emails the submission. Nothing is persisted inside this project.
+Every submission goes to **two** places:
+
+1. **Web3Forms** — sends the email notification, and drives the success UI. The
+   submission only counts as successful if this call succeeds.
+2. **A Google Sheet**, via the Apps Script web app in `tools/waitlist-sheet.gs`. This
+   is the **permanent source of truth** — Web3Forms only retains submissions for 30
+   days. The endpoint lives in `SHEET_ENDPOINT` at the top of `js/app.js`.
+
+The sheet write is deliberately **best-effort and non-blocking**: it never gates the
+success UI, and its failures are swallowed. If it fails, the Web3Forms email is still
+a complete record of the signup, because the acquisition data is appended to that
+submission too. A logging outage must never cost the user their signup.
+
+If `SHEET_ENDPOINT` is empty the page still works normally — only sheet logging is
+inactive. Setup steps are in the header comment of `tools/waitlist-sheet.gs`.
+
+Acquisition source is captured on **first touch** and kept in `sessionStorage`, so it
+records how someone arrived rather than where they were when they submitted. UTM tags
+win; otherwise the referrer host is mapped to a known name (instagram, linkedin,
+tiktok…), falling back to `direct`.
+
+There is still no backend and no build step — the Apps Script runs on Google's side.
 
 The form markup is **duplicated in two places** — the hero (`index.html:65`) and the
 bottom CTA (`index.html:203`). Both are bound by the `form[data-waitlist]` selector in
@@ -68,6 +88,9 @@ re-signups while still showing them a success card. It was removed in `45c7a95`.
 
 The in-flight `submitting` guard already prevents double-click duplicates.
 Do not add client-side dedupe back.
+
+The same rule governs the sheet: `waitlist-sheet.gs` **records** repeat signups and
+flags them in a `Duplicate` column rather than dropping them.
 
 ## Deploy
 
