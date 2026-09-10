@@ -66,6 +66,22 @@ submission too. A logging outage must never cost the user their signup.
 If `SHEET_ENDPOINT` is empty the page still works normally — only sheet logging is
 inactive. Setup steps are in the header comment of `tools/waitlist-sheet.gs`.
 
+### Privacy — this repo is public, subscriber emails are not
+
+Signup data lives **only** in the Sheet, which is private to Kayla's Google account
+(owner-only, no link sharing). It must never enter this repo — `.gitignore` blocks
+CSVs as a second line of defence, and exports belong in `~/vest-self-private/`.
+
+The Apps Script endpoint URL is public by necessity (it sits in `js/app.js`), so the
+endpoint is **write-only by design**: it returns `{ok:true}` and nothing else. It does
+not report row counts, sheet contents, or whether a given email already exists.
+
+That last point matters — an earlier version echoed a `duplicate` flag back to the
+caller, which turned the public endpoint into an **email-enumeration oracle**: anyone
+could POST an address and learn whether that person was on the waitlist. Duplicates
+are still recorded in the sheet's `Duplicate` column; they are just never disclosed in
+the response. **Do not add data to the endpoint's response.**
+
 Acquisition source is captured on **first touch** and kept in `sessionStorage`, so it
 records how someone arrived rather than where they were when they submitted. UTM tags
 win; otherwise the referrer host is mapped to a known name (instagram, linkedin,

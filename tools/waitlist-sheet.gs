@@ -26,6 +26,12 @@
  * honeypot, payload cap, per-minute throttle) keep casual abuse out; they are
  * not a defence against someone deliberately targeting the endpoint. The cost
  * of abuse here is junk rows in a sheet, which is recoverable.
+ *
+ * The endpoint is WRITE-ONLY BY DESIGN. It never returns sheet contents, row
+ * counts, or whether a given email exists. Reading the signup list requires
+ * access to the spreadsheet itself, which stays private to Kayla's account.
+ * Subscribers' email addresses must never be exposed publicly — the site repo
+ * is public, so signup data lives only in the Sheet, never in the repo.
  */
 
 const SHEET_NAME = 'Signups';
@@ -74,10 +80,13 @@ function json_(obj) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
-/** Health check — opening the /exec URL in a browser should say ok. */
+/**
+ * Health check. Deliberately returns nothing but { ok: true } — no row count,
+ * no data. The endpoint URL is public (it sits in the landing page's JS), so
+ * anything returned here is readable by anyone who finds it.
+ */
 function doGet() {
-  const sheet = getSheet_();
-  return json_({ ok: true, rows: Math.max(0, sheet.getLastRow() - 1) });
+  return json_({ ok: true });
 }
 
 function doPost(e) {
@@ -124,7 +133,10 @@ function doPost(e) {
         str_(data.ua, 400)
       ]);
 
-      return json_({ ok: true, duplicate: duplicate });
+      // Return nothing about the sheet's contents. Echoing the duplicate flag
+      // would turn this public endpoint into an email-enumeration oracle:
+      // anyone could POST an address and learn whether that person signed up.
+      return json_({ ok: true });
     } finally {
       lock.releaseLock();
     }

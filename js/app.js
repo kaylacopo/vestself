@@ -34,7 +34,7 @@
 
   // Apps Script /exec URL. Until this is set, signups still reach Web3Forms
   // and nothing user-facing breaks — only the sheet logging is inactive.
-  var SHEET_ENDPOINT = '';
+  var SHEET_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzNp-nAJb4ZMHQB2FY5M34cAoynWatAICkJRWCiCe3tRUjbTiYP16eOJ9JZnK_awrhKhw/exec';
 
   // Where did this visitor come from? UTM tags win; otherwise infer from the
   // referrer, since links shared in DMs and apps rarely carry tags.
