@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!-- Source for og-app.jpg (the live social card). Render from this directory:
+     chrome --headless=new --force-device-scale-factor=2 --window-size=1200,630 \
+       --screenshot=card@2x.png file://$PWD/_source.og-app.html
+     then downscale 2400x1260 -> 1200x630, save JPEG q95 subsampling=0 (<300KB).
+     Warm base is sampled from Figma frame 964:8 — --oregon #9C3807 into --gold #E6C15A.
+     Ship changes under a NEW filename; scrapers cache the old one for weeks. --><html><head><meta charset="utf-8"/>
+<style>
+@font-face{font-family:"Satoshi";src:url("../fonts/Satoshi-Bold.otf") format("opentype");font-weight:600 700}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:1200px;height:630px;overflow:hidden}
+/* Warm base sampled from the Figma frame: --oregon sweeping into --gold. */
+body{font-family:"Satoshi",system-ui,sans-serif;position:relative;
+  background:linear-gradient(104deg,#8A3006 0%,#9C3807 22%,#C17B30 56%,#E4BF58 100%);}
+
+/* Deepen the lower half so the devices sit in light rather than float on flat colour. */
+.vig{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    radial-gradient(120% 88% at 50% 6%, rgba(255,201,25,.20) 0%, rgba(255,201,25,0) 62%),
+    linear-gradient(to bottom, rgba(0,0,0,0) 36%, rgba(58,20,4,.46) 84%, rgba(38,13,3,.62) 100%);}
+.grain{position:absolute;inset:0;z-index:6;pointer-events:none;opacity:.28;
+  background-image:url("../noise.svg");background-size:200px;mix-blend-mode:overlay}
+
+/* Ghosted screens dissolved into the gradient, the way the Figma frame does it. */
+.ghosts{position:absolute;inset:0;z-index:0;overflow:hidden;
+  -webkit-mask-image:linear-gradient(to bottom, rgba(0,0,0,.9) 0%, rgba(0,0,0,.35) 62%, rgba(0,0,0,0) 96%);
+          mask-image:linear-gradient(to bottom, rgba(0,0,0,.9) 0%, rgba(0,0,0,.35) 62%, rgba(0,0,0,0) 96%);}
+.ghosts img{position:absolute;width:236px;opacity:.20;filter:blur(1.4px) saturate(.7)}
+.g1{left:-40px;  top:-56px}
+.g2{left:176px;  top:24px}
+.g3{right:176px; top:24px}
+.g4{right:-40px; top:-56px}
+
+.wm{position:absolute;left:56px;top:44px;z-index:5;
+  display:flex;align-items:baseline;gap:.34ch;font-weight:700;font-size:31px;letter-spacing:-.03em;
+  color:#FFFCF5;text-shadow:0 2px 14px rgba(58,20,4,.5)}
+
+.stage{position:absolute;inset:0;z-index:3}
+.stage img{position:absolute;display:block}
+
+.side{width:296px;filter:blur(.8px) drop-shadow(0 30px 58px rgba(48,16,3,.5));z-index:3}
+.l{left:104px;  top:158px; transform:rotate(-9deg)}
+.r{right:104px; top:158px; transform:rotate(9deg)}
+
+.hero{width:360px;left:50%;top:88px;margin-left:-180px;z-index:4;
+  filter:drop-shadow(0 46px 84px rgba(40,13,2,.62)) drop-shadow(0 0 60px rgba(255,201,25,.20))}
+</style></head>
+<body>
+  <div class="ghosts">
+    <img class="g1" src="../screens/01-goal.png" alt=""/>
+    <img class="g2" src="../screens/05-share.png" alt=""/>
+    <img class="g3" src="../screens/01-goal.png" alt=""/>
+    <img class="g4" src="../screens/05-share.png" alt=""/>
+  </div>
+  <div class="vig"></div>
+  <div class="wm"><span>vest</span><span>self</span></div>
+  <div class="stage">
+    <img class="side l" src="../screens/03-track.png" alt=""/>
+    <img class="side r" src="../screens/04-invest.png" alt=""/>
+    <img class="hero"  src="../screens/02-plan.png" alt=""/>
+  </div>
+  <div class="grain"></div>
+</body></html>
