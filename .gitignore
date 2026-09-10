@@ -2,3 +2,10 @@
 node_modules/
 .vercel
 .claude/
+
+# Never commit signup data — this repo is PUBLIC and these are real people's
+# email addresses. Backfill/export files live outside the repo entirely
+# (~/vest-self-private/), and these rules are a second line of defence.
+*.csv
+waitlist-*.csv
+*-signups.*
