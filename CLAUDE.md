@@ -84,18 +84,34 @@ the response. **Do not add data to the endpoint's response.**
 
 ### Sheet layout
 
-`Signups` tab, columns: **Timestamp · Email · Source · Medium · Campaign · Form**.
-Referrer, landing page, user agent, goal and the duplicate flag were dropped as noise
-in Sept 2026. Adding a column back means editing `HEADERS` **and** `appendRow` in
-`tools/waitlist-sheet.gs` together, or rows land misaligned.
+`Signups` tab, two blocks, columns **# · Date · Email · Source**:
 
-**Founders sit at the top (rows 2-5) with `Source = founder`** — Kayla, Rafa,
-gonegarnergonest@, hello@vestself.app. They are at the top deliberately:
-`appendRow` writes to the bottom, so a block at the top is never disturbed, whereas a
-block at the bottom would end up stranded mid-table after the first new signup.
+```
+row 1    headers                     F1 "Total", G1 =MAX(A:A)
+row 2    FOUNDERS                    (bold label)
+rows 3-6 the four founders           Source = founder, no number
+row 7    blank spacer
+row 8    WAITLIST                    (bold label)
+rows 9+  real signups                numbered 1, 2, 3 ...
+```
 
-`I1` holds the live count, `=COUNTA(B2:B)-COUNTIF(C2:C,"founder")`, which is why the
-founder marker matters. Keep stray notes out of column B or the count drifts.
+**Founders are at the TOP deliberately.** The script writes to `getLastRow() + 1`, so a
+block at the top is never disturbed; a block at the bottom would be stranded mid-table
+after the first new signup.
+
+Column A is a running number written by the script, not a formula. `nextNumber_` takes
+the highest number already in column A and adds one, so founders and the section
+labels — which have no number — are skipped automatically. **Deleting a row leaves a
+gap rather than renumbering**, which is the safer failure: a number already given out
+never comes to mean someone else.
+
+The script writes positionally with `setValues`, not `appendRow`, because column A has
+to be computed. Medium, Campaign, Form, Referrer, landing page, user agent and Goal
+were all dropped — permanently blank or noise. Source keeps what matters
+(instagram / linkedin / direct / website).
+
+**Keep `tools/waitlist-sheet.gs` ASCII-only.** Em-dashes and box-drawing characters get
+mangled going through the clipboard into the Apps Script editor.
 
 ### Redeploying the script
 
