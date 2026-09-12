@@ -37,9 +37,15 @@
 const SHEET_NAME = 'Signups';
 
 // Kept to what actually carries information. Medium, Campaign, Form, Referrer,
-// landing page, user agent and Goal were all dropped as noise or permanently blank.
+// landing page and user agent were all dropped as noise or permanently blank.
 // Source keeps the part that matters (instagram / linkedin / direct / website).
-const HEADERS = ['#', 'Date', 'Email', 'Source'];
+//
+// Goal is APPENDED LAST on purpose. Rows are written positionally with
+// setValues, so slotting a new column in the middle would misalign every
+// historical row; adding at the end just leaves the old rows blank in E.
+// Only the hero form collects a goal -- the bottom CTA form is email-only, so
+// a blank Goal is normal, not a bug.
+const HEADERS = ['#', 'Date', 'Email', 'Source', 'Goal'];
 
 /** Run once from the editor to create and format the tab. */
 function setup() {
@@ -61,6 +67,17 @@ function getSheet_() {
     sheet.setColumnWidth(1, 50);   // #
     sheet.setColumnWidth(2, 170);  // Date
     sheet.setColumnWidth(3, 260);  // Email
+    sheet.setColumnWidth(5, 320);  // Goal
+  } else if (!sheet.getRange(1, 5).getValue()) {
+    // Backfill for the sheet that already existed before Goal was added. The
+    // header row is only written on a brand new tab, so without this the
+    // goals would land in column E under a blank heading.
+    sheet.getRange(1, 5)
+      .setValue('Goal')
+      .setFontWeight('bold')
+      .setBackground('#111111')
+      .setFontColor('#e6c15a');
+    sheet.setColumnWidth(5, 320);
   }
   return sheet;
 }
@@ -115,11 +132,12 @@ function doPost(e) {
       // above carry no number, so they are skipped automatically.
       const sheet = getSheet_();
       const row = sheet.getLastRow() + 1;
-      sheet.getRange(row, 1, 1, 4).setValues([[
+      sheet.getRange(row, 1, 1, 5).setValues([[
         nextNumber_(sheet),
         new Date(),
         email,
-        str_(data.source, 120)
+        str_(data.source, 120),
+        str_(data.goal, 200)
       ]]);
 
       // Return nothing about the sheet's contents. Echoing the duplicate flag

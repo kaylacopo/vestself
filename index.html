@@ -87,14 +87,35 @@
         </div>
         <div class="hero-join">
           <div class="hero-form" id="join">
-            <form class="wl-form" data-waitlist>
+            <!-- Hero form is TWO STEPS: goal, then email. The bottom CTA form is
+                 deliberately still email-only — see CLAUDE.md. -->
+            <form class="wl-form wl-form--steps" data-waitlist data-goal-flow novalidate>
               <input type="hidden" name="access_key" value="9aafcadd-8120-4a13-9a49-c5b44d314265" />
               <input type="hidden" name="subject" value="Vest Self Waitlist" />
               <input type="hidden" name="from_name" value="Vest Self" />
               <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
-              <label class="field"><input type="email" name="email" placeholder="your@email.com" autocomplete="email" required /></label>
-              <button class="btn-gold" type="submit">Join the waitlist.</button>
+
+              <div class="wl-step" data-step="goal">
+                <div class="goal-combo">
+                  <label class="field">
+                    <span class="sr-only" id="goal-label">What do you want to achieve?</span>
+                    <input type="text" name="goal" id="goal-input" placeholder="What do you want to achieve?"
+                           autocomplete="off" autocapitalize="sentences" spellcheck="false" maxlength="140"
+                           role="combobox" aria-expanded="false" aria-controls="goal-listbox"
+                           aria-autocomplete="list" aria-labelledby="goal-label" aria-describedby="goal-hint" />
+                  </label>
+                  <ul class="goal-suggest" id="goal-listbox" role="listbox" aria-labelledby="goal-label" hidden></ul>
+                  <p class="sr-only" id="goal-hint" aria-live="polite" data-goal-status></p>
+                </div>
+                <button class="btn-gold" type="button" data-goal-next>I'm in.</button>
+              </div>
+
+              <div class="wl-step" data-step="email" hidden>
+                <label class="field"><input type="email" name="email" placeholder="your@email.com" autocomplete="email" required /></label>
+                <button class="btn-gold" type="submit">Join the waitlist.</button>
+              </div>
             </form>
+            <p class="wl-note" data-goal-note hidden>Where should we send your invite? <button type="button" data-goal-back>Change goal</button></p>
             <div class="wl-success" data-success style="margin-top:12px;">
               <img class="ic-logo" src="assets/logo-icon.svg" alt="" />
               <div><div class="tt">You're on the list. <i class="ph ph-check"></i></div><div class="ss">You're one of our founding members — we'll prioritise your early access.</div></div>

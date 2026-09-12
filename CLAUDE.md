@@ -84,7 +84,7 @@ the response. **Do not add data to the endpoint's response.**
 
 ### Sheet layout
 
-`Signups` tab, two blocks, columns **# · Date · Email · Source**:
+`Signups` tab, two blocks, columns **# · Date · Email · Source · Goal**:
 
 ```
 row 1    headers                     F1 "Total", G1 =MAX(A:A)
@@ -106,9 +106,18 @@ gap rather than renumbering**, which is the safer failure: a number already give
 never comes to mean someone else.
 
 The script writes positionally with `setValues`, not `appendRow`, because column A has
-to be computed. Medium, Campaign, Form, Referrer, landing page, user agent and Goal
-were all dropped — permanently blank or noise. Source keeps what matters
+to be computed. Medium, Campaign, Form, Referrer, landing page and user agent were all
+dropped — permanently blank or noise. Source keeps what matters
 (instagram / linkedin / direct / website).
+
+**`Goal` is column E, appended last on purpose.** Because rows are written positionally,
+slotting it in before `Source` would have misaligned every historical row; at the end,
+the pre-Goal rows are simply blank in E. A blank Goal is also normal for any signup that
+came through the bottom CTA form, which does not ask for one.
+
+`getSheet_()` only writes the header row on a brand-new tab, so it also backfills `E1`
+when that cell is empty — otherwise goals would land under a blank heading on the sheet
+that already existed.
 
 **Keep `tools/waitlist-sheet.gs` ASCII-only.** Em-dashes and box-drawing characters get
 mangled going through the clipboard into the Apps Script editor.
@@ -128,9 +137,40 @@ tiktok…), falling back to `direct`.
 
 There is still no backend and no build step — the Apps Script runs on Google's side.
 
-The form markup is **duplicated in two places** — the hero (`index.html:65`) and the
-bottom CTA (`index.html:203`). Both are bound by the `form[data-waitlist]` selector in
-`js/app.js`. **If you change one, change the other.** They must stay identical.
+### The two forms are deliberately DIFFERENT — this used to be the opposite rule
+
+There are two forms, both bound by the `form[data-waitlist]` selector in `js/app.js`:
+
+- **Hero** — two steps. Goal first, then email. Marked `[data-goal-flow]`.
+- **Bottom CTA** — a plain one-field email form, exactly as it always was.
+
+They were previously required to stay identical. **That rule no longer holds** (Sept
+2026, Kayla's call): the goal step is the hero's hook, and the bottom CTA is the escape
+hatch for anyone who just wants in without typing a goal. Don't "fix" the asymmetry by
+copying the goal step down there — and don't add a Skip link to the hero, because the
+bottom form already *is* the skip.
+
+Shared submit/success/error handling still lives in the one `form[data-waitlist]`
+handler. Only the goal step is hero-specific.
+
+#### The goal combobox
+
+`GOALS` in `js/app.js` is a plain array of ~75 suggestions. It is an ARIA combobox, not
+a picker: suggestions appear on focus and narrow as the user types, but **any free text
+is accepted and submitted as typed**. Matches are ranked prefix → word-start → contains
+→ all-words-present, so "run a" surfaces the whole "Run a ..." family. Adding a goal is
+just adding a string to the array.
+
+Two things that look like bugs and are not:
+
+- The hero form carries `novalidate`. Step 2's email input is `required` but hidden
+  during step 1, and Chrome refuses to submit a form with a non-focusable invalid
+  control — swallowing the submit event before `app.js` ever sees it. JS already does
+  the email validation.
+- Options are `<li role="option">`, which are not natively focusable, so they will not
+  show up in accessibility-tree dumps that filter to interactive elements. Selection is
+  announced through `aria-activedescendant`, which is the correct pattern. Accept is
+  wired to `mousedown` (not `click`) so it fires before the input's blur closes the list.
 
 The `access_key` visible in the markup is a Web3Forms *public* key. It is designed to
 be client-side and is not a leaked secret.
