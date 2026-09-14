@@ -219,6 +219,12 @@ address published — and governing law is Delaware as a stand-in for "US law". 
 company exists, add its legal name and **registered agent** address (never a personal
 one) to both pages, and change the governing-law state to the state of incorporation.
 
+**The terms deliberately don't say how or when a commitment is charged** (up front vs. monthly
+vs. only on a reviewed miss). That's undecided pending Stripe's written answer, so the terms
+only promise what holds under every option: the app shows how and when you'll be charged
+before you confirm, and no penalty is applied without a review. Avoid "deposit", "hold",
+"balance" and "wallet" in any payment copy.
+
 Bump "Last updated" on any substantive change. The commitment wording in `terms.html`
 must match the site copy ("earn back **up to** 100%") and the app's real behaviour.
 
