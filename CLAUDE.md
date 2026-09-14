@@ -187,6 +187,41 @@ Do not add client-side dedupe back.
 The same rule governs the sheet: `waitlist-sheet.gs` **records** repeat signups and
 flags them in a `Duplicate` column rather than dropping them.
 
+## Legal pages — /privacy and /terms
+
+`privacy.html` and `terms.html` sit at the repo root; `cleanUrls` serves them at `/privacy`
+and `/terms`. They share the header/footer markup with `index.html` (footer carries
+small Privacy · Terms links on all three pages) and use the `.legal*` styles at the
+bottom of `css/styles.css`. Asset paths in these two files are root-absolute (`/css/...`).
+
+**They exist for Google's OAuth verification of the Calendar scope.** Google checks
+that the privacy policy is on the app's own domain, linked from the homepage, and that
+it describes Google user data accurately. So:
+
+- The Calendar section says the app **creates** events and **never reads** calendar
+  data. That must stay true of the scope the app actually requests — if the app ever
+  asks for a read scope, the policy is wrong.
+- The Limited Use sentence (Google API Services User Data Policy) is a verification
+  requirement. Don't remove it.
+- The processor table must match reality. Adding a provider (an SMS provider for phone
+  login, crash reporting, etc.) means adding a row.
+
+Unfilled facts are wrapped in `<span class="legal-todo">`, which renders in red. **Never
+deploy with any left:**
+
+```bash
+grep -n "legal-todo" privacy.html terms.html
+```
+
+**Provisional until Vest Self incorporates (Sept 2026):** the operator is named only as
+"Vest Self" with no legal entity or address — Kayla deliberately doesn't want a personal
+address published — and governing law is Delaware as a stand-in for "US law". When the
+company exists, add its legal name and **registered agent** address (never a personal
+one) to both pages, and change the governing-law state to the state of incorporation.
+
+Bump "Last updated" on any substantive change. The commitment wording in `terms.html`
+must match the site copy ("earn back **up to** 100%") and the app's real behaviour.
+
 ## Deploy
 
 Vercel, connected to GitHub. **Pushing to `main` deploys straight to production.**

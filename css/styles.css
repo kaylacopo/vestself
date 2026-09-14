@@ -268,3 +268,64 @@ footer { background: var(--woodsmoke); border-top: 1px solid rgba(255,255,255,0.
   .goal-card.gc-right { left: 22.9%; right: auto; top: 79.6%; bottom: auto; }
   .task-card.tc-right { left: 26.9%; right: auto; top: 85.6%; bottom: auto; }
 }
+
+/* ============================================================
+   LEGAL PAGES (/privacy, /terms)
+   Long-form reading layout. Tokens only -- no new hex values.
+   ============================================================ */
+.legal-page { background: var(--bg); }
+.legal-header { position: sticky; top: 0; z-index: 80; background: var(--surface-overlay); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-1); }
+.legal-header .shell { display: flex; align-items: center; justify-content: space-between; padding-block: 20px; }
+.legal-header .brand .wm { font-size: 20px; }
+.legal-back { font-family: var(--font-sans); font-size: 14px; color: var(--fg-3); text-decoration: none; transition: color var(--dur-fast); }
+.legal-back:hover { color: var(--brand); }
+
+.legal { max-width: 720px; margin-inline: auto; padding: 72px 24px 112px; font-family: var(--font-sans); color: var(--fg-2); font-size: 16px; line-height: 1.7; }
+.legal-eyebrow { margin: 0 0 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 1.2px; text-transform: uppercase; color: var(--brand); }
+.legal h1 { margin: 0; font-family: var(--font-display); font-weight: 700; font-size: clamp(36px, 5vw, 52px); line-height: 1.05; letter-spacing: -0.02em; color: var(--fg-1); }
+.legal-updated { margin: 16px 0 0; font-size: 14px; color: var(--fg-3); }
+
+.legal-summary { margin: 40px 0 0; padding: 24px 28px; background: var(--surface-card); border: 1px solid var(--border-2); border-radius: var(--radius-xs); }
+.legal .legal-summary h2 { margin: 0 0 12px; font-size: 13px; font-family: var(--font-mono); font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: var(--fg-3); }
+.legal-summary ul { margin: 0; padding-left: 20px; }
+.legal-summary li { margin: 6px 0; color: var(--fg-1); }
+
+.legal-toc { margin: 40px 0 0; padding: 0 0 32px; border-bottom: 1px solid var(--border-1); }
+.legal-toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 40px; font-size: 14px; }
+.legal-toc li { margin: 4px 0; break-inside: avoid; }
+.legal-toc a { color: var(--fg-2); text-decoration: none; }
+.legal-toc a:hover { color: var(--brand); }
+
+.legal section { padding-top: 48px; scroll-margin-top: 72px; }
+.legal h2 { margin: 0 0 16px; font-family: var(--font-display); font-weight: 700; font-size: 24px; line-height: 1.25; letter-spacing: -0.01em; color: var(--fg-1); }
+.legal h3 { margin: 28px 0 8px; font-family: var(--font-display); font-weight: 600; font-size: 17px; color: var(--fg-1); }
+.legal p { margin: 0 0 16px; }
+.legal ul { margin: 0 0 16px; padding-left: 20px; }
+.legal li { margin: 6px 0; }
+.legal strong { color: var(--fg-1); font-weight: 600; }
+.legal a { color: var(--brand); text-underline-offset: 3px; }
+
+.legal-table { width: 100%; margin: 8px 0 20px; overflow-x: auto; }
+.legal-table table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+.legal-table th, .legal-table td { padding: 12px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border-1); }
+.legal-table th { font-family: var(--font-mono); font-weight: 500; font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--fg-3); }
+.legal-table td:first-child { color: var(--fg-1); font-weight: 600; white-space: nowrap; }
+
+.legal-callout { margin: 20px 0; padding: 18px 22px; background: var(--brand-soft); border-left: 2px solid var(--brand); border-radius: var(--radius-xs); color: var(--fg-1); }
+.legal-callout p:last-child { margin-bottom: 0; }
+
+/* Unfilled facts. Anything marked like this must be replaced before deploy:
+   grep -n "legal-todo" privacy.html terms.html */
+.legal-todo { background: var(--danger-bg); color: var(--danger-500); padding: 1px 6px; border-radius: 3px; font-weight: 600; }
+
+/* footer legal links (all pages) */
+.foot-legal { display: flex; gap: 20px; font-size: 12px; }
+.foot-legal a { color: var(--fg-4); text-decoration: none; transition: color var(--dur-fast); }
+.foot-legal a:hover { color: var(--brand); }
+
+@media (max-width: 600px) {
+  .legal { padding: 48px 20px 88px; font-size: 15px; }
+  .legal-toc ol { columns: 1; }
+  .legal-summary { padding: 20px; }
+  .legal-table td:first-child { white-space: normal; }
+}
