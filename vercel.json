@@ -1,5 +1,22 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/invite/:token",
+      "destination": "https://app.vestself.app/invite/:token",
+      "permanent": false
+    },
+    {
+      "source": "/invite",
+      "destination": "https://app.vestself.app",
+      "permanent": false
+    },
+    {
+      "source": "/support",
+      "destination": "https://app.vestself.app/support",
+      "permanent": false
+    }
+  ]
 }
