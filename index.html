@@ -10,8 +10,9 @@
 
 <!-- Placeholders ([data-placeholder]) are visible on localhost and Vercel previews
      and hidden on the production domain. Add ?prod-view to any URL to preview
-     exactly what production would show. -->
-<script>(function(d,l){if(/(^|\.)vestself\.app$/.test(l.hostname)||/[?&]prod-view/.test(l.search))d.documentElement.classList.add('is-prod');d.documentElement.classList.add('js');})(document,location);</script>
+     exactly what production would show. ?static turns off scroll animations so
+     screenshot and review tools see every section without scrolling. -->
+<script>(function(d,l){if(/(^|\.)vestself\.app$/.test(l.hostname)||/[?&]prod-view/.test(l.search))d.documentElement.classList.add('is-prod');if(!/[?&]static/.test(l.search))d.documentElement.classList.add('js');})(document,location);</script>
 
 <!-- ===== Social preview (Open Graph / Twitter) =====
      The card is assets/og/og-app-v2.jpg, 1200x630, built from assets/og/_source.og-app-v2.html.
