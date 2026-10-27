@@ -67,8 +67,13 @@ python3 -m http.server 4321
 - Type is Satoshi, self-hosted from `assets/fonts/*.otf`. **No 600 "Semibold" file
   was supplied**, so `Satoshi-Bold.otf` deliberately covers the 600–700 range via
   `font-weight: 600 700`. That is intentional — don't "fix" it.
-- Semantic type classes (`.t-hero`, `.t-h1`, `.t-body`, …) already handle the
-  desktop→mobile step-down at 640px. Prefer them over ad-hoc `font-size`.
+- **Type = the Figma text styles.** Each style has one class in `tokens.css`
+  (`.t-hero` = Display/Hero, `.t-h1`, `.t-h2`, `.t-sh1-3`, `.t-body` = Body/Default for
+  every paragraph, `.t-label`, `.t-tag`, `.t-helper`, `.t-caption`, `.t-mono-caption`),
+  stepping down to the (mobile) styles at 640px. Components never set font-size,
+  line-height, weight or tracking. Mapping table: the website skill, section 2.
+- **Spacing:** sections are 120px top/bottom and 80px sides on desktop; a section that
+  shares its background with the one before uses `.section--tight` (60px).
 - `.neon-blur` / `.neon-photo` are the signature card treatment. The rule is that it
   is never a single standalone colour — the bloom (purple → magenta → orange → gold)
   rises from the bottom edge and dissolves up into the card surface.

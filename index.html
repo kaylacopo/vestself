@@ -82,8 +82,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/tokens.css?v=20261029b" />
-<link rel="stylesheet" href="css/styles.css?v=20261029b" />
+<link rel="stylesheet" href="css/tokens.css?v=20261030d" />
+<link rel="stylesheet" href="css/styles.css?v=20261030d" />
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
@@ -149,9 +149,9 @@
     <div class="hero-scrim" aria-hidden="true"></div>
 
     <div class="hero-inner">
-      <p class="kicker">The accountability app</p>
-      <h1 id="hero-title" class="hero-title">What if this time, you <span class="g">actually followed through?</span></h1>
-      <p class="hero-sub">You have the ambition. We bring the accountability. Turn the goal you've been putting off into a real commitment, with a clear path forward, people in your corner, and a reason to keep showing up.</p>
+      <p class="kicker kicker--mark t-mono-caption"><svg class="kicker-mark" viewBox="0 0 151 93" aria-hidden="true"><use href="#vs-chevron"/></svg>Your accountability app</p>
+      <h1 id="hero-title" class="hero-title t-hero">What if this time, you <span class="g">actually followed through?</span></h1>
+      <p class="hero-sub t-body">You have the ambition. We bring the accountability. Turn the goal you've been putting off into a real commitment, with a clear path forward, people in your corner, and a reason to keep showing up.</p>
 
       <div class="hero-join">
         <div class="hero-form" id="join">
@@ -162,7 +162,7 @@
             <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
 
             <div class="wl-step" data-step="goal">
-              <label class="wl-label" id="goal-label" for="goal-input">What's one dream you're ready to make real?</label>
+              <label class="wl-label t-label" id="goal-label" for="goal-input">What's one dream you're ready to make real?</label>
               <div class="wl-row">
                 <div class="goal-combo">
                   <div class="field">
@@ -179,21 +179,21 @@
             </div>
 
             <div class="wl-step" data-step="email" hidden>
-              <label class="wl-label" for="hero-email">Where should we send your early access?</label>
+              <label class="wl-label t-label" for="hero-email">Where should we send your early access?</label>
               <div class="wl-row">
                 <div class="field"><input type="email" id="hero-email" name="email" placeholder="your@email.com" autocomplete="email" required /></div>
                 <button class="btn-gold btn-lg" type="submit">Join the waitlist</button>
               </div>
             </div>
           </form>
-          <p class="wl-note" data-goal-note hidden>Your goal: <b data-goal-echo></b> <button type="button" data-goal-back>Change</button></p>
+          <p class="wl-note t-helper" data-goal-note hidden>Your goal: <b data-goal-echo></b> <button type="button" data-goal-back>Change</button></p>
           <div class="wl-success" data-success role="status">
             <img class="ic-logo" src="assets/logo-icon.svg" alt="" width="30" height="18" />
-            <div><div class="tt">You're on the list. <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div><div class="ss">We'll email you as soon as early access opens. You're one of our founding members.</div></div>
+            <div><div class="tt t-label">You're on the list. <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div><div class="ss t-helper">We'll email you as soon as early access opens. You're one of our founding members.</div></div>
           </div>
           <p class="wl-error" data-error role="alert">Something went wrong. Please try again.</p>
         </div>
-        <p class="hero-microcopy">Free to start. No money required.</p>
+        <p class="hero-microcopy t-helper">Free to start. No money required.</p>
       </div>
     </div>
 
@@ -223,13 +223,13 @@
     <div class="rec-spread">
       <article class="rec-panel rec-panel--others">
         <picture class="rec-photo" aria-hidden="true">
-          <source media="(max-width: 760px)" srcset="assets/img/man-laptop-720.webp" />
-          <img src="assets/img/man-laptop-1200.webp" alt="" width="1200" height="1803" loading="lazy" decoding="async" />
+          <source media="(max-width: 760px)" srcset="assets/img/rec-others-900.webp" />
+          <img src="assets/img/rec-others-1690.webp" alt="" width="1690" height="931" loading="lazy" decoding="async" />
         </picture>
         <div class="rec-copy">
-          <p class="kicker kicker--light">For everyone else</p>
-          <p class="rec-head" aria-hidden="true">You show up for everyone&nbsp;else.</p>
-          <ul class="rec-list" data-reveal data-seq>
+          <p class="kicker kicker--light t-mono-caption">For everyone else</p>
+          <p class="rec-head t-h1" aria-hidden="true">You show up for everyone&nbsp;else.</p>
+          <ul class="rec-list t-sh2" data-reveal data-seq>
             <li><span>The 9am deadline.</span><span class="tick done"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Done</span></span></li>
             <li><span>Her birthday dinner.</span><span class="tick done"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Done</span></span></li>
             <li><span>Moving day.</span><span class="tick done"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Done</span></span></li>
@@ -243,94 +243,102 @@
           <img src="assets/img/man-weights-1200.webp" alt="" width="1200" height="1680" loading="lazy" decoding="async" />
         </picture>
         <div class="rec-copy">
-          <p class="kicker">For yourself</p>
-          <p class="rec-head" aria-hidden="true">What about <span class="g">yourself?</span></p>
-          <ul class="rec-list" data-reveal data-seq>
-            <li><span>The morning run.</span><span class="when">Next week</span></li>
-            <li><span>Thirty minutes of Spanish.</span><span class="when">Tomorrow</span></li>
-            <li><span>The business plan.</span><span class="when">Someday</span></li>
+          <p class="kicker t-mono-caption">For yourself</p>
+          <p class="rec-head t-h1" aria-hidden="true">What about <span class="g">yourself?</span></p>
+          <ul class="rec-list t-sh2" data-reveal data-seq>
+            <li><span>The morning run.</span><span class="when t-mono-caption">Next week</span></li>
+            <li><span>Thirty minutes of Spanish.</span><span class="when t-mono-caption">Tomorrow</span></li>
+            <li><span>The business plan.</span><span class="when t-mono-caption">Someday</span></li>
           </ul>
         </div>
       </article>
     </div>
 
-    <div class="rec-close shell" data-reveal>
-      <p class="statement">Your dreams deserve the <span class="g">same commitment.</span></p>
-      <p class="body-l">We built Vest Self to make showing up for yourself feel just as real.</p>
+    <div class="rec-band">
+      <div class="rec-close shell" data-reveal>
+        <p class="t-hero statement">Your dreams deserve the <span class="g">same commitment.</span></p>
+        <p class="t-body para">We built Vest Self to close the gap between what you dream of doing and what you actually do. With the structure, support, and accountability to help you follow through.</p>
+      </div>
     </div>
   </section>
 
   <!-- ===================== 3. THE FORMULA =====================
        Signature moment: a rising staircase of six steps. The gold band marks
        what Vest Self builds; off-white treads are what you bring and do.
-       Climax: Achievement, with the brand chevron over Golden Glow imagery. -->
-  <section class="formula section" id="formula" aria-labelledby="formula-title">
+       Same background as Recognition, so it takes the tighter padding. -->
+  <section class="formula section section--tight" id="formula" aria-labelledby="formula-title">
     <div class="shell">
       <header class="split-head" data-reveal>
         <div>
-          <p class="kicker">The Vest Self formula</p>
-          <h2 class="h-xl" id="formula-title">Big dreams don't happen by accident. Here's how you make them&nbsp;real.</h2>
+          <p class="kicker t-mono-caption">The Vest Self formula</p>
+          <h2 class="t-hero h-sec" id="formula-title">We calculated <span class="g">what it takes to make a&nbsp;dream.</span></h2>
         </div>
-        <p class="body-l">We've taken the guesswork out of getting started, and built the accountability that helps you finish what you start.</p>
+        <p class="t-body para">We've taken the guesswork out of getting started, and built the accountability that helps you finish what you start.</p>
       </header>
 
       <div class="stair" data-formula style="--p:0">
-        <div class="stair-band" aria-hidden="true"><span>Vest Self builds the path</span><p class="band-say">We build the path.<em>You bring the dream. You take the action.</em></p></div>
+        <div class="stair-band" aria-hidden="true"><span class="t-mono-caption">Vest Self builds the path</span><p class="band-say t-h2">We build the path.<em class="t-body">You bring the dream. You take the action.</em></p></div>
         <ol class="stair-steps">
           <li class="stair-step is-you" style="--i:0">
-            <span class="stair-who">You</span>
-            <span class="stair-num">01</span>
-            <h3 class="stair-word">Dream.</h3>
-            <p class="stair-text">Tell us what you want to achieve.</p>
-            <span class="chip chip--quote">"I want to run a half marathon."</span>
+            <span class="stair-who t-mono-caption">You</span>
+            <span class="stair-num t-mono-caption">01</span>
+            <h3 class="stair-word t-sh1">Dream.</h3>
+            <p class="stair-text t-body">Tell us what you want to achieve.</p>
+            <span class="chip chip--quote t-tag">"I want to run a half marathon."</span>
           </li>
           <li class="stair-step is-app" style="--i:1">
-            <span class="stair-who">Vest Self</span>
-            <span class="stair-num">02</span>
-            <h3 class="stair-word">Goal.</h3>
-            <p class="stair-text">We turn your ambition into something specific.</p>
-            <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg>Run 21.1 km by 15 March</span>
+            <span class="stair-who t-mono-caption">Vest Self</span>
+            <span class="stair-num t-mono-caption">02</span>
+            <h3 class="stair-word t-sh1">Goal.</h3>
+            <p class="stair-text t-body">We turn your ambition into something specific.</p>
+            <span class="chip t-tag"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg>Run 21.1 km by 15 March</span>
           </li>
           <li class="stair-step is-app" style="--i:2">
-            <span class="stair-who">Vest Self</span>
-            <span class="stair-num">03</span>
-            <h3 class="stair-word">Plan.</h3>
-            <p class="stair-text">We map out the path to get there.</p>
-            <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-path"/></svg>12 weeks · 3 runs a week</span>
+            <span class="stair-who t-mono-caption">Vest Self</span>
+            <span class="stair-num t-mono-caption">03</span>
+            <h3 class="stair-word t-sh1">Plan.</h3>
+            <p class="stair-text t-body">We map out the path to get there.</p>
+            <span class="chip t-tag"><svg class="ic" aria-hidden="true"><use href="#i-path"/></svg>12 weeks · 3 runs a week</span>
           </li>
           <li class="stair-step is-app" style="--i:3">
-            <span class="stair-who">Vest Self</span>
-            <span class="stair-num">04</span>
-            <h3 class="stair-word">Steps.</h3>
-            <p class="stair-text">We break the plan into actions you can take.</p>
-            <span class="chip"><span class="mono">TUE</span>Easy run, 5 km</span>
+            <span class="stair-who t-mono-caption">Vest Self</span>
+            <span class="stair-num t-mono-caption">04</span>
+            <h3 class="stair-word t-sh1">Steps.</h3>
+            <p class="stair-text t-body">We break the plan into actions you can take.</p>
+            <span class="chip t-tag"><span class="mono">TUE</span>Easy run, 5 km</span>
           </li>
           <li class="stair-step is-app" style="--i:4">
-            <span class="stair-who">Vest Self</span>
-            <span class="stair-num">05</span>
-            <h3 class="stair-word">Accountability.</h3>
-            <p class="stair-text">Friends, community, streaks, check-ins and optional stakes help you follow through.</p>
-            <span class="chip"><svg class="ic" aria-hidden="true"><use href="#i-fire"/></svg>Partner in · 14-day streak</span>
+            <span class="stair-who t-mono-caption">Vest Self</span>
+            <span class="stair-num t-mono-caption">05</span>
+            <h3 class="stair-word t-sh1">Accountability.</h3>
+            <p class="stair-text t-body">Friends, community, streaks, check-ins and optional stakes help you follow through.</p>
+            <span class="chip t-tag"><svg class="ic" aria-hidden="true"><use href="#i-fire"/></svg>Partner in · 14-day streak</span>
           </li>
           <li class="stair-step is-you" style="--i:5">
-            <span class="stair-who">You</span>
-            <span class="stair-num">06</span>
-            <h3 class="stair-word">Action.</h3>
-            <p class="stair-text">You show up and turn those steps into progress.</p>
-            <span class="chip chip--done"><svg class="ic" aria-hidden="true"><use href="#i-check-circle"/></svg>Session logged</span>
+            <span class="stair-who t-mono-caption">You</span>
+            <span class="stair-num t-mono-caption">06</span>
+            <h3 class="stair-word t-sh1">Action.</h3>
+            <p class="stair-text t-body">You show up and turn those steps into progress.</p>
+            <span class="chip chip--done t-tag"><svg class="ic" aria-hidden="true"><use href="#i-check-circle"/></svg>Session logged</span>
           </li>
         </ol>
       </div>
+    </div>
+  </section>
 
+  <!-- ===================== 3b. ACHIEVEMENT BANNER (Kayla's Figma, 28 Oct) ===================== -->
+  <section class="achieve-section section" aria-label="Achievement">
+    <div class="shell">
       <div class="achieve" data-reveal>
         <picture class="achieve-photo" aria-hidden="true">
-          <source media="(max-width: 760px)" srcset="assets/img/woman-wellness-720.webp" />
-          <img src="assets/img/woman-wellness-1200.webp" alt="" width="1200" height="1803" loading="lazy" decoding="async" />
+          <source media="(max-width: 760px)" srcset="assets/img/achieve-stage-900.webp" />
+          <img src="assets/img/achieve-stage-1690.webp" alt="" width="1690" height="931" loading="lazy" decoding="async" />
         </picture>
         <div class="achieve-copy">
-          <p class="kicker">07 · Achievement</p>
-          <p class="achieve-title">Action turns dreams into achievements.</p>
-          <p class="body-l">We help you build the path. <span class="fg1">You make it happen.</span></p>
+          <p class="kicker t-mono-caption">Achievement</p>
+          <p class="achieve-title t-hero">Action turns dreams into achievements.</p>
+          <p class="t-body para">We help you build the path. <span class="fg1">You make it happen.</span></p>
+          <a class="btn-gold btn-lg" href="#join" data-sticky-target data-track="achieve_cta">Let's make it happen <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
         </div>
       </div>
     </div>
@@ -343,19 +351,19 @@
     <div class="shell">
       <header class="split-head" data-reveal>
         <div>
-          <p class="kicker">How it works</p>
-          <h2 class="h-xl" id="how-title">From someday to today, in three&nbsp;steps.</h2>
+          <p class="kicker t-mono-caption">How it works</p>
+          <h2 class="t-hero h-sec" id="how-title">From someday to today, in three&nbsp;steps.</h2>
         </div>
-        <p class="body-l">No complicated setup. Just a clear goal, people in your corner, and a reason to keep going.</p>
+        <p class="t-body para">No complicated setup. Just a clear goal, people in your corner, and a reason to keep going.</p>
       </header>
 
       <ol class="rows">
         <li class="row" data-reveal>
           <div class="row-copy">
             <span class="row-num" aria-hidden="true">01</span>
-            <h3 class="h-l">Tell us what you want to achieve.</h3>
-            <p class="body-l">We help turn it into a goal with steps you can take.</p>
-            <ul class="tags"><li>Your goal, in your words</li><li>A personalised plan</li><li>Built around your calendar</li></ul>
+            <h3 class="t-h2">Tell us what you want to achieve.</h3>
+            <p class="t-body para">We help turn it into a goal with steps you can take.</p>
+            <ul class="tags t-tag"><li>Your goal, in your words</li><li>A personalised plan</li><li>Built around your calendar</li></ul>
           </div>
           <div class="row-media" aria-hidden="true">
             <figure class="screen screen--a"><img src="assets/app/goal-393.webp" srcset="assets/app/goal-393.webp 393w, assets/app/goal.webp 786w" sizes="(max-width: 760px) 66vw, 360px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
@@ -365,9 +373,9 @@
         <li class="row row--flip" data-reveal>
           <div class="row-copy">
             <span class="row-num" aria-hidden="true">02</span>
-            <h3 class="h-l">Give your promise some weight.</h3>
-            <p class="body-l">Invite an accountability partner, find community, and choose your level of commitment.</p>
-            <ul class="tags"><li>Accountability partner</li><li>Community</li><li>Optional stakes</li></ul>
+            <h3 class="t-h2">Give your promise some weight.</h3>
+            <p class="t-body para">Invite an accountability partner, find community, and choose your level of commitment.</p>
+            <ul class="tags t-tag"><li>Accountability partner</li><li>Community</li><li>Optional stakes</li></ul>
           </div>
           <div class="row-media" aria-hidden="true">
             <figure class="screen screen--a"><img src="assets/app/partner-393.webp" srcset="assets/app/partner-393.webp 393w, assets/app/partner.webp 786w" sizes="(max-width: 760px) 66vw, 360px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
@@ -377,9 +385,9 @@
         <li class="row" data-reveal>
           <div class="row-copy">
             <span class="row-num" aria-hidden="true">03</span>
-            <h3 class="h-l">Show up. Check in. Keep going.</h3>
-            <p class="body-l">Complete steps, build streaks, and make your progress visible.</p>
-            <ul class="tags"><li>Check-ins</li><li>Streaks</li><li>Visible progress</li></ul>
+            <h3 class="t-h2">Show up. Check in. Keep going.</h3>
+            <p class="t-body para">Complete steps, build streaks, and make your progress visible.</p>
+            <ul class="tags t-tag"><li>Check-ins</li><li>Streaks</li><li>Visible progress</li></ul>
           </div>
           <div class="row-media" aria-hidden="true">
             <figure class="screen screen--a"><img src="assets/app/session-393.webp" srcset="assets/app/session-393.webp 393w, assets/app/session.webp 786w" sizes="(max-width: 760px) 66vw, 360px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
@@ -398,45 +406,45 @@
     <div class="shell">
       <header class="split-head" data-reveal>
         <div>
-          <p class="kicker">Accountability, your way</p>
-          <h2 class="h-xl" id="system-title">Whatever makes you show up, we've got your&nbsp;back.</h2>
+          <p class="kicker t-mono-caption">Accountability, your way</p>
+          <h2 class="t-hero h-sec" id="system-title">Whatever makes you show up, we've got your&nbsp;back.</h2>
         </div>
-        <p class="body-l">Not everyone needs the same kind of motivation. That's why Vest Self gives you different ways to stay accountable.</p>
+        <p class="t-body para">Not everyone needs the same kind of motivation. That's why Vest Self gives you different ways to stay accountable.</p>
       </header>
 
       <div class="bento">
         <article class="tile tile--partner" data-reveal>
           <div class="tile-copy">
-            <p class="tile-label"><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg>Accountability partner</p>
-            <h3 class="h-m">A friend who holds you to it.</h3>
-            <p class="tile-text">Bring someone into your corner who knows what you're working towards and helps you stay true to your word.</p>
+            <p class="tile-label t-mono-caption"><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg>Accountability partner</p>
+            <h3 class="t-sh2">A friend who holds you to it.</h3>
+            <p class="tile-text t-body">Bring someone into your corner who knows what you're working towards and helps you stay true to your word.</p>
           </div>
           <img class="tile-shot" src="assets/app/crop-partner.webp" width="640" height="537" alt="Vest Self screen: invite a friend to be your accountability partner." loading="lazy" decoding="async" />
         </article>
 
         <article class="tile tile--community" data-reveal>
           <div class="tile-copy">
-            <p class="tile-label"><svg class="ic" aria-hidden="true"><use href="#i-users-three"/></svg>Community</p>
-            <h3 class="h-m">People who get it.</h3>
-            <p class="tile-text">Surround yourself with people chasing their own goals, sharing progress, and celebrating each other's wins.</p>
+            <p class="tile-label t-mono-caption"><svg class="ic" aria-hidden="true"><use href="#i-users-three"/></svg>Community</p>
+            <h3 class="t-sh2">People who get it.</h3>
+            <p class="tile-text t-body">Surround yourself with people chasing their own goals, sharing progress, and celebrating each other's wins.</p>
           </div>
           <img class="tile-shot" src="assets/app/crop-community.webp" width="640" height="660" alt="Vest Self community feed with progress updates and supporters. Names shown are app demo data." loading="lazy" decoding="async" />
         </article>
 
         <article class="tile tile--streak usage-card" data-tone="energy" data-reveal>
           <div class="tile-copy">
-            <p class="tile-label"><svg class="ic" aria-hidden="true"><use href="#i-fire"/></svg>Streaks and check-ins</p>
-            <h3 class="h-m">A reason to keep checking in.</h3>
-            <p class="tile-text">Turn intentions into scheduled actions, build a streak, and make every completed commitment count.</p>
+            <p class="tile-label t-mono-caption"><svg class="ic" aria-hidden="true"><use href="#i-fire"/></svg>Streaks and check-ins</p>
+            <h3 class="t-sh2">A reason to keep checking in.</h3>
+            <p class="tile-text t-body">Turn intentions into scheduled actions, build a streak, and make every completed commitment count.</p>
           </div>
           <img class="tile-shot" src="assets/app/crop-streak.webp" width="640" height="765" alt="Vest Self progress screen: streak restored at 49 days and goal progress at 72 percent." loading="lazy" decoding="async" />
         </article>
 
         <article class="tile tile--stakes" data-reveal>
           <div class="tile-copy">
-            <p class="tile-label"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg>Optional stakes</p>
-            <h3 class="h-m">Put something on the line.</h3>
-            <p class="tile-text">Want an extra push? Choose a financial commitment that makes skipping a little harder.</p>
+            <p class="tile-label t-mono-caption"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg>Optional stakes</p>
+            <h3 class="t-sh2">Put something on the line.</h3>
+            <p class="tile-text t-body">Want an extra push? Choose a financial commitment that makes skipping a little harder.</p>
           </div>
           <img class="tile-shot" src="assets/app/crop-stakes.webp" width="640" height="594" alt="Vest Self screen: choose your mode, optional, with two commitment modes." loading="lazy" decoding="async" />
         </article>
@@ -445,19 +453,19 @@
       <!-- Money: optional, positive, exact terms before commitment. -->
       <div class="money">
         <div class="money-copy" data-reveal>
-          <h3 class="h-xl">Your ambition is required. <span class="g">Your money isn't.</span></h3>
-          <p class="body-l">Vest Self works without putting any money down. If you want an extra push, you can choose to back your goal. You'll see exactly how it works before you commit, and nothing is charged until you confirm.</p>
+          <h3 class="t-hero h-sec">Your ambition is required. <span class="g">Your money isn't.</span></h3>
+          <p class="t-body para">Vest Self works without putting any money down. If you want an extra push, you can choose to back your goal. You'll see exactly how it works before you commit, and nothing is charged until you confirm.</p>
           <dl class="modes">
             <div class="mode">
-              <dt><span data-confirm="Final name not confirmed. The app currently says Easy mode; a Figma note proposes Invest mode.">Invest mode</span></dt>
-              <dd>Put in an amount you choose and earn it back as you show up. The most you can lose is <span data-confirm="Confirm the 20% maximum against the live terms and app.">20%</span>.</dd>
+              <dt class="t-sh3"><span data-confirm="Final name not confirmed. The app currently says Easy mode; a Figma note proposes Invest mode.">Invest mode</span></dt>
+              <dd class="t-body">Put in an amount you choose and earn it back as you show up. The most you can lose is <span data-confirm="Confirm the 20% maximum against the live terms and app.">20%</span>.</dd>
             </div>
             <div class="mode">
-              <dt><span data-confirm="Confirm final mode name.">Hard mode</span></dt>
-              <dd>Choose a penalty for each missed session. <span data-confirm="Confirm the wording: user-selected per-miss penalty, potentially the full amount.">Miss enough sessions and you could lose the full amount.</span></dd>
+              <dt class="t-sh3"><span data-confirm="Confirm final mode name.">Hard mode</span></dt>
+              <dd class="t-body">Choose a penalty for each missed session. <span data-confirm="Confirm the wording: user-selected per-miss penalty, potentially the full amount.">Miss enough sessions and you could lose the full amount.</span></dd>
             </div>
           </dl>
-          <p class="money-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg>Optional, always. <a href="/terms" data-track="terms_click">Read the terms</a></p>
+          <p class="money-foot t-helper"><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg>Optional, always. <a href="/terms" data-track="terms_click">Read the terms</a></p>
         </div>
         <div class="money-media" aria-hidden="true" data-reveal>
           <figure class="screen screen--b"><img src="assets/app/mode-393.webp" srcset="assets/app/mode-393.webp 393w, assets/app/mode.webp 786w" sizes="280px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
@@ -478,14 +486,14 @@
     </picture>
     <div class="promise-copy" data-reveal>
       <span class="ph-tag">Held from production · pending founder and legal approval</span>
-      <p class="kicker">Our promise</p>
-      <h2 class="h-xl" id="promise-title">We don't profit from your forfeits. <span class="g">We want to see you win.</span></h2>
-      <div class="promise-body">
+      <p class="kicker t-mono-caption">Our promise</p>
+      <h2 class="t-hero h-sec" id="promise-title">We don't profit from your forfeits. <span class="g">We want to see you win.</span></h2>
+      <div class="promise-body t-body">
         <p>Sometimes, having something to lose can help you follow through. Not because you deserve to be punished for missing a day, but because meaningful commitments can change what you do when motivation fades.</p>
         <p>Putting money on the line is always optional. Our aim is simple: more people achieving their goals, with fewer forfeits.</p>
         <p>When forfeits happen, our commitment is to put that value back into the community to help motivate someone else's progress.</p>
       </div>
-      <p class="promise-close">Because progress is the point. <span class="g">Not punishment.</span></p>
+      <p class="promise-close t-sh1">Because progress is the point. <span class="g">Not punishment.</span></p>
     </div>
   </section>
 
@@ -494,10 +502,10 @@
     <div class="shell">
       <header class="split-head" data-reveal>
         <div>
-          <p class="kicker">Founding community</p>
-          <h2 class="h-xl" id="community-title">Real people. Real goals. We're all showing up for&nbsp;something.</h2>
+          <p class="kicker t-mono-caption">Founding community</p>
+          <h2 class="t-hero h-sec" id="community-title">Real people. Real goals. We're all showing up for&nbsp;something.</h2>
         </div>
-        <p class="body-l">We're building a community where people don't just talk about their goals. They go after them, celebrate each other's progress, and keep going through setbacks. We'd love yours to be next.</p>
+        <p class="t-body para">We're building a community where people don't just talk about their goals. They go after them, celebrate each other's progress, and keep going through setbacks. We'd love yours to be next.</p>
       </header>
 
       <!-- SLOT: founder photo + up to five real member goal cards. Hidden until real
@@ -511,8 +519,8 @@
           <!-- <img class="founders-img" src="assets/img/founders-1200.webp" alt="Kayla and Jonas, founders of Vest Self" width="1200" height="1500" loading="lazy" decoding="async" /> -->
           <div class="founders-empty"><span class="ph-tag">Slot · founder photo of Kayla and Jonas</span></div>
           <figcaption>
-            <span class="founders-name">Kayla &amp; Jonas</span>
-            <span class="founders-role">Founders, Vest Self</span>
+            <span class="founders-name t-sh2">Kayla &amp; Jonas</span>
+            <span class="founders-role t-helper">Founders, Vest Self</span>
           </figcaption>
         </figure>
 
@@ -520,15 +528,15 @@
           <!-- Member card template:
           <li class="member" data-reveal>
             <img class="avatar" src="assets/img/members/NAME.webp" alt="" width="88" height="88" />
-            <div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div>
-            <p class="member-goal">Goal title</p>
-            <span class="status">Just started</span>
+            <div class="who"><p class="member-name t-label">Display name</p><p class="member-handle t-mono-caption">@handle</p></div>
+            <p class="member-goal t-sh3">Goal title</p>
+            <span class="status t-mono-caption">Just started</span>
           </li> -->
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name t-label">Display name</p><p class="member-handle t-mono-caption">@handle</p></div><p class="member-goal t-sh3">Goal title</p><span class="status t-mono-caption">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name t-label">Display name</p><p class="member-handle t-mono-caption">@handle</p></div><p class="member-goal t-sh3">Goal title</p><span class="status t-mono-caption">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name t-label">Display name</p><p class="member-handle t-mono-caption">@handle</p></div><p class="member-goal t-sh3">Goal title</p><span class="status t-mono-caption">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name t-label">Display name</p><p class="member-handle t-mono-caption">@handle</p></div><p class="member-goal t-sh3">Goal title</p><span class="status t-mono-caption">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name t-label">Display name</p><p class="member-handle t-mono-caption">@handle</p></div><p class="member-goal t-sh3">Goal title</p><span class="status t-mono-caption">Status</span></li>
           <li class="ph-tag ph-tag--block">Slot · up to five real members, with consent for every name, handle, goal and status</li>
         </ul>
       </div>
@@ -537,15 +545,15 @@
       <div class="founding" data-reveal>
         <svg class="founding-mark" viewBox="0 0 151 93" aria-hidden="true"><use href="#vs-chevron"/></svg>
         <div class="founding-copy">
-          <h3 class="h-l">Join as a founding member.</h3>
-          <p class="body-l">Early access, premium features and a direct say in what we build next. <span data-confirm="Confirm we offer optional founder check-ins, and how many.">Plus optional check-ins with the founders while spots last.</span></p>
+          <h3 class="t-h2">Join as a founding member.</h3>
+          <p class="t-body para">Early access, premium features and a direct say in what we build next. <span data-confirm="Confirm we offer optional founder check-ins, and how many.">Plus optional check-ins with the founders while spots last.</span></p>
         </div>
-        <ul class="perks">
+        <ul class="perks t-tag">
           <li><svg class="ic" aria-hidden="true"><use href="#i-lightning"/></svg>Early access</li>
           <li><svg class="ic" aria-hidden="true"><use href="#i-crown-simple"/></svg>Founding member</li>
           <li><svg class="ic" aria-hidden="true"><use href="#i-chat-circle-dots"/></svg>Direct input</li>
         </ul>
-        <p class="credibility"><svg class="ic" aria-hidden="true"><use href="#i-seal-check"/></svg>Selected for Web Summit ALPHA 2026 · Lisbon</p>
+        <p class="credibility t-mono-caption"><svg class="ic" aria-hidden="true"><use href="#i-seal-check"/></svg>Selected for Web Summit ALPHA 2026 · Lisbon</p>
       </div>
     </div>
   </section>
@@ -555,14 +563,14 @@
   <section class="cta" id="join-final" data-screen-label="Join CTA" aria-labelledby="cta-title">
     <div class="cta-bg" aria-hidden="true"></div>
     <div class="cta-inner shell">
-      <h2 class="h-xl" id="cta-title" data-reveal>Imagine what could happen if you gave yourself the same commitment you give everyone&nbsp;else.</h2>
-      <ul class="could" data-reveal data-seq>
+      <h2 class="t-hero h-sec" id="cta-title" data-reveal>Imagine what could happen if you gave yourself the same commitment you give everyone&nbsp;else.</h2>
+      <ul class="could t-sh2" data-reveal data-seq>
         <li>The business you could <span class="g">start.</span></li>
         <li>The distance you could <span class="g">run.</span></li>
         <li>The language you could <span class="g">speak.</span></li>
         <li>The person you could <span class="g">become.</span></li>
       </ul>
-      <p class="cta-close" data-reveal>Your future self is waiting for you to show up.</p>
+      <p class="cta-close t-body" data-reveal>Your future self is waiting for you to show up.</p>
       <div class="cta-form" data-reveal>
         <form class="wl-form" data-waitlist novalidate>
           <input type="hidden" name="access_key" value="9aafcadd-8120-4a13-9a49-c5b44d314265" />
@@ -575,12 +583,12 @@
         </form>
         <div class="wl-success" data-success role="status">
           <img class="ic-logo" src="assets/logo-icon.svg" alt="" width="30" height="18" />
-          <div><div class="tt">You're on the list. <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div><div class="ss">We'll email you as soon as early access opens. You're one of our founding members.</div></div>
+          <div><div class="tt t-label">You're on the list. <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div><div class="ss t-helper">We'll email you as soon as early access opens. You're one of our founding members.</div></div>
         </div>
         <p class="wl-error" data-error role="alert">Something went wrong. Please try again.</p>
-        <p class="hero-microcopy">Free to start. No money required.</p>
+        <p class="hero-microcopy t-helper">Free to start. No money required.</p>
       </div>
-      <p class="signature"><svg viewBox="0 0 151 93" aria-hidden="true"><use href="#vs-chevron"/></svg>Invest in your best self.</p>
+      <p class="signature t-sh3"><svg viewBox="0 0 151 93" aria-hidden="true"><use href="#vs-chevron"/></svg>Invest in your best self.</p>
     </div>
   </section>
 
@@ -602,14 +610,14 @@
           <a href="mailto:hello@vestself.app" aria-label="Email hello@vestself.app"><svg class="ic" aria-hidden="true"><use href="#i-envelope-simple"/></svg></a>
         </div>
         <div class="foot-meta">
-          <div class="tag">The accountability app for the goals that matter to you.</div>
+          <div class="tag t-helper">The accountability app for the goals that matter to you.</div>
           <nav class="foot-legal" aria-label="Legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
-          <div class="cr">© 2026 Vest Self. All rights reserved.</div>
+          <div class="cr t-caption">© 2026 Vest Self. All rights reserved.</div>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/app.js?v=20261029b"></script>
+  <script src="js/app.js?v=20261030d"></script>
 </body>
 </html>

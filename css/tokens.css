@@ -312,37 +312,33 @@
 }
 
 /* ============================================================
-   SEMANTIC TYPE CLASSES
+   SEMANTIC TYPE CLASSES = the Figma text styles, one class each.
+   Tracking is 0 for all of them, as in Figma. Components never set
+   their own font-size / line-height / weight (see the website skill).
    ============================================================ */
 .t-hero {
   font-family: var(--font-display); font-weight: 700;
-  font-size: var(--text-hero); line-height: var(--lh-hero);
-  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+  font-size: var(--text-hero); line-height: var(--lh-hero); color: var(--fg-1);
 }
 .t-hero-accent {
   font-family: var(--font-display); font-weight: 700;
-  font-size: var(--text-hero-accent); line-height: var(--lh-hero-accent);
-  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+  font-size: var(--text-hero-accent); line-height: var(--lh-hero-accent); color: var(--fg-1);
 }
 .t-h1 {
   font-family: var(--font-display); font-weight: 700;
-  font-size: var(--text-h1); line-height: var(--lh-h1);
-  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+  font-size: var(--text-h1); line-height: var(--lh-h1); color: var(--fg-1);
 }
 .t-h2 {
   font-family: var(--font-display); font-weight: 700;
-  font-size: var(--text-h2); line-height: var(--lh-h2);
-  letter-spacing: var(--tracking-tight); color: var(--fg-1);
+  font-size: var(--text-h2); line-height: var(--lh-h2); color: var(--fg-1);
 }
 .t-sh1 {
   font-family: var(--font-display); font-weight: 500;
-  font-size: var(--text-sh1); line-height: var(--lh-sh1);
-  letter-spacing: var(--tracking-snug); color: var(--fg-1);
+  font-size: var(--text-sh1); line-height: var(--lh-sh1); color: var(--fg-1);
 }
 .t-sh2 {
   font-family: var(--font-display); font-weight: 500;
-  font-size: var(--text-sh2); line-height: var(--lh-sh2);
-  letter-spacing: var(--tracking-snug); color: var(--fg-1);
+  font-size: var(--text-sh2); line-height: var(--lh-sh2); color: var(--fg-1);
 }
 .t-sh3 {
   font-family: var(--font-display); font-weight: 500;
@@ -361,7 +357,7 @@
   font-size: var(--text-label); line-height: var(--lh-label); color: var(--fg-1);
 }
 .t-tag {
-  font-family: var(--font-sans); font-weight: 600;
+  font-family: var(--font-sans); font-weight: 500;
   font-size: var(--text-tag); line-height: var(--lh-tag); color: var(--fg-2);
 }
 .t-helper {
@@ -380,7 +376,16 @@
 .t-numeric {
   font-family: var(--font-display); font-weight: 700;
   font-feature-settings: "tnum" 1, "lnum" 1;
-  letter-spacing: var(--tracking-tight);
+}
+
+/* Mono/Caption and Mono/Label (JetBrains Mono) */
+.t-mono-caption {
+  font-family: var(--font-mono); font-weight: 400;
+  font-size: 12px; line-height: 16px; color: var(--fg-3);
+}
+.t-mono-label {
+  font-family: var(--font-mono); font-weight: 400;
+  font-size: 14px; line-height: 20px; color: var(--fg-3);
 }
 
 /* MOBILE responsive type — display sizes step down (Typography 2.x) */
