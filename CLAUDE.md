@@ -34,16 +34,19 @@ Accountability system + money · Promise · Founding community · Closing CTA.
   (`<use href="#i-name"/>`); the icon-font CDN is no longer loaded on the home page.
 - CSS/JS links carry `?v=YYYYMMDD`. Bump it when you change them.
 
-### Placeholders
+### Unfinished content (never visible to visitors)
 
-`[data-placeholder]` blocks (founder photo, member cards, the Promise section,
-the product-film storyboard) show with an orange dashed outline on localhost and
-Vercel previews and are **hidden on the production domain** (`html.is-prod`, set in
-`<head>`). Add `?prod-view` to any URL to see exactly what production would show.
-
-`[data-confirm]` marks inline facts that still need founder or legal confirmation
-(mode names, the 20% maximum, founder check-ins). They are underlined off
-production but **still render on production**, so confirm them before merging.
+- `[data-slot]`: empty slots waiting for real content (founder photo, member goal
+  cards). Hidden everywhere unless the URL has `?review`. Fill-in instructions sit
+  in an HTML comment above the slot in `index.html`.
+- `[data-prod-hide]`: finished but not yet approved (the Promise section). Visible
+  on previews, hidden on vestself.app. Remove the attribute once legal signs off.
+- `[data-confirm]`: inline facts still to confirm (mode names, the 20% maximum,
+  founder check-ins). Underlined only with `?review`, and they **do render on
+  production**, so confirm them before merging.
+- `?review` shows all of the above; `?prod-view` shows exactly what production
+  would; `?static` turns off scroll animations for screenshot tools.
+- The product-film storyboard lives in `docs/product-film-storyboard.md`.
 
 ## Run locally
 

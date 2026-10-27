@@ -25,8 +25,8 @@
   var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var isProd = document.documentElement.classList.contains('is-prod');
 
-  // Off production, explain every [data-confirm] fact on hover.
-  if (!isProd) document.querySelectorAll('[data-confirm]').forEach(function (el) {
+  // In ?review mode, explain every [data-confirm] fact on hover.
+  if (document.documentElement.classList.contains('review')) document.querySelectorAll('[data-confirm]').forEach(function (el) {
     el.title = 'To confirm before launch: ' + el.getAttribute('data-confirm');
   });
 

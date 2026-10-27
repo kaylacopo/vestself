@@ -240,19 +240,18 @@ button { font: inherit; }
 /* Achievement: Golden Glow photo + the gold chevron (Brand Guide social 7.1). */
 .achieve { position: relative; isolation: isolate; overflow: hidden; display: flex; align-items: flex-end; min-height: clamp(560px, 50vw, 700px); margin-top: clamp(64px, 7vw, 112px); border-radius: var(--radius-neon); border: 1px solid var(--hairline); background: var(--true-black); }
 .achieve-photo { position: absolute; z-index: -2; inset: 0 0 0 auto; width: 100%; }
-.achieve-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 60% 18%; }
+.achieve-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; }
 .achieve::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(0deg, var(--true-black) 8%, rgba(0,0,0,0.6) 42%, rgba(0,0,0,0) 72%); }
-.achieve::after { content: ""; position: absolute; z-index: -1; left: -15%; right: 20%; bottom: -38%; height: 60%; background: var(--neon-blob-dark); filter: blur(80px); opacity: 0.5; pointer-events: none; }
-.achieve-mark { position: absolute; z-index: 0; width: min(44%, 340px); left: 50%; top: 40%; transform: translate(-50%, -50%); filter: drop-shadow(0 30px 50px rgba(0,0,0,0.55)); }
+.achieve::after { content: ""; position: absolute; z-index: -1; left: -15%; right: 35%; bottom: -42%; height: 55%; background: var(--neon-blob-dark); filter: blur(90px); opacity: 0.32; pointer-events: none; }
 .achieve-copy { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 18px; padding: clamp(28px, 5vw, 72px); max-width: 720px; }
 .achieve-title { font-family: var(--font-display); font-weight: 700; font-size: clamp(40px, 5.4vw, 84px); line-height: 0.98; letter-spacing: -0.04em; text-wrap: balance; }
 @media (min-width: 900px) {
   .achieve { align-items: center; }
-  .achieve-photo { width: 62%; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 34%); mask-image: linear-gradient(90deg, transparent 0%, #000 34%); }
-  .achieve::before { background: linear-gradient(90deg, var(--true-black) 30%, rgba(0,0,0,0) 60%); }
-  .achieve-mark { left: auto; right: 15%; top: 56%; transform: translateY(-50%); width: min(30%, 380px); }
-  .js .achieve-mark { transform: translateY(-40%) scale(0.92); opacity: 0; transition: transform 1.1s var(--ease-emphasized) 0.2s, opacity 0.9s 0.2s; }
-  .js .achieve.in .achieve-mark { transform: translateY(-50%); opacity: 1; }
+  .achieve-photo { width: 66%; -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%); mask-image: linear-gradient(90deg, transparent 0%, #000 30%); }
+  .achieve-photo img { object-position: 46% 24%; }
+  .achieve::before { background: linear-gradient(90deg, var(--true-black) 28%, rgba(0,0,0,0) 54%); }
+  .js .achieve-photo img { transform: scale(1.06); transition: transform 2.4s var(--ease-out); }
+  .js .achieve.in .achieve-photo img { transform: none; }
   .achieve-copy { max-width: 46%; }
 }
 
@@ -270,37 +269,33 @@ button { font: inherit; }
 /* ============================================================
    4. HOW IT WORKS — gold band kept; alternating rows, layered screens.
    ============================================================ */
-.how { background: var(--grad-champagne); color: var(--fg-1); }
+.how { background: linear-gradient(135deg, var(--champagne) 0%, var(--gold-200) 45%, var(--gold-300) 100%); color: var(--fg-1); }
+.how.section { padding-block: clamp(80px, 8vw, 128px); }
 .how .kicker { color: var(--fg-1); }
 .how .kicker::before { background: var(--fg-1); }
-.rows { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 120px); }
+.rows { display: flex; flex-direction: column; gap: clamp(40px, 4.4vw, 64px); }
 .row { display: grid; gap: 32px; align-items: center; }
 .row-copy { position: relative; display: flex; flex-direction: column; gap: 18px; }
-.row-num { font-family: var(--font-display); font-weight: 900; font-size: clamp(88px, 10vw, 160px); line-height: 0.8; letter-spacing: -0.06em; color: var(--border-1); margin-bottom: -4px; }
+.row-num { font-family: var(--font-display); font-weight: 900; font-size: clamp(80px, 8vw, 128px); line-height: 0.8; letter-spacing: -0.06em; color: var(--border-1); margin-bottom: -4px; }
 .row-copy .h-l { max-width: 13ch; }
 .row-copy .body-l { max-width: 34ch; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 .tags li { padding: 8px 12px; border-radius: var(--radius-control); border: 1px solid var(--border-2); background: rgba(255,255,255,0.4); font-weight: 500; font-size: 13px; line-height: 18px; color: var(--fg-1); }
-.row-media { --wa: clamp(230px, 62vw, 340px); position: relative; height: calc(var(--wa) * 1.95); }
+.row-media { --wa: clamp(220px, 60vw, 300px); position: relative; height: calc(var(--wa) * 2.2); }
 .row-media .screen { position: absolute; box-shadow: 0 0 0 1px rgba(17,17,17,0.1), 0 60px 90px -40px rgba(70,35,0,0.65), 0 10px 30px rgba(70,35,0,0.15); }
 .row-media .screen--a { width: var(--wa); left: 4%; top: 0; z-index: 2; }
-.row-media .screen--b { width: calc(var(--wa) * 0.82); right: 2%; top: 14%; z-index: 1; }
+.row-media .screen--b { width: calc(var(--wa) * 0.82); right: 2%; top: 7%; z-index: 1; }
 @media (min-width: 900px) {
   .row { grid-template-columns: repeat(12, 1fr); column-gap: 24px; }
   .row-copy { grid-column: 1 / 6; }
-  .row-media { grid-column: 6 / 13; --wa: clamp(260px, 25vw, 350px); height: calc(var(--wa) * 1.86); }
+  .row-media { grid-column: 6 / 13; --wa: clamp(220px, 18vw, 262px); height: calc(var(--wa) * 2.2); }
   .row-media .screen--a { left: 14%; }
-  .row-media .screen--b { left: auto; right: 6%; top: 12%; }
+  .row-media .screen--b { left: auto; right: 10%; top: 9%; }
   .row--flip .row-copy { grid-column: 8 / 13; order: 2; }
   .row--flip .row-media { grid-column: 1 / 8; order: 1; }
   .row--flip .row-media .screen--a { left: auto; right: 14%; }
-  .row--flip .row-media .screen--b { right: auto; left: 6%; }
+  .row--flip .row-media .screen--b { right: auto; left: 10%; }
 }
-.film-slot { margin-top: clamp(72px, 8vw, 120px); padding: 28px; border-radius: var(--radius-input); background: rgba(255,255,255,0.3); }
-.storyboard { display: grid; grid-template-columns: 1fr; gap: 12px; margin-top: 16px; }
-.storyboard li { padding: 16px; border-radius: var(--radius-control); background: rgba(255,255,255,0.45); font-size: 14px; line-height: 20px; color: var(--fg-1); display: flex; flex-direction: column; gap: 6px; }
-.storyboard .mono { font-size: 11px; color: var(--fg-3); text-transform: uppercase; }
-@media (min-width: 760px) { .storyboard { grid-template-columns: repeat(4, 1fr); } }
 
 /* ============================================================
    5. ACCOUNTABILITY — editorial bento, then the money story.
@@ -373,13 +368,15 @@ button { font: inherit; }
 .community-grid { display: grid; grid-template-columns: 1fr; gap: 16px; }
 .founders { position: relative; isolation: isolate; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; min-height: 460px; padding: 28px; border-radius: var(--radius-neon); border: 1px solid var(--hairline); background: var(--true-black); }
 .founders::after { content: ""; position: absolute; z-index: -1; left: -18%; bottom: -30%; width: 135%; height: 55%; background: var(--neon-blob-light); filter: blur(70px); opacity: 0.45; }
+.founders-img { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; }
 .founders-empty { position: absolute; inset: 0; z-index: -1; display: grid; place-items: center; padding: 24px; background: repeating-linear-gradient(135deg, rgba(255,252,245,0.035) 0 12px, rgba(255,252,245,0) 12px 24px); }
 .founders figcaption { display: flex; flex-direction: column; gap: 4px; }
 .founders-name { font-family: var(--font-display); font-weight: 700; font-size: 28px; letter-spacing: -0.02em; }
 .founders-role { font-size: var(--text-helper); color: var(--fg-2); }
 .members { display: flex; flex-direction: column; gap: 10px; }
 .member { display: grid; grid-template-columns: 44px 1fr auto; grid-template-areas: "av who status" "av goal goal"; align-items: center; gap: 4px 16px; padding: 18px 20px; border-radius: var(--radius-input); background: var(--card); border: 1px solid var(--hairline); }
-.member .avatar { grid-area: av; width: 44px; height: 44px; border-radius: 50%; border: 1px dashed var(--border-3); }
+.member .avatar { grid-area: av; width: 44px; height: 44px; border-radius: 50%; border: 1px dashed var(--border-3); object-fit: cover; }
+.member img.avatar { border: 0; }
 .member .who { grid-area: who; display: flex; align-items: baseline; gap: 8px; min-width: 0; flex-wrap: wrap; }
 .member-name { font-weight: 500; font-size: 16px; color: var(--fg-1); }
 .member-handle { font-family: var(--mono); font-size: 12px; color: var(--fg-3); }
@@ -440,17 +437,18 @@ footer { background: var(--void); border-top: 1px solid var(--border-1); padding
 .socials a:hover { color: var(--gold); }
 
 /* ============================================================
-   PLACEHOLDERS — visible on localhost / previews, hidden on the
-   production domain (html.is-prod). ?prod-view shows the live result.
+   UNFINISHED CONTENT — never visible to visitors.
+   [data-slot]       hidden everywhere unless ?review (html.review)
+   [data-prod-hide]  hidden on the production domain (html.is-prod)
+   [data-confirm]    underlined only with ?review
    ============================================================ */
-html:not(.is-prod) [data-placeholder] { outline: 1.5px dashed var(--accent-orange); outline-offset: -8px; }
-.ph-tag { display: inline-flex; align-self: flex-start; max-width: 100%; padding: 6px 10px; border-radius: var(--radius-control); background: var(--warning-bg); color: var(--orange-300); font-family: var(--mono); font-size: 11px; line-height: 15px; letter-spacing: var(--tracking-wide); text-transform: uppercase; }
-.how .ph-tag { color: var(--orange-700); background: rgba(234,103,27,0.14); }
-.ph-tag--block { display: block; text-align: center; }
-html:not(.is-prod) [data-confirm] { text-decoration: underline dotted var(--accent-orange) 2px; text-underline-offset: 4px; cursor: help; }
-.is-prod [data-placeholder], .is-prod .ph-tag { display: none !important; }
-/* Both community cards are placeholders today; drop this rule once real content lands. */
-.is-prod .community-grid { display: none; }
+html:not(.review) [data-slot] { display: none !important; }
+.is-prod [data-prod-hide] { display: none !important; }
+.ph-tag { display: none; }
+html.review .ph-tag { display: inline-flex; align-self: flex-start; max-width: 100%; padding: 6px 10px; border-radius: var(--radius-control); background: var(--warning-bg); color: var(--orange-300); font-family: var(--mono); font-size: 11px; line-height: 15px; letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+html.review .ph-tag--block { display: block; text-align: center; }
+html.review [data-slot], html.review [data-prod-hide] { outline: 1.5px dashed var(--accent-orange); outline-offset: -8px; }
+html.review [data-confirm] { text-decoration: underline dotted var(--accent-orange) 2px; text-underline-offset: 4px; cursor: help; }
 
 /* ---------- MOTION / REVEAL (only when JS is running) ---------- */
 @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
@@ -459,11 +457,26 @@ html:not(.is-prod) [data-confirm] { text-decoration: underline dotted var(--acce
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js [data-reveal], .js [data-seq] li, .js .rec-list .tick, .js .stair-step > *, .js .stair-step::after, .js .achieve-mark { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .js [data-reveal], .js [data-seq] li, .js .rec-list .tick, .js .stair-step > *, .js .stair-step::after, .js .achieve-photo img { opacity: 1 !important; transform: none !important; transition: none !important; }
   .js .screen--hero[data-reveal] { transform: translateX(-50%) !important; }
-  @media (min-width: 900px) { .js .achieve-mark { transform: translateY(-50%) !important; } }
   .rec-panel--self .rec-photo img, .rec-panel--self .rec-head, .rec-panel--self .rec-list li { transition: none; }
   .btn-gold, .btn-gold .ic { transition: none; }
+}
+
+/* ============================================================ MOBILE LEGIBILITY
+   Nothing on a phone smaller than 11px; body copy 16px or more. */
+@media (max-width: 600px) {
+  .kicker { font-size: 12px; letter-spacing: 0.14em; }
+  .body-l { font-size: 17px; line-height: 1.6; }
+  .stair-text, .tile-text, .mode dd { font-size: 16px; }
+  .stair-num, .rec-list .when, .tile-label, .credibility, .member-handle { font-size: 12px; }
+  .stair-who, .member .status, .hero-quote .lbl { font-size: 11px; }
+  .chip, .tags li, .perks li { font-size: 14px; }
+  .rec-list li { font-size: 20px; }
+  .hero-sub { font-size: 17px; }
+  .wl-label { font-size: 16px; }
+  .tile-shot { width: 100%; max-height: 340px; }
+  .row-media { --wa: min(250px, 60vw); }
 }
 
 /* ============================================================ RESPONSIVE: hero ============================================================ */
@@ -550,3 +563,6 @@ html:not(.is-prod) [data-confirm] { text-decoration: underline dotted var(--acce
   .legal-summary { padding: 20px; }
   .legal-table td:first-child { white-space: normal; }
 }
+
+/* Community: while the founder/member slot is hidden, the offer card follows the header directly. */
+html:not(.review) .community .founding { margin-top: 0; }

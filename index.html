@@ -8,11 +8,15 @@
 <link rel="canonical" href="https://www.vestself.app/" />
 <meta name="theme-color" content="#0A0A0F" />
 
-<!-- Placeholders ([data-placeholder]) are visible on localhost and Vercel previews
-     and hidden on the production domain. Add ?prod-view to any URL to preview
-     exactly what production would show. ?static turns off scroll animations so
-     screenshot and review tools see every section without scrolling. -->
-<script>(function(d,l){if(/(^|\.)vestself\.app$/.test(l.hostname)||/[?&]prod-view/.test(l.search))d.documentElement.classList.add('is-prod');if(!/[?&]static/.test(l.search))d.documentElement.classList.add('js');})(document,location);</script>
+<!-- Unfinished content never shows to visitors:
+       [data-slot]       empty slots waiting for real content (founder photo, member cards).
+                         Hidden everywhere unless the URL has ?review.
+       [data-prod-hide]  finished but unapproved (the Promise section). Visible on previews,
+                         hidden on vestself.app until approved.
+       [data-confirm]    inline facts still to confirm. Underlined only with ?review.
+       ?prod-view shows exactly what production would show; ?static turns off scroll
+       animations for screenshot and review tools. -->
+<script>(function(d,l){var h=d.documentElement,q=l.search;if(/(^|\.)vestself\.app$/.test(l.hostname)||/[?&]prod-view/.test(q))h.classList.add('is-prod');if(/[?&]review/.test(q))h.classList.add('review');if(!/[?&]static/.test(q))h.classList.add('js');})(document,location);</script>
 
 <!-- ===== Social preview (Open Graph / Twitter) =====
      The card is assets/og/og-app-v2.jpg, 1200x630, built from assets/og/_source.og-app-v2.html.
@@ -78,8 +82,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/tokens.css?v=20261028c" />
-<link rel="stylesheet" href="css/styles.css?v=20261028c" />
+<link rel="stylesheet" href="css/tokens.css?v=20261029b" />
+<link rel="stylesheet" href="css/styles.css?v=20261029b" />
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
@@ -323,7 +327,6 @@
           <source media="(max-width: 760px)" srcset="assets/img/woman-wellness-720.webp" />
           <img src="assets/img/woman-wellness-1200.webp" alt="" width="1200" height="1803" loading="lazy" decoding="async" />
         </picture>
-        <svg class="achieve-mark" viewBox="0 0 151 93" aria-hidden="true"><use href="#vs-chevron"/></svg>
         <div class="achieve-copy">
           <p class="kicker">07 · Achievement</p>
           <p class="achieve-title">Action turns dreams into achievements.</p>
@@ -385,17 +388,8 @@
         </li>
       </ol>
 
-      <!-- PLACEHOLDER: product film slot. Hidden on production until a real,
-           captioned, silent-by-default film exists. No play button without a video. -->
-      <aside class="film-slot" data-placeholder="Product film slot">
-        <span class="ph-tag">Placeholder · product film, 20 to 30 s, captioned, silent by default</span>
-        <ol class="storyboard">
-          <li><span class="mono">0 to 5 s</span>Showing up for everyone else: work, friends, family.</li>
-          <li><span class="mono">5 to 9 s</span>"What if you showed up for your own dreams the same way?"</li>
-          <li><span class="mono">9 to 16 s</span>Real app: enter goal, get plan, invite a friend, choose commitment, check in, build a streak.</li>
-          <li><span class="mono">16 to 22 s</span>"Your dreams deserve the same commitment you give everything else." Vest Self.</li>
-        </ol>
-      </aside>
+      <!-- Product film: storyboard lives in docs/product-film-storyboard.md. Add the
+           film here only when a real, captioned, silent-by-default video exists. -->
     </div>
   </section>
 
@@ -474,15 +468,16 @@
   </section>
 
   <!-- ===================== 6. THE PROMISE =====================
-       PLACEHOLDER (whole section): forfeit and redistribution claims are not
-       yet confirmed by founders/legal. Hidden on production until approved. -->
-  <section class="promise" id="promise" aria-labelledby="promise-title" data-placeholder="Promise section: pending legal confirmation">
+       HELD FROM PRODUCTION: the forfeit and redistribution claims are not yet
+       approved by founders/legal. Visible on previews, hidden on vestself.app.
+       To publish: remove data-prod-hide once the wording is signed off. -->
+  <section class="promise" id="promise" aria-labelledby="promise-title" data-prod-hide="Pending founder and legal approval">
     <picture class="promise-photo" aria-hidden="true">
       <source media="(max-width: 760px)" srcset="assets/img/hero-core-720.webp" />
       <img src="assets/img/hero-core-1200.webp" alt="" width="1200" height="1532" loading="lazy" decoding="async" />
     </picture>
     <div class="promise-copy" data-reveal>
-      <span class="ph-tag">Placeholder · pending founder and legal confirmation</span>
+      <span class="ph-tag">Held from production · pending founder and legal approval</span>
       <p class="kicker">Our promise</p>
       <h2 class="h-xl" id="promise-title">We don't profit from your forfeits. <span class="g">We want to see you win.</span></h2>
       <div class="promise-body">
@@ -505,25 +500,36 @@
         <p class="body-l">We're building a community where people don't just talk about their goals. They go after them, celebrate each other's progress, and keep going through setbacks. We'd love yours to be next.</p>
       </header>
 
-      <div class="community-grid">
-        <!-- PLACEHOLDER: founder photo. Needs a real photo of Kayla and Jonas plus consent. -->
-        <figure class="founders" data-placeholder="Founder photo" data-reveal>
-          <div class="founders-empty"><span class="ph-tag">Placeholder · founder photo of Kayla and Jonas</span></div>
+      <!-- SLOT: founder photo + up to five real member goal cards. Hidden until real
+           content exists (see ?review). To publish:
+           1. Founder photo: set the <img> src/alt below, delete .founders-empty.
+           2. Members: fill name, handle, goal and an honest status ("Just started" is fine),
+              with written consent for each. Delete unused <li>s; never invent members.
+           3. Remove data-slot from .community-grid. -->
+      <div class="community-grid" data-slot="Founder photo and member goal cards">
+        <figure class="founders" data-reveal>
+          <!-- <img class="founders-img" src="assets/img/founders-1200.webp" alt="Kayla and Jonas, founders of Vest Self" width="1200" height="1500" loading="lazy" decoding="async" /> -->
+          <div class="founders-empty"><span class="ph-tag">Slot · founder photo of Kayla and Jonas</span></div>
           <figcaption>
             <span class="founders-name">Kayla &amp; Jonas</span>
             <span class="founders-role">Founders, Vest Self</span>
           </figcaption>
         </figure>
 
-        <!-- PLACEHOLDER: up to five real member goal cards, each with written consent
-             for the name, handle, goal, photo and progress shown. Never invent these. -->
-        <ul class="members" data-placeholder="Member goal cards">
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Just started]</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
-          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
-          <li class="ph-tag ph-tag--block">Placeholder · up to five real members, with consent for every name, handle, goal and status</li>
+        <ul class="members">
+          <!-- Member card template:
+          <li class="member" data-reveal>
+            <img class="avatar" src="assets/img/members/NAME.webp" alt="" width="88" height="88" />
+            <div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div>
+            <p class="member-goal">Goal title</p>
+            <span class="status">Just started</span>
+          </li> -->
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div class="who"><p class="member-name">Display name</p><p class="member-handle">@handle</p></div><p class="member-goal">Goal title</p><span class="status">Status</span></li>
+          <li class="ph-tag ph-tag--block">Slot · up to five real members, with consent for every name, handle, goal and status</li>
         </ul>
       </div>
 
@@ -604,6 +610,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=20261028c"></script>
+  <script src="js/app.js?v=20261029b"></script>
 </body>
 </html>
