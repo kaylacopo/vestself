@@ -17,6 +17,34 @@ Keep it that way unless there is a strong reason — the entire site is four sou
 | `css/styles.css` | Page and component styles |
 | `js/app.js` | Header scroll, reveal-on-scroll, waitlist submit |
 
+## Page structure (Oct 2026 elevation)
+
+Visual rules for anything on this site live in the project skill
+`.claude/skills/vest-self-web/SKILL.md` (local only, `.claude/` is gitignored).
+
+Sections, in order: Hero (two-step goal + email form, real Home screen) ·
+Recognition · The formula · How it works (sticky screens on desktop) ·
+Accountability system + money · Promise · Founding community · Closing CTA.
+
+- `assets/app/` holds real app screens exported from Figma at 2x (`*.webp`) plus a
+  `-393` 1x variant, and the `crop-*` details used in the accountability cards.
+- `assets/img/` holds WebP versions of the hero/CTA backgrounds and hero task cards.
+  The original PNGs stay in the repo but the page no longer loads them.
+- Icons are an inline Phosphor SVG sprite at the top of `index.html`
+  (`<use href="#i-name"/>`); the icon-font CDN is no longer loaded on the home page.
+- CSS/JS links carry `?v=YYYYMMDD`. Bump it when you change them.
+
+### Placeholders
+
+`[data-placeholder]` blocks (founder photo, member cards, the Promise section,
+the product-film storyboard) show with an orange dashed outline on localhost and
+Vercel previews and are **hidden on the production domain** (`html.is-prod`, set in
+`<head>`). Add `?prod-view` to any URL to see exactly what production would show.
+
+`[data-confirm]` marks inline facts that still need founder or legal confirmation
+(mode names, the 20% maximum, founder check-ins). They are underlined off
+production but **still render on production**, so confirm them before merging.
+
 ## Run locally
 
 No install step. Static server on port 4321:

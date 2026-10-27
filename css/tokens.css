@@ -8,23 +8,23 @@
 /* ---------- FONTS: Satoshi (licensed files supplied) ---------- */
 @font-face {
   font-family: "Satoshi";
-  src: url("../assets/fonts/Satoshi-Regular.otf") format("opentype");
+  src: url("../assets/fonts/Satoshi-Regular.woff2") format("woff2"), url("../assets/fonts/Satoshi-Regular.otf") format("opentype");
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Satoshi";
-  src: url("../assets/fonts/Satoshi-Medium.otf") format("opentype");
+  src: url("../assets/fonts/Satoshi-Medium.woff2") format("woff2"), url("../assets/fonts/Satoshi-Medium.otf") format("opentype");
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
   /* Guide uses a 600 "Semibold" weight; no 600 file supplied, so Bold covers 600–700. */
   font-family: "Satoshi";
-  src: url("../assets/fonts/Satoshi-Bold.otf") format("opentype");
+  src: url("../assets/fonts/Satoshi-Bold.woff2") format("woff2"), url("../assets/fonts/Satoshi-Bold.otf") format("opentype");
   font-weight: 600 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Satoshi";
-  src: url("../assets/fonts/Satoshi-Black.otf") format("opentype");
+  src: url("../assets/fonts/Satoshi-Black.woff2") format("woff2"), url("../assets/fonts/Satoshi-Black.otf") format("opentype");
   font-weight: 800 900; font-style: normal; font-display: swap;
 }
 
@@ -120,13 +120,19 @@
   --grad-gold:   linear-gradient(135deg, #FFC919 0%, #E6C15A 100%);
   --grad-champagne: linear-gradient(135deg, #F9F1C8 0%, #E6C15A 100%);
 
-  /* Named usage gradients (Colour Gradients 3.2). Single-hue, corner-anchored,
-     dissolving into void. NOTE: exact stop values for these four are pending
-     the page-16 artwork — these are built to the stated rules and accent families. */
-  --grad-energy:     radial-gradient(120% 120% at 8% 8%, #FFC919 0%, #EA671B 38%, #0A0A0F 82%);  /* workouts, achievements, streaks */
-  --grad-focus:      radial-gradient(120% 120% at 92% 8%, #488FFF 0%, #0E6BFF 36%, #0A0A0F 82%); /* deep work, cognitive metrics */
-  --grad-growth:     radial-gradient(120% 120% at 8% 92%, #48B463 0%, #0E9C32 36%, #0A0A0F 82%); /* recovery, sleep, progress */
-  --grad-discipline: radial-gradient(120% 120% at 92% 92%, #B86BFF 0%, #A13CFF 36%, #0A0A0F 82%);/* premium, mindset, earned reward */
+  /* Named usage gradients, CONFIRMED from Brand Guide 3.2 (Figma 747:5087).
+     Each is a blurred blob running steel (#4E575F) into the hue, laid along a
+     card edge and dissolving into void. Use via .usage-card[data-tone]. */
+  --tone-energy:     linear-gradient(100deg, #4E575F 0%, #F3003D 80%, #EACC47 100%); /* workouts, achievements, streak milestones */
+  --tone-focus:      linear-gradient(100deg, #4E575F 0%, #FF0800 80%, #FF780E 100%); /* focus sessions, deep work */
+  --tone-growth:     linear-gradient(100deg, #4E575F 0%, #00FFB7 74%, #E6C15A 91%); /* progress, momentum */
+  --tone-discipline: linear-gradient(100deg, #4E575F 0%, #FF0800 80%, #120EFF 100%); /* premium, streaks, earned reward */
+  --dot-energy: #E6C15A; --dot-focus: #FF8032; --dot-growth: #59D98E; --dot-discipline: #9B7BFF;
+  /* legacy names kept for anything still referencing them */
+  --grad-energy:     radial-gradient(120% 120% at 8% 92%, #EACC47 0%, #F3003D 30%, #0A0A0F 78%);
+  --grad-focus:      radial-gradient(120% 120% at 92% 92%, #FF780E 0%, #FF0800 30%, #0A0A0F 78%);
+  --grad-growth:     radial-gradient(120% 120% at 8% 92%, #E6C15A 0%, #00FFB7 30%, #0A0A0F 78%);
+  --grad-discipline: radial-gradient(120% 120% at 92% 92%, #120EFF 0%, #FF0800 30%, #0A0A0F 78%); /* premium, mindset, earned reward */
 
   /* ============================================================
      NEON BLUR (Elements 5.1) — the signature card treatment.
@@ -136,12 +142,16 @@
      gold and keeps the system modern. The card surface (near-black
      or off-white) holds the top; the bloom dissolves up into it.
      ============================================================ */
+  /* Brand Guide 5.1 (Figma 747:5910): blob 1 steel -> red -> orange low-left,
+     blob 2 solid #D29418 gold bleeding in from the right edge. Light and
+     photo cards swap the red for magenta (#F700F7). */
+  --neon-blob-dark:  linear-gradient(115deg, #4E575F 0%, #FF0800 80%, #FF780E 100%);
+  --neon-blob-light: linear-gradient(115deg, #4E575F 0%, #F700F7 80%, #FF780E 100%);
+  --neon-blob-gold:  #D29418;
   --neon-bloom:
-    radial-gradient(62% 130% at 14% 124%, #8B2BFF 0%, #8B2BFF 18%, rgba(139,43,255,0) 72%),
-    radial-gradient(70% 130% at 46% 128%, #DB139C 0%, #DB139C 20%, rgba(219,19,156,0) 72%),
-    radial-gradient(84% 142% at 83% 120%, #EA671B 0%, #EA671B 22%, rgba(234,103,27,0) 74%),
-    radial-gradient(54% 104% at 66% 134%, #FFC919 0%, #FFC919 16%, rgba(255,201,25,0) 66%);
-  /* cooler bloom variant (more purple/blue lift) */
+    radial-gradient(60% 70% at 30% 105%, #FF0800 0%, rgba(255,8,0,0.55) 30%, rgba(255,8,0,0) 70%),
+    radial-gradient(45% 60% at 70% 110%, #FF780E 0%, rgba(255,120,14,0) 70%),
+    radial-gradient(40% 70% at 108% 70%, #D29418 0%, rgba(210,148,24,0) 70%);
   --neon-bloom-cool:
     radial-gradient(64% 130% at 16% 124%, #4B6BFF 0%, #4B6BFF 18%, rgba(75,107,255,0) 72%),
     radial-gradient(70% 130% at 48% 128%, #8B2BFF 0%, #8B2BFF 20%, rgba(139,43,255,0) 72%),
@@ -163,9 +173,9 @@
 
   /* foreground on dark */
   --fg-1: #FFFCF5;             /* primary */
-  --fg-2: rgba(255,252,245,0.74);
-  --fg-3: rgba(255,252,245,0.52);
-  --fg-4: rgba(255,252,245,0.34); /* placeholder / disabled */
+  --fg-2: rgba(255,252,245,0.65);   /* Figma Foreground/SHL */
+  --fg-3: rgba(255,252,245,0.52);   /* Figma P is 0.40; kept at .52 so small text passes AA (5.7:1) */
+  --fg-4: rgba(255,252,245,0.40); /* Figma Foreground/P: placeholder / disabled only */
   --fg-on-brand: #111111;         /* text on gold */
 
   /* borders on dark */
@@ -173,6 +183,11 @@
   --border-2: rgba(255,252,245,0.14);
   --border-3: rgba(255,252,245,0.22);
   --border-focus: var(--gold);
+
+  /* App surfaces (Figma Color — Semantic) */
+  --card:     rgba(26,26,26,0.40);    /* Background/Card */
+  --hairline: rgba(255,252,245,0.10); /* Foreground/Border */
+  --fg-grey:  #888480;                /* Foreground/Grey */
 
   /* ============================================================
      STATE COLORS (mapped from accent families)
@@ -241,6 +256,12 @@
   --radius-xl: 28px;
   --radius-2xl: 36px;
   --radius-pill: 999px;
+
+  /* Radius MAP (see .claude/skills/vest-self-web). Use these, not the raw scale. */
+  --radius-control: 4px;   /* buttons, chips, suggestion list (shipped app) */
+  --radius-input:   8px;   /* inputs, modals, app content cards */
+  --radius-neon:    12px;  /* Brand Guide 5.1 Neon Blur cards */
+  --radius-usage:   20px;  /* Brand Guide 3.2 usage-gradient cards */
 
   /* ---------- SHADOWS / GLOWS ---------- */
   --shadow-sm: 0 2px 6px rgba(0,0,0,0.40);
@@ -314,17 +335,17 @@
   letter-spacing: var(--tracking-tight); color: var(--fg-1);
 }
 .t-sh1 {
-  font-family: var(--font-display); font-weight: 600;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--text-sh1); line-height: var(--lh-sh1);
   letter-spacing: var(--tracking-snug); color: var(--fg-1);
 }
 .t-sh2 {
-  font-family: var(--font-display); font-weight: 600;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--text-sh2); line-height: var(--lh-sh2);
   letter-spacing: var(--tracking-snug); color: var(--fg-1);
 }
 .t-sh3 {
-  font-family: var(--font-display); font-weight: 600;
+  font-family: var(--font-display); font-weight: 500;
   font-size: var(--text-sh3); line-height: var(--lh-sh3); color: var(--fg-1);
 }
 .t-body {
@@ -391,7 +412,7 @@
    ============================================================ */
 .neon-blur {
   position: relative; overflow: hidden; isolation: isolate;
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-neon);
   background: #0B0B0F; border: 1px solid var(--border-1);
   color: var(--fg-1);
 }
@@ -411,7 +432,7 @@
 
 /* Photo neon-blur: Golden-Glow image with neon bleeding up from the base */
 .neon-photo {
-  position: relative; overflow: hidden; border-radius: var(--radius-xl);
+  position: relative; overflow: hidden; border-radius: var(--radius-neon);
   background: #0A0A0F; isolation: isolate;
 }
 .neon-photo > img {

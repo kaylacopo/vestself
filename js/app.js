@@ -12,6 +12,24 @@
   syncHeader();
   window.addEventListener('scroll', syncHeader, { passive: true });
 
+  // Analytics: custom events go to Vercel Web Analytics when it is available
+  // (custom events need a Vercel plan that supports them); otherwise no-op.
+  function track(name, data) {
+    try { if (window.va) window.va('event', { name: name, data: data || {} }); } catch (e) {}
+  }
+  document.addEventListener('click', function (ev) {
+    var el = ev.target.closest && ev.target.closest('[data-track]');
+    if (el) track(el.getAttribute('data-track'));
+  });
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var isProd = document.documentElement.classList.contains('is-prod');
+
+  // Off production, explain every [data-confirm] fact on hover.
+  if (!isProd) document.querySelectorAll('[data-confirm]').forEach(function (el) {
+    el.title = 'To confirm before launch: ' + el.getAttribute('data-confirm');
+  });
+
   // Reveal-on-scroll for [data-reveal] elements.
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
@@ -115,6 +133,7 @@
     form.style.display = 'none';
     if (note) note.hidden = true;
     if (success) success.classList.add('show');
+    document.dispatchEvent(new CustomEvent('waitlist:done'));
   }
 
   // ---------------------------------------------------------------------
@@ -355,9 +374,19 @@
       combo.close();
       goalStep.hidden = true;
       emailStep.hidden = false;
-      if (note) note.hidden = false;
+      if (note) {
+        var echo = note.querySelector('[data-goal-echo]');
+        if (echo) echo.textContent = goal;
+        note.hidden = false;
+      }
+      track('goal_next');
       emailStep.querySelector('input[type=email]').focus();
     }
+
+    var typed = false;
+    combo.input.addEventListener('input', function () {
+      if (!typed) { typed = true; track('goal_input'); }
+    });
 
     if (next) next.addEventListener('click', advance);
     form.addEventListener('goal:advance', advance);
@@ -380,7 +409,7 @@
       var email = (input.value || '').trim();
       if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
         input.focus();
-        form.querySelector('.field').animate(
+        (input.closest('.field') || input).animate(
           [{ transform: 'translateX(0)' }, { transform: 'translateX(-6px)' }, { transform: 'translateX(6px)' }, { transform: 'translateX(0)' }],
           { duration: 260 }
         );
@@ -413,6 +442,8 @@
           if (json && json.success) {
             logToSheet(form, email);
             showSuccess(form);
+            var where = form.closest('[data-screen-label]');
+            track('waitlist_success', { form: where ? where.dataset.screenLabel : '' });
           } else {
             throw new Error((json && json.message) || 'Submission failed');
           }
@@ -425,4 +456,82 @@
         });
     });
   });
+
+  // ---------------------------------------------------------------------
+  // Formula: fill the track and light each node as the section scrolls.
+  // ---------------------------------------------------------------------
+  var fx = document.querySelector('[data-formula]');
+  if (fx) {
+    var fxSteps = fx.querySelectorAll('.fx-step');
+    var fxList = fx.querySelector('.fx-steps');
+    var paint = function (p) {
+      fx.style.setProperty('--p', p.toFixed(3));
+      fxSteps.forEach(function (el, i) {
+        el.classList.toggle('is-on', p >= i / (fxSteps.length - 1) - 0.001);
+      });
+    };
+    if (reduceMotion) paint(1);
+    else {
+      var fxTick = false;
+      var fxUpdate = function () {
+        fxTick = false;
+        var r = fxList.getBoundingClientRect();
+        var vh = window.innerHeight;
+        var p = (vh * 0.62 - r.top) / Math.max(r.height, 1);
+        paint(Math.min(1, Math.max(0, p)));
+      };
+      window.addEventListener('scroll', function () {
+        if (!fxTick) { fxTick = true; requestAnimationFrame(fxUpdate); }
+      }, { passive: true });
+      window.addEventListener('resize', fxUpdate);
+      fxUpdate();
+    }
+  }
+
+  // ---------------------------------------------------------------------
+  // How it works: on desktop the sticky screens follow the active step.
+  // ---------------------------------------------------------------------
+  var walk = document.querySelector('[data-walk]');
+  if (walk) {
+    var sets = walk.querySelectorAll('.walk-set');
+    var wsteps = walk.querySelectorAll('[data-walk-step]');
+    var setActive = function (i) {
+      sets.forEach(function (s, j) { s.classList.toggle('is-active', j === i); });
+      wsteps.forEach(function (s, j) { s.classList.toggle('is-active', j === i); });
+    };
+    setActive(0);
+    var wio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) setActive(Number(e.target.getAttribute('data-walk-step')));
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    wsteps.forEach(function (s) { wio.observe(s); });
+  }
+
+  // ---------------------------------------------------------------------
+  // Sticky mobile CTA: shown once the hero form has scrolled away, hidden
+  // again while the closing form is on screen. Tapping it returns to the
+  // hero goal field rather than skipping the goal step.
+  // ---------------------------------------------------------------------
+  var sticky = document.querySelector('[data-sticky-cta]');
+  var heroForm = document.getElementById('join');
+  var finalCta = document.getElementById('join-final');
+  if (sticky && heroForm && finalCta) {
+    var heroVisible = true, finalVisible = false, done = false;
+    var syncSticky = function () {
+      var on = !heroVisible && !finalVisible && !done;
+      sticky.classList.toggle('show', on);
+      sticky.setAttribute('aria-hidden', on ? 'false' : 'true');
+      sticky.tabIndex = on ? 0 : -1;
+    };
+    new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; syncSticky(); }).observe(heroForm);
+    new IntersectionObserver(function (e) { finalVisible = e[0].isIntersecting; syncSticky(); }, { rootMargin: '0px 0px -10% 0px' }).observe(finalCta);
+    document.addEventListener('waitlist:done', function () { done = true; syncSticky(); });
+    sticky.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      heroForm.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+      var goal = document.getElementById('goal-input');
+      if (goal && !goal.closest('[hidden]')) setTimeout(function () { goal.focus({ preventScroll: true }); }, reduceMotion ? 0 : 600);
+    });
+  }
 })();

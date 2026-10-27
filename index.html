@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>vest self — Join the waitlist</title>
-<meta name="description" content="Vest Self — invest in your best self. AI breaks down any goal into daily steps, verifies your progress, and turns it into momentum. Join the private beta waitlist." />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Vest Self | The accountability app that helps you follow through</title>
+<meta name="description" content="You have the ambition. Vest Self brings the accountability. Turn the goal you keep putting off into a real commitment, with a clear plan, people in your corner and a reason to keep showing up. Join the waitlist." />
 <link rel="canonical" href="https://www.vestself.app/" />
 <meta name="theme-color" content="#0A0A0F" />
+
+<!-- Placeholders ([data-placeholder]) are visible on localhost and Vercel previews
+     and hidden on the production domain. Add ?prod-view to any URL to preview
+     exactly what production would show. -->
+<script>(function(d,l){if(/(^|\.)vestself\.app$/.test(l.hostname)||/[?&]prod-view/.test(l.search))d.documentElement.classList.add('is-prod');d.documentElement.classList.add('js');})(document,location);</script>
 
 <!-- ===== Social preview (Open Graph / Twitter) =====
      The card is assets/og/og-app-v2.jpg, 1200x630, built from assets/og/_source.og-app-v2.html.
@@ -16,36 +21,111 @@
 <meta property="og:site_name" content="Vest Self" />
 <meta property="og:locale" content="en_GB" />
 <meta property="og:url" content="https://www.vestself.app/" />
-<meta property="og:title" content="Vest Self — Invest in your best self." />
-<meta property="og:description" content="AI breaks any goal into daily steps, verifies your progress, and turns it into momentum. Join the private beta waitlist." />
+<meta property="og:title" content="Vest Self | Invest in your best self." />
+<meta property="og:description" content="You have the ambition. We bring the accountability. A clear plan, people in your corner and a reason to keep showing up. Join the waitlist." />
 <meta property="og:image" content="https://www.vestself.app/assets/og/og-app-v2.jpg" />
 <meta property="og:image:secure_url" content="https://www.vestself.app/assets/og/og-app-v2.jpg" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Three screens from the Vest Self app — a daily plan with progress, live activity tracking, and money invested in your goal." />
+<meta property="og:image:alt" content="Three screens from the Vest Self app: a daily plan with progress, live activity tracking, and money invested in your goal." />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Vest Self — Invest in your best self." />
-<meta name="twitter:description" content="AI breaks any goal into daily steps, verifies your progress, and turns it into momentum. Join the private beta waitlist." />
+<meta name="twitter:title" content="Vest Self | Invest in your best self." />
+<meta name="twitter:description" content="You have the ambition. We bring the accountability. A clear plan, people in your corner and a reason to keep showing up." />
 <meta name="twitter:image" content="https://www.vestself.app/assets/og/og-app-v2.jpg" />
-<meta name="twitter:image:alt" content="Three screens from the Vest Self app — a daily plan with progress, live activity tracking, and money invested in your goal." />
+<meta name="twitter:image:alt" content="Three screens from the Vest Self app: a daily plan with progress, live activity tracking, and money invested in your goal." />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.vestself.app/#org",
+      "name": "Vest Self",
+      "url": "https://www.vestself.app/",
+      "logo": "https://www.vestself.app/assets/logo-icon.svg",
+      "email": "hello@vestself.app",
+      "slogan": "Invest in your best self.",
+      "sameAs": [
+        "https://www.instagram.com/vestself",
+        "https://www.threads.com/@vestself",
+        "https://www.tiktok.com/@vestself",
+        "https://www.linkedin.com/company/vestself/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.vestself.app/#website",
+      "url": "https://www.vestself.app/",
+      "name": "Vest Self",
+      "description": "The accountability app that helps you follow through on the goals that matter to you.",
+      "publisher": { "@id": "https://www.vestself.app/#org" },
+      "inLanguage": "en-GB"
+    }
+  ]
+}
+</script>
+
 <link rel="icon" href="assets/logo-icon.svg" />
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
-<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/thin/style.css" />
+<link rel="preload" href="assets/fonts/Satoshi-Bold.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="assets/fonts/Satoshi-Medium.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" as="image" href="assets/img/hero-bg-2400.webp" media="(min-width: 1441px)" />
+<link rel="preload" as="image" href="assets/img/hero-bg-1440.webp" media="(min-width: 601px) and (max-width: 1440px)" />
+<link rel="preload" as="image" href="assets/img/hero-bg-mobile.webp" media="(max-width: 600px)" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/tokens.css" />
-<link rel="stylesheet" href="css/styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/tokens.css?v=20261027c" />
+<link rel="stylesheet" href="css/styles.css?v=20261027c" />
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+<symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
+<symbol id="i-arrow-right" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></symbol>
+<symbol id="i-at" viewBox="0 0 256 256"><path d="M128,24a104,104,0,0,0,0,208c21.51,0,44.1-6.48,60.43-17.33a8,8,0,0,0-8.86-13.33C166,210.38,146.21,216,128,216a88,88,0,1,1,88-88c0,26.45-10.88,32-20,32s-20-5.55-20-32V88a8,8,0,0,0-16,0v4.26a48,48,0,1,0,5.93,65.1c6,12,16.35,18.64,30.07,18.64,22.54,0,36-17.94,36-48A104.11,104.11,0,0,0,128,24Zm0,136a32,32,0,1,1,32-32A32,32,0,0,1,128,160Z"/></symbol>
+<symbol id="i-barbell" viewBox="0 0 256 256"><path d="M248,120h-8V88a16,16,0,0,0-16-16H208V64a16,16,0,0,0-16-16H168a16,16,0,0,0-16,16v56H104V64A16,16,0,0,0,88,48H64A16,16,0,0,0,48,64v8H32A16,16,0,0,0,16,88v32H8a8,8,0,0,0,0,16h8v32a16,16,0,0,0,16,16H48v8a16,16,0,0,0,16,16H88a16,16,0,0,0,16-16V136h48v56a16,16,0,0,0,16,16h24a16,16,0,0,0,16-16v-8h16a16,16,0,0,0,16-16V136h8a8,8,0,0,0,0-16ZM32,168V88H48v80Zm56,24H64V64H88V192Zm104,0H168V64h24V175.82c0,.06,0,.12,0,.18s0,.12,0,.18V192Zm32-24H208V88h16Z"/></symbol>
+<symbol id="i-book-open" viewBox="0 0 256 256"><path d="M232,48H160a40,40,0,0,0-32,16A40,40,0,0,0,96,48H24a8,8,0,0,0-8,8V200a8,8,0,0,0,8,8H96a24,24,0,0,1,24,24,8,8,0,0,0,16,0,24,24,0,0,1,24-24h72a8,8,0,0,0,8-8V56A8,8,0,0,0,232,48ZM96,192H32V64H96a24,24,0,0,1,24,24V200A39.81,39.81,0,0,0,96,192Zm128,0H160a39.81,39.81,0,0,0-24,8V88a24,24,0,0,1,24-24h64Z"/></symbol>
+<symbol id="i-briefcase" viewBox="0 0 256 256"><path d="M216,56H176V48a24,24,0,0,0-24-24H104A24,24,0,0,0,80,48v8H40A16,16,0,0,0,24,72V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V72A16,16,0,0,0,216,56ZM96,48a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM216,72v41.61A184,184,0,0,1,128,136a184.07,184.07,0,0,1-88-22.38V72Zm0,128H40V131.64A200.19,200.19,0,0,0,128,152a200.25,200.25,0,0,0,88-20.37V200ZM104,112a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H112A8,8,0,0,1,104,112Z"/></symbol>
+<symbol id="i-calendar-check" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-38.34-85.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35A8,8,0,0,1,169.66,122.34Z"/></symbol>
+<symbol id="i-caret-down" viewBox="0 0 256 256"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
+<symbol id="i-chat-circle-dots" viewBox="0 0 256 256"><path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"/></symbol>
+<symbol id="i-check-circle" viewBox="0 0 256 256"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></symbol>
+<symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+<symbol id="i-clock-countdown" viewBox="0 0 256 256"><path d="M232,136.66A104.12,104.12,0,1,1,119.34,24,8,8,0,0,1,120.66,40,88.12,88.12,0,1,0,216,135.34,8,8,0,0,1,232,136.66ZM120,72v56a8,8,0,0,0,8,8h56a8,8,0,0,0,0-16H136V72a8,8,0,0,0-16,0Zm40-24a12,12,0,1,0-12-12A12,12,0,0,0,160,48Zm36,24a12,12,0,1,0-12-12A12,12,0,0,0,196,72Zm24,36a12,12,0,1,0-12-12A12,12,0,0,0,220,108Z"/></symbol>
+<symbol id="i-clock" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></symbol>
+<symbol id="i-coins" viewBox="0 0 256 256"><path d="M184,89.57V84c0-25.08-37.83-44-88-44S8,58.92,8,84v40c0,20.89,26.25,37.49,64,42.46V172c0,25.08,37.83,44,88,44s88-18.92,88-44V132C248,111.3,222.58,94.68,184,89.57ZM232,132c0,13.22-30.79,28-72,28-3.73,0-7.43-.13-11.08-.37C170.49,151.77,184,139,184,124V105.74C213.87,110.19,232,122.27,232,132ZM72,150.25V126.46A183.74,183.74,0,0,0,96,128a183.74,183.74,0,0,0,24-1.54v23.79A163,163,0,0,1,96,152,163,163,0,0,1,72,150.25Zm96-40.32V124c0,8.39-12.41,17.4-32,22.87V123.5C148.91,120.37,159.84,115.71,168,109.93ZM96,56c41.21,0,72,14.78,72,28s-30.79,28-72,28S24,97.22,24,84,54.79,56,96,56ZM24,124V109.93c8.16,5.78,19.09,10.44,32,13.57v23.37C36.41,141.4,24,132.39,24,124Zm64,48v-4.17c2.63.1,5.29.17,8,.17,3.88,0,7.67-.13,11.39-.35A121.92,121.92,0,0,0,120,171.41v23.46C100.41,189.4,88,180.39,88,172Zm48,26.25V174.4a179.48,179.48,0,0,0,24,1.6,183.74,183.74,0,0,0,24-1.54v23.79a165.45,165.45,0,0,1-48,0Zm64-3.38V171.5c12.91-3.13,23.84-7.79,32-13.57V172C232,180.39,219.59,189.4,200,194.87Z"/></symbol>
+<symbol id="i-crown-simple" viewBox="0 0 256 256"><path d="M230.9,73.6A15.85,15.85,0,0,0,212,77.39l-33.67,36.29-35.8-80.29a1,1,0,0,1,0-.1,16,16,0,0,0-29.06,0,1,1,0,0,1,0,.1l-35.8,80.29L44,77.39A16,16,0,0,0,16.25,90.81c0,.11,0,.21.07.32L39,195a16,16,0,0,0,15.72,13H201.29A16,16,0,0,0,217,195L239.68,91.13c0-.11,0-.21.07-.32A15.85,15.85,0,0,0,230.9,73.6ZM201.35,191.68l-.06.32H54.71l-.06-.32L32,88l.14.16,42,45.24a8,8,0,0,0,13.18-2.18L128,40l40.69,91.25a8,8,0,0,0,13.18,2.18l42-45.24L224,88Z"/></symbol>
+<symbol id="i-envelope-simple" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
+<symbol id="i-film-strip" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40ZM40,88h80v80H40Zm96-16V56h32V72Zm-16,0H88V56h32Zm0,112v16H88V184Zm16,0h32v16H136Zm0-16V88h80v80Zm80-96H184V56h32ZM72,56V72H40V56ZM40,184H72v16H40Zm176,16H184V184h32v16Z"/></symbol>
+<symbol id="i-fire" viewBox="0 0 256 256"><path d="M183.89,153.34a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68ZM216,144a88,88,0,0,1-176,0c0-27.92,11-56.47,32.66-84.85a8,8,0,0,1,11.93-.89l24.12,23.41,22-60.41a8,8,0,0,1,12.63-3.41C165.21,36,216,84.55,216,144Zm-16,0c0-46.09-35.79-85.92-58.21-106.33L119.52,98.74a8,8,0,0,1-13.09,3L80.06,76.16C64.09,99.21,56,122,56,144a72,72,0,0,0,144,0Z"/></symbol>
+<symbol id="i-handshake" viewBox="0 0 256 256"><path d="M254.3,107.91,228.78,56.85a16,16,0,0,0-21.47-7.15L182.44,62.13,130.05,48.27a8.14,8.14,0,0,0-4.1,0L73.56,62.13,48.69,49.7a16,16,0,0,0-21.47,7.15L1.7,107.9a16,16,0,0,0,7.15,21.47l27,13.51,55.49,39.63a8.06,8.06,0,0,0,2.71,1.25l64,16a8,8,0,0,0,7.6-2.1l55.07-55.08,26.42-13.21a16,16,0,0,0,7.15-21.46Zm-54.89,33.37L165,113.72a8,8,0,0,0-10.68.61C136.51,132.27,116.66,130,104,122L147.24,80h31.81l27.21,54.41ZM41.53,64,62,74.22,36.43,125.27,16,115.06Zm116,119.13L99.42,168.61l-49.2-35.14,28-56L128,64.28l9.8,2.59-45,43.68-.08.09a16,16,0,0,0,2.72,24.81c20.56,13.13,45.37,11,64.91-5L188,152.66Zm62-57.87-25.52-51L214.47,64,240,115.06Zm-87.75,92.67a8,8,0,0,1-7.75,6.06,8.13,8.13,0,0,1-1.95-.24L80.41,213.33a7.89,7.89,0,0,1-2.71-1.25L51.35,193.26a8,8,0,0,1,9.3-13l25.11,17.94L126,208.24A8,8,0,0,1,131.82,217.94Z"/></symbol>
+<symbol id="i-heart" viewBox="0 0 256 256"><path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"/></symbol>
+<symbol id="i-hourglass-medium" viewBox="0 0 256 256"><path d="M200,75.64V40a16,16,0,0,0-16-16H72A16,16,0,0,0,56,40V76a16.07,16.07,0,0,0,6.4,12.8L114.67,128,62.4,167.2A16.07,16.07,0,0,0,56,180v36a16,16,0,0,0,16,16H184a16,16,0,0,0,16-16V180.36a16.09,16.09,0,0,0-6.35-12.77L141.27,128l52.38-39.6A16.05,16.05,0,0,0,200,75.64ZM72,40H184V75.64L178.23,80H77.33L72,76Zm56,78L98.67,96h58.4Zm56,98H72V180l48-36v24a8,8,0,0,0,16,0V144.08l48,36.28Z"/></symbol>
+<symbol id="i-instagram-logo" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></symbol>
+<symbol id="i-lightning" viewBox="0 0 256 256"><path d="M215.79,118.17a8,8,0,0,0-5-5.66L153.18,90.9l14.66-73.33a8,8,0,0,0-13.69-7l-112,120a8,8,0,0,0,3,13l57.63,21.61L88.16,238.43a8,8,0,0,0,13.69,7l112-120A8,8,0,0,0,215.79,118.17ZM109.37,214l10.47-52.38a8,8,0,0,0-5-9.06L62,132.71l84.62-90.66L136.16,94.43a8,8,0,0,0,5,9.06l52.8,19.8Z"/></symbol>
+<symbol id="i-linkedin-logo" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></symbol>
+<symbol id="i-list-checks" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128ZM128,72h88a8,8,0,0,0,0-16H128a8,8,0,0,0,0,16Zm88,112H128a8,8,0,0,0,0,16h88a8,8,0,0,0,0-16ZM82.34,42.34,56,68.69,45.66,58.34A8,8,0,0,0,34.34,69.66l16,16a8,8,0,0,0,11.32,0l32-32A8,8,0,0,0,82.34,42.34Zm0,64L56,132.69,45.66,122.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Zm0,64L56,196.69,45.66,186.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32,0l32-32a8,8,0,0,0-11.32-11.32Z"/></symbol>
+<symbol id="i-path" viewBox="0 0 256 256"><path d="M200,168a32.06,32.06,0,0,0-31,24H72a32,32,0,0,1,0-64h96a40,40,0,0,0,0-80H72a8,8,0,0,0,0,16h96a24,24,0,0,1,0,48H72a48,48,0,0,0,0,96h97a32,32,0,1,0,31-40Zm0,48a16,16,0,1,1,16-16A16,16,0,0,1,200,216Z"/></symbol>
+<symbol id="i-rocket-launch" viewBox="0 0 256 256"><path d="M223.85,47.12a16,16,0,0,0-15-15c-12.58-.75-44.73.4-71.41,27.07L132.69,64H74.36A15.91,15.91,0,0,0,63,68.68L28.7,103a16,16,0,0,0,9.07,27.16l38.47,5.37,44.21,44.21,5.37,38.49a15.94,15.94,0,0,0,10.78,12.92,16.11,16.11,0,0,0,5.1.83A15.91,15.91,0,0,0,153,227.3L187.32,193A15.91,15.91,0,0,0,192,181.64V123.31l4.77-4.77C223.45,91.86,224.6,59.71,223.85,47.12ZM74.36,80h42.33L77.16,119.52,40,114.34Zm74.41-9.45a76.65,76.65,0,0,1,59.11-22.47,76.46,76.46,0,0,1-22.42,59.16L128,164.68,91.32,128ZM176,181.64,141.67,216l-5.19-37.17L176,139.31Zm-74.16,9.5C97.34,201,82.29,224,40,224a8,8,0,0,1-8-8c0-42.29,23-57.34,32.86-61.85a8,8,0,0,1,6.64,14.56c-6.43,2.93-20.62,12.36-23.12,38.91,26.55-2.5,36-16.69,38.91-23.12a8,8,0,1,1,14.56,6.64Z"/></symbol>
+<symbol id="i-seal-check" viewBox="0 0 256 256"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></symbol>
+<symbol id="i-shield-check" viewBox="0 0 256 256"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></symbol>
+<symbol id="i-sparkle" viewBox="0 0 256 256"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></symbol>
+<symbol id="i-target" viewBox="0 0 256 256"><path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32l-96,96a8,8,0,0,1-11.32-11.32l27.72-27.72a40,40,0,1,0,17.87,31.09,8,8,0,1,1,16-.9,56,56,0,1,1-22.38-41.65L184.3,60.39a87.88,87.88,0,1,0,23.13,29.67,8,8,0,0,1,14.44-6.9Z"/></symbol>
+<symbol id="i-tiktok-logo" viewBox="0 0 256 256"><path d="M224,72a48.05,48.05,0,0,1-48-48,8,8,0,0,0-8-8H128a8,8,0,0,0-8,8V156a20,20,0,1,1-28.57-18.08A8,8,0,0,0,96,130.69V88a8,8,0,0,0-9.4-7.88C50.91,86.48,24,119.1,24,156a76,76,0,0,0,152,0V116.29A103.25,103.25,0,0,0,224,128a8,8,0,0,0,8-8V80A8,8,0,0,0,224,72Zm-8,39.64a87.19,87.19,0,0,1-43.33-16.15A8,8,0,0,0,160,102v54a60,60,0,0,1-120,0c0-25.9,16.64-49.13,40-57.6v27.67A36,36,0,1,0,136,156V32h24.5A64.14,64.14,0,0,0,216,87.5Z"/></symbol>
+<symbol id="i-translate" viewBox="0 0 256 256"><path d="M247.15,212.42l-56-112a8,8,0,0,0-14.31,0l-21.71,43.43A88,88,0,0,1,108,126.93,103.65,103.65,0,0,0,135.69,64H160a8,8,0,0,0,0-16H104V32a8,8,0,0,0-16,0V48H32a8,8,0,0,0,0,16h87.63A87.76,87.76,0,0,1,96,116.35a87.74,87.74,0,0,1-19-31,8,8,0,1,0-15.08,5.34A103.63,103.63,0,0,0,84,127a87.55,87.55,0,0,1-52,17,8,8,0,0,0,0,16,103.46,103.46,0,0,0,64-22.08,104.18,104.18,0,0,0,51.44,21.31l-26.6,53.19a8,8,0,0,0,14.31,7.16L148.94,192h70.11l13.79,27.58A8,8,0,0,0,240,224a8,8,0,0,0,7.15-11.58ZM156.94,176,184,121.89,211.05,176Z"/></symbol>
+<symbol id="i-user-plus" viewBox="0 0 256 256"><path d="M256,136a8,8,0,0,1-8,8H232v16a8,8,0,0,1-16,0V144H200a8,8,0,0,1,0-16h16V112a8,8,0,0,1,16,0v16h16A8,8,0,0,1,256,136Zm-57.87,58.85a8,8,0,0,1-12.26,10.3C165.75,181.19,138.09,168,108,168s-57.75,13.19-77.87,37.15a8,8,0,0,1-12.25-10.3c14.94-17.78,33.52-30.41,54.17-37.17a68,68,0,1,1,71.9,0C164.6,164.44,183.18,177.07,198.13,194.85ZM108,152a52,52,0,1,0-52-52A52.06,52.06,0,0,0,108,152Z"/></symbol>
+<symbol id="i-users-three" viewBox="0 0 256 256"><path d="M244.8,150.4a8,8,0,0,1-11.2-1.6A51.6,51.6,0,0,0,192,128a8,8,0,0,1-7.37-4.89,8,8,0,0,1,0-6.22A8,8,0,0,1,192,112a24,24,0,1,0-23.24-30,8,8,0,1,1-15.5-4A40,40,0,1,1,219,117.51a67.94,67.94,0,0,1,27.43,21.68A8,8,0,0,1,244.8,150.4ZM190.92,212a8,8,0,1,1-13.84,8,57,57,0,0,0-98.16,0,8,8,0,1,1-13.84-8,72.06,72.06,0,0,1,33.74-29.92,48,48,0,1,1,58.36,0A72.06,72.06,0,0,1,190.92,212ZM128,176a32,32,0,1,0-32-32A32,32,0,0,0,128,176ZM72,120a8,8,0,0,0-8-8A24,24,0,1,1,87.24,82a8,8,0,1,0,15.5-4A40,40,0,1,0,37,117.51,67.94,67.94,0,0,0,9.6,139.19a8,8,0,1,0,12.8,9.61A51.6,51.6,0,0,1,64,128,8,8,0,0,0,72,120Z"/></symbol>
+<symbol id="vs-chevron" viewBox="0 0 151 93"><path d="M0.947821 6.67397C-1.24263 4.07245 0.606766 0.0976436 4.00765 0.0976436H35.4106C35.4106 0.0976436 53.4106 -1.88088 53.4106 11.9743C53.4106 16.2489 48.398 22.4084 45.4707 25.6412C44.8259 26.3532 45.4337 27.6125 46.393 27.5629C51.1513 27.3166 60.4304 27.4677 65.4106 31.7688C69.3875 35.2033 72.798 41.8427 74.413 45.3333C74.7911 46.1504 76.0302 46.1504 76.4083 45.3333C78.0233 41.8427 81.4338 35.2033 85.4106 31.7688C90.4134 27.4483 99.754 27.3153 104.493 27.5662C105.445 27.6167 106.05 26.3777 105.417 25.6643C102.55 22.437 97.5865 16.2559 97.4106 11.9743C96.8414 -1.88088 115.411 0.0976436 115.411 0.0976436H146.814C150.215 0.0976436 152.064 4.07245 149.873 6.67397L78.4705 91.4771C76.8722 93.3753 73.9491 93.3753 72.3508 91.4771L0.947821 6.67397Z" fill="#E6C15A"></path></symbol>
+</svg>
+<a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ===================== HEADER ===================== -->
   <header class="header">
     <div class="shell">
-      <a class="brand" href="#top" aria-label="vest self home">
+      <a class="brand" href="#top" aria-label="Vest Self home">
         <svg class="wm-img" viewBox="0 0 470 80" fill="none" role="img" aria-label="vest self" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_292_2956)">
 <path fill="#FFFCF5" d="M56.1111 20.5413C59.7701 20.3673 62.6291 20.2849 66.28 20.4397C65.0175 25.5209 59.4782 38.4819 57.2498 43.8567C52.3562 55.6592 47.7735 68.1473 42.8171 79.8342C38.7705 79.8255 24.5153 81.2309 23.0173 77.8118C18.3405 67.1281 13.9947 55.5088 9.47144 44.7473C6.14137 36.8262 2.9816 28.8232 -0.00610352 20.7463C6.45294 20.4724 13.5976 20.5937 20.1082 20.5676C24.4183 30.2743 29.5876 46.7674 33.5886 57.5803C35.4228 53.3628 36.9894 48.2147 38.5623 43.801C41.3437 36.0466 44.216 28.3296 47.1785 20.6526C50.0882 20.5543 53.1835 20.5756 56.1111 20.5413ZM88.9324 19.9055C97.9902 18.261 109.612 21.5551 115.741 28.5266C123.059 36.8524 122.279 45.2763 121.67 55.4749C108.645 55.031 94.1917 55.3146 81.1111 55.3694C81.3002 55.8506 81.4961 56.3288 81.699 56.804C87.3558 70.0055 108.306 64.7183 118.285 60.3899L118.581 60.5598C119.593 62.5978 119.709 72.0685 118.486 73.9504C114.858 76.9633 108.604 78.44 103.873 79.2532C86.3394 82.2128 66.911 74.5687 63.6853 55.3977C60.6947 37.6226 71.0134 22.6787 88.9324 19.9055ZM147.469 19.9543C154.919 18.3398 167.577 20.839 174.796 23.468C175.03 28.8034 174.747 32.6141 175.348 37.9778C173.46 38.0915 170.066 36.5633 168.069 36.2122C163.05 35.3296 144.812 31.137 143.297 38.094C145.935 46.0187 179.718 38.3484 180.005 58.3157C180.247 75.2814 167.464 78.4838 154.025 79.7473C153.7 79.7497 153.375 79.7484 153.051 79.7444C146.965 79.6702 132.154 78.6151 127.07 74.2473C125.126 72.5766 125.774 62.6121 125.834 59.3792C128.571 60.5705 131.772 61.656 134.594 62.595C140.246 64.4761 160.258 68.119 162.553 60.5774C159.756 53.621 126.344 59.2144 126.033 40.8977C125.797 26.9968 135.132 21.1288 147.469 19.9543ZM208.353 1.25415C208.103 6.90292 208.232 15.351 208.111 20.9446C215.854 21.1579 224.008 21.0324 231.767 20.9788L231.909 36.2297C225.941 35.7169 214.575 36.0775 208.151 35.9993C208.542 44.2805 206.989 53.0733 210.261 60.4338C216.354 66.0903 225.143 64.0943 231.933 61.1702C231.865 64.807 231.925 68.6441 231.925 72.2991L231.896 77.0979C220.461 80.6497 204.713 81.0842 195.562 72.2727C187.38 64.3933 189.559 46.5126 189.688 35.8577L183.018 36.2952C182.655 32.1385 182.78 25.4726 182.748 21.0999L189.583 20.9973L189.535 1.64087C193.433 1.36151 199.412 1.45846 203.451 1.37622L208.353 1.25415ZM106.899 44.4905C104.228 36.6618 100.077 34.0133 91.7546 34.4358C85.6608 35.3724 82.4174 38.4501 81.0291 44.3997L96.8738 44.4524L106.899 44.4905Z" fill="#FFFCF5"></path>
@@ -58,216 +138,450 @@
 </defs>
 </svg>
       </a>
-      <a class="btn-gold" href="#join">Join the waitlist.</a>
+      <a class="btn-gold btn-sm" href="#join" data-track="header_cta">Join the waitlist</a>
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
-  <section class="hero" id="top" data-screen-label="Hero">
+<main id="main">
+
+  <!-- ===================== 1. HERO =====================
+       The background portraits are kept from the original site (and shared with
+       the app's splash screen). The hero form is TWO STEPS: goal, then email.
+       The bottom CTA form is deliberately email-only. See CLAUDE.md. -->
+  <section class="hero" id="top" data-screen-label="Hero" aria-labelledby="hero-title">
     <div class="hero-bg" aria-hidden="true"></div>
     <div class="hero-scrim" aria-hidden="true"></div>
 
-    <div class="goal-card gc-left" data-reveal aria-hidden="true">
-      <div class="lbl">Your goal</div>
-      <div class="q">"I want to run a marathon."</div>
-    </div>
-    <div class="goal-card gc-right" data-reveal aria-hidden="true">
-      <div class="lbl">Your goal</div>
-      <div class="q">"I want to launch my own business."</div>
-    </div>
-    <img class="task-card tc-left" src="assets/hero/task-run.png" alt="" data-reveal aria-hidden="true" />
-    <img class="task-card tc-right" src="assets/hero/task-business.png" alt="" data-reveal aria-hidden="true" />
-
     <div class="hero-inner">
-      <img class="hero-icon" src="assets/logo-icon.svg" alt="vest self" />
-      <div class="hero-stack">
-        <div class="hero-head">
-          <h1>Invest in your <span class="g">best self</span>.</h1>
-          <p class="sub">The app that makes sure you actually follow through. Join the waitlist to be the first to know when we launch.</p>
-        </div>
-        <div class="hero-join">
-          <div class="hero-form" id="join">
-            <!-- Hero form is TWO STEPS: goal, then email. The bottom CTA form is
-                 deliberately still email-only — see CLAUDE.md. -->
-            <form class="wl-form wl-form--steps" data-waitlist data-goal-flow novalidate>
-              <input type="hidden" name="access_key" value="9aafcadd-8120-4a13-9a49-c5b44d314265" />
-              <input type="hidden" name="subject" value="Vest Self Waitlist" />
-              <input type="hidden" name="from_name" value="Vest Self" />
-              <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+      <img class="hero-icon" src="assets/logo-icon.svg" alt="" width="67" height="40" />
+      <p class="eyebrow eyebrow--gold">The accountability app</p>
+      <h1 id="hero-title">What if this time, you <span class="g">actually followed through?</span></h1>
+      <p class="sub">You have the ambition. We bring the accountability. Turn the goal you've been putting off into a real commitment, with a clear path forward, people in your corner, and a reason to keep showing up.</p>
 
-              <div class="wl-step" data-step="goal">
+      <div class="hero-join">
+        <div class="hero-form" id="join">
+          <form class="wl-form wl-form--steps" data-waitlist data-goal-flow novalidate>
+            <input type="hidden" name="access_key" value="9aafcadd-8120-4a13-9a49-c5b44d314265" />
+            <input type="hidden" name="subject" value="Vest Self Waitlist" />
+            <input type="hidden" name="from_name" value="Vest Self" />
+            <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
+
+            <div class="wl-step" data-step="goal">
+              <label class="wl-label" id="goal-label" for="goal-input">What's one dream you're ready to make real?</label>
+              <div class="wl-row">
                 <div class="goal-combo">
-                  <label class="field">
-                    <span class="sr-only" id="goal-label">What do you want to achieve?</span>
-                    <input type="text" name="goal" id="goal-input" placeholder="What do you want to achieve?"
+                  <div class="field">
+                    <input type="text" name="goal" id="goal-input" placeholder="I want to..."
                            autocomplete="off" autocapitalize="sentences" spellcheck="false" maxlength="140"
                            role="combobox" aria-expanded="false" aria-controls="goal-listbox"
-                           aria-autocomplete="list" aria-labelledby="goal-label" aria-describedby="goal-hint" />
-                  </label>
+                           aria-autocomplete="list" aria-describedby="goal-hint" />
+                  </div>
                   <ul class="goal-suggest" id="goal-listbox" role="listbox" aria-labelledby="goal-label" hidden></ul>
                   <p class="sr-only" id="goal-hint" aria-live="polite" data-goal-status></p>
                 </div>
-                <button class="btn-gold" type="button" data-goal-next>I'm in.</button>
+                <button class="btn-gold btn-lg" type="button" data-goal-next>Let's make it happen <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
               </div>
-
-              <div class="wl-step" data-step="email" hidden>
-                <label class="field"><input type="email" name="email" placeholder="your@email.com" autocomplete="email" required /></label>
-                <button class="btn-gold" type="submit">Join the waitlist.</button>
-              </div>
-            </form>
-            <p class="wl-note" data-goal-note hidden>Where should we send your invite? <button type="button" data-goal-back>Change goal</button></p>
-            <div class="wl-success" data-success style="margin-top:12px;">
-              <img class="ic-logo" src="assets/logo-icon.svg" alt="" />
-              <div><div class="tt">You're on the list. <i class="ph ph-check"></i></div><div class="ss">You're one of our founding members — we'll prioritise your early access.</div></div>
             </div>
-            <p class="wl-error" data-error role="alert">Something went wrong. Please try again.</p>
+
+            <div class="wl-step" data-step="email" hidden>
+              <label class="wl-label" for="hero-email">Where should we send your early access?</label>
+              <div class="wl-row">
+                <div class="field"><input type="email" id="hero-email" name="email" placeholder="your@email.com" autocomplete="email" required /></div>
+                <button class="btn-gold btn-lg" type="submit">Join the waitlist</button>
+              </div>
+            </div>
+          </form>
+          <p class="wl-note" data-goal-note hidden>Your goal: <b data-goal-echo></b> <button type="button" data-goal-back>Change</button></p>
+          <div class="wl-success" data-success role="status">
+            <img class="ic-logo" src="assets/logo-icon.svg" alt="" width="30" height="18" />
+            <div><div class="tt">You're on the list. <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div><div class="ss">We'll email you as soon as early access opens. You're one of our founding members.</div></div>
           </div>
-          <p class="hero-microcopy">Founding members get early beta access, premium features and direct input.</p>
+          <p class="wl-error" data-error role="alert">Something went wrong. Please try again.</p>
         </div>
+        <p class="hero-microcopy">Free to start. No money required.</p>
       </div>
+    </div>
+
+    <!-- Real app UI: Home screen (Figma 507:4749) and the shipped goal/task cards. -->
+    <div class="hero-device" aria-label="The Vest Self app">
+      <div class="hero-quote hq-left" data-reveal aria-hidden="true">
+        <div class="lbl">Your goal</div>
+        <div class="q">"I want to run a marathon."</div>
+      </div>
+      <img class="hero-task ht-left" src="assets/img/task-run.webp" alt="" width="361" height="90" data-reveal aria-hidden="true" />
+      <figure class="screen screen--hero" data-reveal>
+        <img src="assets/app/home-393.webp" srcset="assets/app/home-393.webp 393w, assets/app/home.webp 786w" sizes="(max-width: 600px) 74vw, 340px" width="393" height="852" alt="Vest Self home screen: today's progress at 100%, a 14-day streak and every task checked off." fetchpriority="low" decoding="async" />
+      </figure>
+      <div class="hero-quote hq-right" data-reveal aria-hidden="true">
+        <div class="lbl">Your goal</div>
+        <div class="q">"I want to launch my own business."</div>
+      </div>
+      <img class="hero-task ht-right" src="assets/img/task-business.webp" alt="" width="361" height="90" data-reveal aria-hidden="true" />
     </div>
   </section>
 
-  <!-- ===================== STATS ===================== -->
-  <section class="stats" data-screen-label="Stats">
+  <!-- ===================== 2. RECOGNITION ===================== -->
+  <section class="recognition section" id="recognition" aria-labelledby="rec-title">
     <div class="shell">
-      <div class="stat" data-reveal><div class="n">AI</div><div class="l">Powered planning</div></div>
-      <div class="stat" data-reveal><div class="n inf">∞</div><div class="l">Goal types</div></div>
-      <div class="stat" data-reveal><div class="n">24/7</div><div class="l">Real-time tracking</div></div>
-      <div class="stat" data-reveal><div class="n">+1</div><div class="l">Accountability partner</div></div>
+      <h2 class="h2 center" id="rec-title" data-reveal>You show up for everyone else.<br /><span class="dim">What about yourself?</span></h2>
+
+      <div class="ledger-pair">
+        <article class="ledger ledger--others" data-reveal data-seq>
+          <header class="ledger-head">
+            <span class="eyebrow">For everyone else</span>
+            <span class="ledger-count">3 of 3 done</span>
+          </header>
+          <ul class="ledger-rows">
+            <li class="row"><span class="row-tag">Work</span><span class="row-title">Finish the client deck</span><span class="row-time">09:00</span><span class="row-state done"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Done</span></span></li>
+            <li class="row"><span class="row-tag">Friends</span><span class="row-title">Best friend's birthday dinner</span><span class="row-time">20:00</span><span class="row-state done"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Done</span></span></li>
+            <li class="row"><span class="row-tag">Obligations</span><span class="row-title">Help your sister move house</span><span class="row-time">Sat</span><span class="row-state done"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg><span class="sr-only">Done</span></span></li>
+          </ul>
+        </article>
+
+        <article class="ledger ledger--self" data-reveal data-seq>
+          <header class="ledger-head">
+            <span class="eyebrow eyebrow--gold">For yourself</span>
+            <span class="ledger-count">On hold</span>
+          </header>
+          <ul class="ledger-rows">
+            <li class="row"><span class="row-tag">Fitness</span><span class="row-title">Run three times this week</span><span class="row-time">Next week</span><span class="row-state later"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="sr-only">Postponed</span></span></li>
+            <li class="row"><span class="row-tag">Learning</span><span class="row-title">30 minutes of Spanish</span><span class="row-time">Tomorrow</span><span class="row-state later"><svg class="ic" aria-hidden="true"><use href="#i-clock"/></svg><span class="sr-only">Postponed</span></span></li>
+            <li class="row"><span class="row-tag">Dreams</span><span class="row-title">Start the business plan</span><span class="row-time">Someday</span><span class="row-state later"><svg class="ic" aria-hidden="true"><use href="#i-hourglass-medium"/></svg><span class="sr-only">Postponed</span></span></li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="rec-close" data-reveal>
+        <p class="statement">Your dreams deserve the <span class="g">same commitment.</span></p>
+        <p class="lede">We built Vest Self to make showing up for yourself feel just as real.</p>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== FEATURES ===================== -->
-  <section class="features" data-screen-label="Features">
-    <div class="feat-bg" aria-hidden="true"></div>
+  <!-- ===================== 3. THE FORMULA ===================== -->
+  <section class="formula section" id="formula" aria-labelledby="formula-title">
     <div class="shell">
-      <div class="feat-head" data-reveal>
-        <span class="badge">Discipline, designed</span>
-        <h2>Built to make goals happen</h2>
-        <p>Because knowing what to do is easy. Actually doing it is the hard part.</p>
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow eyebrow--gold">The Vest Self formula</p>
+        <h2 class="h2" id="formula-title">Big dreams don't happen by accident. Here's how you make them real.</h2>
+        <p class="lede">We've taken the guesswork out of getting started, and built the accountability that helps you finish what you start.</p>
       </div>
-      <div class="feat-grid">
-        <article class="feat-card" data-reveal>
-          <div class="fi"><i class="ph-thin ph-user-focus"></i></div>
-          <h3>Built around you</h3>
-          <p>Your goals, lifestyle and schedule shape a plan that actually fits your life.</p>
-        </article>
-        <article class="feat-card" data-reveal>
-          <div class="fi"><i class="ph-thin ph-check-circle"></i></div>
-          <h3>Keeps you accountable</h3>
-          <p>Stay on track with clear actions, check-ins and someone keeping you accountable.</p>
-        </article>
-        <article class="feat-card" data-reveal>
-          <div class="fi"><i class="ph-thin ph-coins"></i></div>
-          <h3>Real stakes. Real motivation.</h3>
-          <p>Put something on the line and earn up to 100% of your money back as you progress.</p>
-        </article>
-        <article class="feat-card" data-reveal>
-          <div class="fi"><i class="ph-thin ph-seal-check"></i></div>
-          <h3>Progress you can prove</h3>
-          <p>Verify your actions and turn every completed step into visible progress.</p>
-        </article>
-        <article class="feat-card" data-reveal>
-          <div class="fi"><i class="ph-thin ph-users-three"></i></div>
-          <h3>People in your corner</h3>
-          <p>Share the journey with an accountability partner and a community working toward their own goals.</p>
-        </article>
-        <article class="feat-card" data-reveal>
-          <div class="fi"><i class="ph-thin ph-arrows-clockwise"></i></div>
-          <h3>Adapts when life does</h3>
-          <p>Plans change. Vest Self helps you adjust without losing sight of the goal.</p>
-        </article>
+
+      <div class="fx" data-formula style="--p:0">
+        <div class="fx-roles" aria-hidden="true">
+          <span class="fx-role fx-role--you" style="--from:1;--to:2">You bring</span>
+          <span class="fx-role fx-role--app" style="--from:2;--to:6">Vest Self builds</span>
+          <span class="fx-role fx-role--you" style="--from:6;--to:7">You do</span>
+        </div>
+        <div class="fx-track" aria-hidden="true"><span class="fx-fill"></span></div>
+        <ol class="fx-steps">
+          <li class="fx-step is-you" data-step-i="0">
+            <span class="fx-node"><svg class="ic" aria-hidden="true"><use href="#i-sparkle"/></svg></span>
+            <span class="fx-who">You</span>
+            <h3 class="fx-name">Dream</h3>
+            <p class="fx-text">Tell us what you want to achieve.</p>
+            <span class="fx-chip fx-chip--quote">"I want to run a half marathon."</span>
+          </li>
+          <li class="fx-step is-app" data-step-i="1">
+            <span class="fx-node"><svg class="ic" aria-hidden="true"><use href="#i-target"/></svg></span>
+            <span class="fx-who">Vest Self</span>
+            <h3 class="fx-name">Goal</h3>
+            <p class="fx-text">We turn your ambition into something specific.</p>
+            <span class="fx-chip">Run 21.1 km by 15 March</span>
+          </li>
+          <li class="fx-step is-app" data-step-i="2">
+            <span class="fx-node"><svg class="ic" aria-hidden="true"><use href="#i-path"/></svg></span>
+            <span class="fx-who">Vest Self</span>
+            <h3 class="fx-name">Plan</h3>
+            <p class="fx-text">We map out the path to get there.</p>
+            <span class="fx-chip">12 weeks · 3 runs a week</span>
+          </li>
+          <li class="fx-step is-app" data-step-i="3">
+            <span class="fx-node"><svg class="ic" aria-hidden="true"><use href="#i-list-checks"/></svg></span>
+            <span class="fx-who">Vest Self</span>
+            <h3 class="fx-name">Steps</h3>
+            <p class="fx-text">We break the plan into actions you can take.</p>
+            <span class="fx-chip"><span class="mono">TUE</span> Easy run, 5 km</span>
+          </li>
+          <li class="fx-step is-app" data-step-i="4">
+            <span class="fx-node"><svg class="ic" aria-hidden="true"><use href="#i-users-three"/></svg></span>
+            <span class="fx-who">Vest Self</span>
+            <h3 class="fx-name">Accountability</h3>
+            <p class="fx-text">Friends, community, streaks, check-ins and optional stakes help you follow through.</p>
+            <span class="fx-chip"><svg class="ic ic-gold" aria-hidden="true"><use href="#i-fire"/></svg> Partner in · 14-day streak</span>
+          </li>
+          <li class="fx-step is-you" data-step-i="5">
+            <span class="fx-node"><svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></span>
+            <span class="fx-who">You</span>
+            <h3 class="fx-name">Action</h3>
+            <p class="fx-text">You show up and turn those steps into progress.</p>
+            <span class="fx-chip fx-chip--done"><svg class="ic" aria-hidden="true"><use href="#i-check-circle"/></svg> Session logged</span>
+          </li>
+        </ol>
+
+        <div class="fx-outcome usage-card" data-tone="energy" data-reveal>
+          <p class="eyebrow">Achievement</p>
+          <p class="fx-outcome-title">Action turns dreams into achievements.</p>
+          <p class="fx-outcome-sub">We help you build the path. You make it happen.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- ===================== HOW IT WORKS ===================== -->
-  <section class="how" id="how" data-screen-label="How it works">
+  <!-- ===================== 4. HOW IT WORKS =====================
+       Kept: the champagne-to-gold band from the original site.
+       Works without video: the sticky screen swaps as each step scrolls in. -->
+  <section class="how surface-light" id="how" aria-labelledby="how-title">
     <div class="shell">
-      <div class="how-head" data-reveal>
-        <span class="eyebrow">Focus mode</span>
-        <h2>How it works</h2>
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow">How it works</p>
+        <h2 class="h2" id="how-title">From "someday" to today, in three steps.</h2>
       </div>
-      <div class="how-divider" aria-hidden="true"></div>
-      <div class="steps">
-        <div class="step" data-reveal>
-          <div class="step-text">
-            <span class="step-num">01</span>
-            <h3>Set Your Goal</h3>
-            <p>Tell us what you want to achieve, where you're starting from and what success looks like.</p>
+
+      <div class="walk" data-walk>
+        <div class="walk-stage" aria-hidden="true">
+          <div class="walk-glow"></div>
+          <div class="walk-set is-active" data-set="0">
+            <figure class="screen screen--main"><img src="assets/app/goal-393.webp" srcset="assets/app/goal-393.webp 393w, assets/app/goal.webp 786w" sizes="320px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="screen screen--back"><img src="assets/app/plan-393.webp" srcset="assets/app/plan-393.webp 393w, assets/app/plan.webp 786w" sizes="260px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
           </div>
-          <div class="step-media"><img class="phone" src="assets/screens/01-goal.png" alt="vest self app — set your goal" width="600" height="1000" loading="lazy" decoding="async" /></div>
+          <div class="walk-set" data-set="1">
+            <figure class="screen screen--main"><img src="assets/app/partner-393.webp" srcset="assets/app/partner-393.webp 393w, assets/app/partner.webp 786w" sizes="320px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="screen screen--back"><img src="assets/app/mode-393.webp" srcset="assets/app/mode-393.webp 393w, assets/app/mode.webp 786w" sizes="260px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+          </div>
+          <div class="walk-set" data-set="2">
+            <figure class="screen screen--main"><img src="assets/app/session-393.webp" srcset="assets/app/session-393.webp 393w, assets/app/session.webp 786w" sizes="320px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+            <figure class="screen screen--back"><img src="assets/app/streak-393.webp" srcset="assets/app/streak-393.webp 393w, assets/app/streak.webp 786w" sizes="260px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+          </div>
         </div>
 
-        <div class="step flip" data-reveal>
-          <div class="step-text">
-            <span class="step-num">02</span>
-            <h3>Get Your Personalised Plan</h3>
-            <p>AI turns your goal into clear, achievable actions built around your life.</p>
-          </div>
-          <div class="step-media"><img class="phone" src="assets/screens/02-plan.png" alt="vest self app — your personalised plan" width="600" height="1000" loading="lazy" decoding="async" /></div>
-        </div>
+        <ol class="walk-steps">
+          <li class="walk-step" data-walk-step="0">
+            <span class="walk-num">01</span>
+            <h3 class="walk-title">Tell us what you want to achieve.</h3>
+            <p class="walk-text">We help turn it into a goal with steps you can take.</p>
+            <ul class="tags"><li>Your goal, in your words</li><li>A personalised plan</li><li>Built around your calendar</li></ul>
+            <div class="walk-inline" aria-hidden="true">
+              <figure class="screen"><img src="assets/app/goal-393.webp" srcset="assets/app/goal-393.webp 393w, assets/app/goal.webp 786w" sizes="62vw" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+            </div>
+          </li>
+          <li class="walk-step" data-walk-step="1">
+            <span class="walk-num">02</span>
+            <h3 class="walk-title">Give your promise some weight.</h3>
+            <p class="walk-text">Invite an accountability partner, find community, and choose your level of commitment.</p>
+            <ul class="tags"><li>Accountability partner</li><li>Community</li><li>Optional stakes</li></ul>
+            <div class="walk-inline" aria-hidden="true">
+              <figure class="screen"><img src="assets/app/partner-393.webp" srcset="assets/app/partner-393.webp 393w, assets/app/partner.webp 786w" sizes="62vw" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+            </div>
+          </li>
+          <li class="walk-step" data-walk-step="2">
+            <span class="walk-num">03</span>
+            <h3 class="walk-title">Show up. Check in. Keep going.</h3>
+            <p class="walk-text">Complete steps, build streaks, and make your progress visible.</p>
+            <ul class="tags"><li>Check-ins</li><li>Streaks</li><li>Visible progress</li></ul>
+            <div class="walk-inline" aria-hidden="true">
+              <figure class="screen"><img src="assets/app/session-393.webp" srcset="assets/app/session-393.webp 393w, assets/app/session.webp 786w" sizes="62vw" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
+            </div>
+          </li>
+        </ol>
+      </div>
 
-        <div class="step" data-reveal>
-          <div class="step-text">
-            <span class="step-num">03</span>
-            <h3>Track &amp; Verify</h3>
-            <p>Complete your actions, verify your progress and build consistency over time.</p>
-          </div>
-          <div class="step-media"><img class="phone" src="assets/screens/03-track.png" alt="vest self app — track and verify" width="600" height="1000" loading="lazy" decoding="async" /></div>
-        </div>
+      <!-- PLACEHOLDER: product film slot. Hidden on production until a real,
+           captioned, silent-by-default film exists. Never add a play button
+           without a working video behind it. -->
+      <aside class="film-slot" data-placeholder="Product film slot">
+        <span class="ph-tag">Placeholder · product film, 20 to 30 s, captioned, silent by default</span>
+        <ol class="storyboard">
+          <li><span class="mono">0 to 5 s</span>Showing up for everyone else: work, friends, family.</li>
+          <li><span class="mono">5 to 9 s</span>"What if you showed up for your own dreams the same way?"</li>
+          <li><span class="mono">9 to 16 s</span>Real app: enter goal, get plan, invite a friend, choose commitment, check in, build a streak.</li>
+          <li><span class="mono">16 to 22 s</span>"Your dreams deserve the same commitment you give everything else." Vest Self.</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
 
-        <div class="step flip" data-reveal>
-          <div class="step-text">
-            <span class="step-num">04</span>
-            <h3>Invest in Yourself</h3>
-            <p>Put something on the line and earn up to 100% of your money back as you progress.</p>
-          </div>
-          <div class="step-media"><img class="phone" src="assets/screens/04-invest.png" alt="vest self app — invest in yourself" width="600" height="1000" loading="lazy" decoding="async" /></div>
-        </div>
+  <!-- ===================== 5. ACCOUNTABILITY SYSTEM ===================== -->
+  <section class="system section" id="accountability" aria-labelledby="system-title">
+    <div class="shell">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow eyebrow--gold">Accountability, your way</p>
+        <h2 class="h2" id="system-title">Whatever makes you show up, we've got your back.</h2>
+        <p class="lede">Not everyone needs the same kind of motivation. That's why Vest Self gives you different ways to stay accountable.</p>
+      </div>
 
-        <div class="step" data-reveal>
-          <div class="step-text">
-            <span class="step-num">05</span>
-            <h3>Share Your Progress</h3>
-            <p>Stay committed with your accountability partner and share your wins with the Vest Self community.</p>
+      <div class="system-grid">
+        <article class="usage-card sys-card" data-tone="growth" data-reveal>
+          <div class="sys-copy">
+            <svg class="ic sys-ic" aria-hidden="true"><use href="#i-user-plus"/></svg>
+            <h3 class="sys-title">A friend who holds you to it</h3>
+            <p class="sys-text">Bring someone into your corner who knows what you're working towards and helps you stay true to your word.</p>
           </div>
-          <div class="step-media"><img class="phone" src="assets/screens/05-share.png" alt="vest self app — share your progress" width="600" height="1000" loading="lazy" decoding="async" /></div>
+          <img class="sys-shot" src="assets/app/crop-partner.webp" width="640" height="537" alt="Vest Self screen: invite a friend to be your accountability partner." loading="lazy" decoding="async" />
+          <p class="usage-meta" aria-hidden="true"><span>Accountability partner</span><i style="--c:var(--dot-growth)"></i></p>
+        </article>
+
+        <article class="usage-card sys-card" data-tone="discipline" data-reveal>
+          <div class="sys-copy">
+            <svg class="ic sys-ic" aria-hidden="true"><use href="#i-users-three"/></svg>
+            <h3 class="sys-title">People who get it</h3>
+            <p class="sys-text">Surround yourself with people chasing their own goals, sharing progress, and celebrating each other's wins.</p>
+          </div>
+          <img class="sys-shot" src="assets/app/crop-community.webp" width="640" height="660" alt="Vest Self community feed with progress updates and supporters. Names shown are app demo data." loading="lazy" decoding="async" />
+          <p class="usage-meta" aria-hidden="true"><span>Community</span><i style="--c:var(--dot-discipline)"></i></p>
+        </article>
+
+        <article class="usage-card sys-card" data-tone="energy" data-reveal>
+          <div class="sys-copy">
+            <svg class="ic sys-ic" aria-hidden="true"><use href="#i-fire"/></svg>
+            <h3 class="sys-title">A reason to keep checking in</h3>
+            <p class="sys-text">Turn intentions into scheduled actions, build a streak, and make every completed commitment count.</p>
+          </div>
+          <img class="sys-shot" src="assets/app/crop-streak.webp" width="640" height="765" alt="Vest Self progress screen: streak restored at 49 days and goal progress at 72 percent." loading="lazy" decoding="async" />
+          <p class="usage-meta" aria-hidden="true"><span>Streaks and check-ins</span><i style="--c:var(--dot-energy)"></i></p>
+        </article>
+
+        <article class="usage-card sys-card" data-tone="focus" data-reveal>
+          <div class="sys-copy">
+            <svg class="ic sys-ic" aria-hidden="true"><use href="#i-coins"/></svg>
+            <h3 class="sys-title">Put something on the line</h3>
+            <p class="sys-text">Want an extra push? Choose a financial commitment that makes skipping a little harder.</p>
+          </div>
+          <img class="sys-shot" src="assets/app/crop-stakes.webp" width="640" height="594" alt="Vest Self screen: choose your mode, optional, with two commitment modes." loading="lazy" decoding="async" />
+          <p class="usage-meta" aria-hidden="true"><span>Optional stakes</span><i style="--c:var(--dot-focus)"></i></p>
+        </article>
+      </div>
+
+      <!-- Money: optional, positive, exact terms before commitment. -->
+      <div class="money" data-reveal>
+        <div class="money-copy">
+          <h3 class="h3">Your ambition is required. <span class="g">Your money isn't.</span></h3>
+          <p class="lede">Vest Self works without putting any money down. If you want an extra push, you can choose to back your goal. You'll see exactly how it works before you commit, and nothing is charged until you confirm.</p>
+
+          <div class="modes">
+            <div class="mode-card">
+              <p class="mode-name"><span data-confirm="Final name not confirmed. The app currently says Easy mode; a Figma note proposes Invest mode.">Invest mode</span></p>
+              <p class="mode-text">Put in an amount you choose and earn it back as you show up. The most you can lose is <span data-confirm="Confirm the 20% maximum against the live terms and app.">20%</span>.</p>
+            </div>
+            <div class="mode-card">
+              <p class="mode-name"><span data-confirm="Confirm final mode name.">Hard mode</span></p>
+              <p class="mode-text">Choose a penalty for each missed session. <span data-confirm="Confirm the wording: user-selected per-miss penalty, potentially the full amount.">Miss enough sessions and you could lose the full amount.</span></p>
+            </div>
+          </div>
+          <p class="money-foot"><svg class="ic" aria-hidden="true"><use href="#i-shield-check"/></svg> Optional, always. <a href="/terms" data-track="terms_click">Read the terms</a></p>
         </div>
+        <figure class="screen screen--money">
+          <img src="assets/app/committed-393.webp" srcset="assets/app/committed-393.webp 393w, assets/app/committed.webp 786w" sizes="(max-width: 600px) 64vw, 300px" width="393" height="852" alt="Vest Self confirmation screen: You're committed. Your card is saved securely. Nothing has been charged." loading="lazy" decoding="async" />
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- ===================== JOIN CTA ===================== -->
-  <section class="cta" data-screen-label="Join CTA">
+  <!-- ===================== 6. THE PROMISE =====================
+       PLACEHOLDER (whole section): forfeit and redistribution claims are not
+       yet confirmed by founders/legal. Hidden on production until approved. -->
+  <section class="promise section" id="promise" aria-labelledby="promise-title" data-placeholder="Promise section: pending legal confirmation">
+    <div class="shell">
+      <span class="ph-tag">Placeholder · pending founder and legal confirmation before publishing</span>
+      <div class="promise-inner" data-reveal>
+        <svg class="promise-mark" viewBox="0 0 160 96" aria-hidden="true"><use href="#vs-chevron"/></svg>
+        <h2 class="h2" id="promise-title">We don't profit from your forfeits. <span class="g">We want to see you win.</span></h2>
+        <div class="promise-body">
+          <p>Sometimes, having something to lose can help you follow through. Not because you deserve to be punished for missing a day, but because meaningful commitments can change what you do when motivation fades.</p>
+          <p>Putting money on the line is always optional. Our aim is simple: more people achieving their goals, with fewer forfeits.</p>
+          <p>When forfeits happen, our commitment is to put that value back into the community to help motivate someone else's progress.</p>
+        </div>
+        <p class="promise-close">Because progress is the point. <span class="g">Not punishment.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7. FOUNDING COMMUNITY ===================== -->
+  <section class="community section" id="community" aria-labelledby="community-title">
+    <div class="shell">
+      <div class="section-head center" data-reveal>
+        <p class="eyebrow eyebrow--gold">Founding community</p>
+        <h2 class="h2" id="community-title">Real people. Real goals. We're all showing up for something.</h2>
+        <p class="lede">We're building a community where people don't just talk about their goals. They go after them, celebrate each other's progress, and keep going through setbacks. We'd love yours to be next.</p>
+      </div>
+
+      <div class="community-grid">
+        <!-- PLACEHOLDER: founder photo. Needs a real photo of Kayla and Jonas plus consent. -->
+        <figure class="neon-photo founders" data-placeholder="Founder photo" data-reveal>
+          <div class="founders-empty">
+            <span class="ph-tag">Placeholder · founder photo of Kayla and Jonas</span>
+          </div>
+          <figcaption class="np-text">
+            <span class="founders-name">Kayla &amp; Jonas</span>
+            <span class="founders-role">Founders, Vest Self</span>
+          </figcaption>
+        </figure>
+
+        <!-- PLACEHOLDER: up to five real member goal cards, each with written consent
+             for the name, handle, goal, photo and progress shown. Never invent these. -->
+        <ul class="members" data-placeholder="Member goal cards">
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Just started]</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
+          <li class="member" data-reveal><span class="avatar" aria-hidden="true"></span><div><p class="member-name">[Display name]</p><p class="member-handle">@handle</p></div><p class="member-goal">[Goal title]</p><span class="status">[Status]</span></li>
+          <li class="ph-tag ph-tag--block">Placeholder · up to five real members, with consent for every name, handle, goal and status</li>
+        </ul>
+      </div>
+
+      <div class="founding" data-reveal>
+        <div class="founding-copy">
+          <h3 class="h3">Join as a founding member.</h3>
+          <p class="lede">Early access, premium features and a direct say in what we build next. <span data-confirm="Confirm we offer optional founder check-ins, and how many.">Plus optional check-ins with the founders while spots last.</span></p>
+        </div>
+        <ul class="perks">
+          <li><svg class="ic" aria-hidden="true"><use href="#i-lightning"/></svg>Early access</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-crown-simple"/></svg>Founding member</li>
+          <li><svg class="ic" aria-hidden="true"><use href="#i-chat-circle-dots"/></svg>Direct input</li>
+        </ul>
+        <p class="credibility"><svg class="ic" aria-hidden="true"><use href="#i-seal-check"/></svg>Selected for Web Summit ALPHA 2026 · Lisbon</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 8. CLOSING CTA =====================
+       Bottom form stays email-only on purpose (the "skip" path). See CLAUDE.md. -->
+  <section class="cta" id="join-final" data-screen-label="Join CTA" aria-labelledby="cta-title">
     <div class="cta-bg" aria-hidden="true"></div>
     <div class="cta-inner">
-      <h2>Join the waitlist</h2>
-      <p class="sub">Early access for founding members</p>
-      <div class="cta-form">
-        <form class="wl-form" data-waitlist>
+      <h2 class="h2" id="cta-title" data-reveal>Imagine what could happen if you gave yourself the same commitment you give everyone else.</h2>
+      <ul class="could" data-reveal data-seq>
+        <li>The business you could <span class="g">start.</span></li>
+        <li>The distance you could <span class="g">run.</span></li>
+        <li>The language you could <span class="g">speak.</span></li>
+        <li>The person you could <span class="g">become.</span></li>
+      </ul>
+      <p class="cta-close" data-reveal>Your future self is waiting for you to show up.</p>
+      <div class="cta-form" data-reveal>
+        <form class="wl-form" data-waitlist novalidate>
           <input type="hidden" name="access_key" value="9aafcadd-8120-4a13-9a49-c5b44d314265" />
           <input type="hidden" name="subject" value="Vest Self Waitlist" />
           <input type="hidden" name="from_name" value="Vest Self" />
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
-          <label class="field"><input type="email" name="email" placeholder="your@email.com" autocomplete="email" required /></label>
-          <button class="btn-gold" type="submit">Join the waitlist.</button>
+          <label class="sr-only" for="cta-email">Your email</label>
+          <div class="field"><input type="email" id="cta-email" name="email" placeholder="your@email.com" autocomplete="email" required /></div>
+          <button class="btn-gold btn-lg" type="submit">Let's make it happen</button>
         </form>
-        <div class="wl-success" data-success style="margin-top:12px;">
-          <img class="ic-logo" src="assets/logo-icon.svg" alt="" />
-          <div><div class="tt">You're on the list. <i class="ph ph-check"></i></div><div class="ss">You're one of our founding members — we'll prioritise your early access.</div></div>
+        <div class="wl-success" data-success role="status">
+          <img class="ic-logo" src="assets/logo-icon.svg" alt="" width="30" height="18" />
+          <div><div class="tt">You're on the list. <svg class="ic" aria-hidden="true"><use href="#i-check"/></svg></div><div class="ss">We'll email you as soon as early access opens. You're one of our founding members.</div></div>
         </div>
         <p class="wl-error" data-error role="alert">Something went wrong. Please try again.</p>
+        <p class="hero-microcopy">Free to start. No money required.</p>
       </div>
-      <div class="perks">
-        <span class="perk"><i class="ph ph-lightning"></i><span>Early access</span></span>
-        <span class="perk"><i class="ph ph-gift"></i><span>Exclusive perks</span></span>
-        <span class="perk"><i class="ph ph-crown-simple"></i><span>Founding member</span></span>
-      </div>
-      <p class="credibility"><i class="ph ph-seal-check"></i><span>Selected for Web Summit ALPHA 2026</span></p>
+      <p class="signature"><svg viewBox="0 0 160 96" aria-hidden="true"><use href="#vs-chevron"/></svg>Invest in your best self.</p>
     </div>
   </section>
+
+</main>
+
+  <!-- Mobile-only sticky CTA: appears once the hero form is off screen. -->
+  <a class="sticky-cta btn-gold btn-lg" href="#join" data-sticky-cta data-track="sticky_cta" aria-hidden="true" tabindex="-1">Let's make it happen</a>
 
   <!-- ===================== FOOTER ===================== -->
   <footer data-screen-label="Footer">
@@ -275,21 +589,21 @@
       <div class="foot">
         <a class="brand" href="#top"><span class="wm"><span class="b">vest</span> <span class="s">self</span></span></a>
         <div class="socials">
-          <a href="https://www.instagram.com/vestself" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-          <a href="https://www.threads.com/@vestself" target="_blank" rel="noopener" aria-label="Threads"><i class="ph ph-at"></i></a>
-          <a href="https://www.tiktok.com/@vestself" target="_blank" rel="noopener" aria-label="TikTok"><i class="ph ph-tiktok-logo"></i></a>
-          <a href="https://www.linkedin.com/company/vestself/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-          <a href="mailto:hello@vestself.app" aria-label="Email hello@vestself.app"><i class="ph ph-envelope-simple"></i></a>
+          <a href="https://www.instagram.com/vestself" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ic" aria-hidden="true"><use href="#i-instagram-logo"/></svg></a>
+          <a href="https://www.threads.com/@vestself" target="_blank" rel="noopener" aria-label="Threads"><svg class="ic" aria-hidden="true"><use href="#i-at"/></svg></a>
+          <a href="https://www.tiktok.com/@vestself" target="_blank" rel="noopener" aria-label="TikTok"><svg class="ic" aria-hidden="true"><use href="#i-tiktok-logo"/></svg></a>
+          <a href="https://www.linkedin.com/company/vestself/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" aria-hidden="true"><use href="#i-linkedin-logo"/></svg></a>
+          <a href="mailto:hello@vestself.app" aria-label="Email hello@vestself.app"><svg class="ic" aria-hidden="true"><use href="#i-envelope-simple"/></svg></a>
         </div>
         <div class="foot-meta">
-          <div class="tag">AI-Powered Goal Achievement Platform</div>
+          <div class="tag">The accountability app for the goals that matter to you.</div>
           <nav class="foot-legal" aria-label="Legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></nav>
-          <div class="cr">© 2026 vest self. All rights reserved.</div>
+          <div class="cr">© 2026 Vest Self. All rights reserved.</div>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.js?v=20261027c"></script>
 </body>
 </html>
