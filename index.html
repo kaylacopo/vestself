@@ -82,8 +82,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/tokens.css?v=20261030j" />
-<link rel="stylesheet" href="css/styles.css?v=20261030j" />
+<link rel="stylesheet" href="css/tokens.css?v=20261031b" />
+<link rel="stylesheet" href="css/styles.css?v=20261031b" />
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
@@ -175,7 +175,7 @@
                   <ul class="goal-suggest" id="goal-listbox" role="listbox" aria-labelledby="goal-label" hidden></ul>
                   <p class="sr-only" id="goal-hint" aria-live="polite" data-goal-status></p>
                 </div>
-                <button class="btn-gold btn-lg" type="button" data-goal-next>Let's make it happen <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+                <button class="btn-gold btn-lg" type="button" data-goal-next>Let's make it happen <span class="btn-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span></button>
               </div>
             </div>
 
@@ -183,7 +183,7 @@
               <label class="wl-label t-label" for="hero-email">Where should we send your early access?</label>
               <div class="wl-row">
                 <div class="field"><input type="email" id="hero-email" name="email" placeholder="your@email.com" autocomplete="email" required /></div>
-                <button class="btn-gold btn-lg" type="submit">Join the waitlist</button>
+                <button class="btn-gold btn-lg" type="submit">Join the waitlist <span class="btn-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span></button>
               </div>
             </div>
           </form>
@@ -339,7 +339,7 @@
           <p class="kicker t-mono-caption">Achievement</p>
           <p class="achieve-title t-hero">Action turns dreams into achievements.</p>
           <p class="t-body para">We help you build the path. <span class="fg1">You make it happen.</span></p>
-          <a class="btn-gold btn-lg" href="#join" data-sticky-target data-track="achieve_cta">Let's make it happen <svg class="ic" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+          <a class="btn-gold btn-lg" href="#join" data-sticky-target data-track="achieve_cta">Let's make it happen <span class="btn-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span></a>
         </div>
       </div>
     </div>
@@ -364,7 +364,7 @@
             <span class="row-num" aria-hidden="true">01</span>
             <h3 class="t-h2">Tell us what you want to achieve.</h3>
             <p class="t-body para">We help turn it into a goal with steps you can take.</p>
-            <ul class="tags t-tag"><li style="--tone: var(--tone-gold)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-sparkle"/></svg></span>Your goal, in your words</li><li style="--tone: var(--tone-blue)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-path"/></svg></span>A personalised plan</li><li style="--tone: var(--tone-purple)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-calendar-check"/></svg></span>Built around your calendar</li></ul>
+            <ul class="tags t-tag"><li style="--tone: var(--tone-purple)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-sparkle"/></svg></span>Your goal, in your words</li><li style="--tone: var(--tone-blue)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-path"/></svg></span>A personalised plan</li><li style="--tone: var(--tone-green)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-calendar-check"/></svg></span>Built around your calendar</li></ul>
           </div>
           <div class="row-media" aria-hidden="true">
             <figure class="screen screen--a"><img src="assets/app/goal-393.webp" srcset="assets/app/goal-393.webp 393w, assets/app/goal.webp 786w" sizes="(max-width: 760px) 66vw, 360px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
@@ -376,7 +376,7 @@
             <span class="row-num" aria-hidden="true">02</span>
             <h3 class="t-h2">Give your promise some weight.</h3>
             <p class="t-body para">Invite an accountability partner, find community, and choose your level of commitment.</p>
-            <ul class="tags t-tag"><li style="--tone: var(--tone-green)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg></span>Accountability partner</li><li style="--tone: var(--tone-pink)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-users-three"/></svg></span>Community</li><li style="--tone: var(--tone-gold)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg></span>Optional stakes</li></ul>
+            <ul class="tags t-tag"><li style="--tone: var(--tone-pink)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-user-plus"/></svg></span>Accountability partner</li><li style="--tone: var(--tone-purple)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-users-three"/></svg></span>Community</li><li style="--tone: var(--tone-orange)"><span class="tag-ic"><svg class="ic" aria-hidden="true"><use href="#i-coins"/></svg></span>Optional stakes</li></ul>
           </div>
           <div class="row-media" aria-hidden="true">
             <figure class="screen screen--a"><img src="assets/app/partner-393.webp" srcset="assets/app/partner-393.webp 393w, assets/app/partner.webp 786w" sizes="(max-width: 760px) 66vw, 360px" width="393" height="852" alt="" loading="lazy" decoding="async" /></figure>
@@ -580,7 +580,7 @@
           <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none" />
           <label class="sr-only" for="cta-email">Your email</label>
           <div class="field"><input type="email" id="cta-email" name="email" placeholder="your@email.com" autocomplete="email" required /></div>
-          <button class="btn-gold btn-lg" type="submit">Let's make it happen</button>
+          <button class="btn-gold btn-lg" type="submit">Let's make it happen <span class="btn-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span></button>
         </form>
         <div class="wl-success" data-success role="status">
           <img class="ic-logo" src="assets/logo-icon.svg" alt="" width="30" height="18" />
@@ -596,7 +596,7 @@
 </main>
 
   <!-- Mobile-only sticky CTA: appears once the hero form is off screen. -->
-  <a class="sticky-cta btn-gold btn-lg" href="#join" data-sticky-cta data-track="sticky_cta" aria-hidden="true" tabindex="-1">Let's make it happen</a>
+  <a class="sticky-cta btn-gold btn-lg" href="#join" data-sticky-cta data-track="sticky_cta" aria-hidden="true" tabindex="-1">Let's make it happen <span class="btn-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span></a>
 
   <!-- ===================== FOOTER ===================== -->
   <footer data-screen-label="Footer">
@@ -619,6 +619,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=20261030j"></script>
+  <script src="js/app.js?v=20261031b"></script>
 </body>
 </html>

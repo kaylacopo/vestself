@@ -420,7 +420,7 @@
 
       var btn = form.querySelector('button[type=submit]');
       var errEl = form.parentElement.querySelector('[data-error]');
-      var label = btn.textContent;
+      var label = btn.innerHTML; // keeps the arrow icon
 
       submitting = true;
       btn.disabled = true;
@@ -451,7 +451,7 @@
         .catch(function () {
           submitting = false;
           btn.disabled = false;
-          btn.textContent = label;
+          btn.innerHTML = label;
           if (errEl) errEl.classList.add('show');
         });
     });

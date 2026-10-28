@@ -60,28 +60,24 @@ button { font: inherit; }
 }
 
 /* ---------- BUTTONS (radius 4, Satoshi; shipped app) ---------- */
-/* Primary button: brand gold with real depth. A fine top highlight, a soft
-   edge, and on hover a light sheen sweeps across while it lifts and glows.
-   Radius stays 4px (shipped app). Type: Button/Default, /Large, /Small. */
+/* Primary button: flat brand gold, like the shipped app (no bevel, no shadow,
+   no glow). Hover: a champagne fill wipes in from the left behind the label and
+   the arrow slides out and back in. Radius 4px. Type: Button/Default, /Large, /Small. */
 .btn-gold { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 12px; height: 52px; padding: 0 24px; border: 0; border-radius: var(--radius-control);
-  background: linear-gradient(180deg, var(--gold-300) 0%, var(--gold) 46%, var(--gold-600) 100%);
-  color: var(--fg-on-brand); font-family: var(--font-sans); font-weight: 500; font-size: 16px; line-height: 20px; /* Button/Default */
-  white-space: nowrap; cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255,252,245,0.65), inset 0 -1px 0 rgba(98,83,43,0.35), 0 1px 0 rgba(0,0,0,0.4);
-  transition: transform 0.35s var(--ease-emphasized), box-shadow 0.35s var(--ease-standard), filter 0.35s; }
-.btn-gold::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: -60%; width: 45%; pointer-events: none;
-  background: linear-gradient(105deg, rgba(255,252,245,0) 0%, rgba(255,252,245,0.7) 50%, rgba(255,252,245,0) 100%);
-  transform: translateX(0) skewX(-18deg); opacity: 0; transition: transform 0.75s var(--ease-emphasized), opacity 0.2s; }
-.btn-gold:hover { transform: translateY(-2px); filter: saturate(1.08) brightness(1.04);
-  box-shadow: inset 0 1px 0 rgba(255,252,245,0.75), inset 0 -1px 0 rgba(98,83,43,0.35), 0 1px 0 rgba(0,0,0,0.4), 0 10px 20px -12px rgba(0,0,0,0.6); }
-.btn-gold:hover::after { opacity: 1; transform: translateX(380%) skewX(-18deg); }
-.btn-gold:active { transform: translateY(0) scale(0.985); box-shadow: inset 0 2px 6px rgba(98,83,43,0.45); transition-duration: 0.12s; }
-.btn-gold:disabled { opacity: 0.7; cursor: progress; transform: none; filter: none; }
-.btn-gold .ic { font-size: 18px; transition: transform 0.45s var(--ease-emphasized); }
-.btn-gold:hover .ic { transform: translateX(5px); }
+  background: var(--gold); color: var(--fg-on-brand); font-family: var(--font-sans); font-weight: 500; font-size: 16px; line-height: 20px; /* Button/Default */
+  white-space: nowrap; cursor: pointer; transition: transform 0.2s var(--ease-standard); }
+.btn-gold::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--champagne); transform: scaleX(0); transform-origin: left center; transition: transform 0.5s var(--ease-emphasized); }
+.btn-gold:hover::before, .btn-gold:focus-visible::before { transform: scaleX(1); }
+.btn-gold:active { transform: scale(0.98); }
+.btn-gold:disabled { opacity: 0.7; cursor: progress; transform: none; }
+.btn-gold:disabled::before { transform: scaleX(0); }
+.btn-arrow { display: inline-flex; overflow: hidden; width: 18px; height: 18px; flex: none; }
+.btn-arrow .ic { font-size: 18px; }
+.btn-gold:hover .btn-arrow .ic, .btn-gold:focus-visible .btn-arrow .ic { animation: arrow-swap 0.55s var(--ease-emphasized); }
+@keyframes arrow-swap { 0% { transform: translateX(0); } 45% { transform: translateX(120%); } 46% { transform: translateX(-120%); } 100% { transform: translateX(0); } }
 .btn-lg { height: 58px; padding: 0 30px; font-weight: 700; font-size: 18px; line-height: 22px; } /* Button/Large */
-.btn-sm { height: 40px; padding: 0 16px; font-weight: 500; font-size: 14px; line-height: 20px; box-shadow: inset 0 1px 0 rgba(255,252,245,0.6); } /* Button/Small */
-@media (prefers-reduced-motion: reduce) { .btn-gold::after { display: none; } .btn-gold:hover { transform: none; } }
+.btn-sm { height: 40px; padding: 0 16px; font-weight: 500; font-size: 14px; line-height: 20px; } /* Button/Small */
+@media (prefers-reduced-motion: reduce) { .btn-gold::before { transition: none; } .btn-gold .btn-arrow .ic { animation: none !important; } }
 
 /* ---------- WAITLIST FORMS (behaviour in app.js; see CLAUDE.md) ---------- */
 .wl-form { display: flex; gap: 12px; width: 100%; }
@@ -186,9 +182,7 @@ button { font: inherit; }
 .rec-copy { width: 100%; max-width: 560px; }
 .rec-head { margin: 18px 0 clamp(24px, 3vw, 40px); color: var(--fg-1); text-wrap: balance; }
 .rec-list li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-top: 1px solid var(--border-2); }
-.rec-list .tick { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; flex: none; color: var(--midnight); font-size: 18px;
-  background: radial-gradient(120% 120% at 30% 20%, var(--gold-300) 0%, var(--gold) 45%, var(--gold-600) 100%);
-  box-shadow: inset 0 1px 0 rgba(255,252,245,0.6), inset 0 -2px 3px rgba(98,83,43,0.35); }
+.rec-list .tick { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; flex: none; color: var(--midnight); font-size: 18px; background: var(--gold); }
 .rec-list .when { flex: none; color: var(--orange-400); }
 /* "For yourself": full colour like "For everyone else" (Kayla, 28 Oct); the list reads slightly softer. */
 .rec-panel--self .rec-list li { color: var(--fg-2); }
@@ -225,7 +219,7 @@ button { font: inherit; }
 .stair-word { color: var(--fg-1); }
 .is-app .stair-word { color: var(--gold); }
 .stair-text { color: var(--fg-2); max-width: 34ch; }
-.chip { justify-self: start; display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; padding: 9px 12px; border-radius: var(--radius-control); background: var(--card); border: 1px solid var(--hairline); color: var(--fg-1); white-space: nowrap; }
+.chip { justify-self: start; display: inline-flex; align-items: center; gap: 8px; margin-top: 4px; padding: 9px 12px; border-radius: var(--radius-control); background: var(--card); border: 1px solid var(--hairline); color: var(--fg-1); white-space: normal; max-width: 100%; }
 .chip .ic { color: var(--gold); font-size: 15px; }
 .chip .mono { font-size: 11px; color: var(--fg-3); }
 .chip--quote { color: var(--gold); white-space: normal; }
@@ -240,12 +234,12 @@ button { font: inherit; }
 }
 @media (min-width: 1240px) {
   .stair { --rise: 52px; --unit: calc(100% / 6.5); padding-top: 64px; }
-  .stair-band { display: block; position: absolute; top: 0; bottom: 0; left: var(--unit); width: calc(var(--unit) * 4.5); border-radius: var(--radius-neon) var(--radius-neon) 0 0; border-top: 1px solid rgba(230,193,90,0.55); background: radial-gradient(55% 45% at 100% 0%, rgba(255,120,14,0.6) 0%, rgba(197,2,119,0.5) 30%, rgba(23,21,20,0) 75%), linear-gradient(180deg, rgba(230,193,90,0.09), rgba(230,193,90,0.02) 70%, rgba(230,193,90,0));  /* bottom edge steps down with the treads of Goal, Plan, Steps and Accountability */ clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--rise) * 4), 66.667% calc(100% - var(--rise) * 4), 66.667% calc(100% - var(--rise) * 3), 44.444% calc(100% - var(--rise) * 3), 44.444% calc(100% - var(--rise) * 2), 22.222% calc(100% - var(--rise) * 2), 22.222% calc(100% - var(--rise)), 0 calc(100% - var(--rise))); }
+  .stair-band { display: block; position: absolute; top: 0; bottom: 0; left: var(--unit); width: calc(var(--unit) * 4.5); border-radius: 0; border-top: 1px solid rgba(230,193,90,0.55); background: radial-gradient(55% 45% at 100% 0%, rgba(255,120,14,0.6) 0%, rgba(197,2,119,0.5) 30%, rgba(23,21,20,0) 75%), linear-gradient(180deg, rgba(230,193,90,0.09), rgba(230,193,90,0.02) 70%, rgba(230,193,90,0));  /* bottom edge steps down with the treads of Goal, Plan, Steps and Accountability */ clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--rise) * 4), 66.667% calc(100% - var(--rise) * 4), 66.667% calc(100% - var(--rise) * 3), 44.444% calc(100% - var(--rise) * 3), 44.444% calc(100% - var(--rise) * 2), 22.222% calc(100% - var(--rise) * 2), 22.222% calc(100% - var(--rise)), 0 calc(100% - var(--rise))); }
   .stair-band span { position: absolute; left: 24px; top: 20px; color: var(--gold); }
   .band-say { position: absolute; left: 24px; top: 52px; color: var(--fg-1); }
   .band-say em { display: block; margin-top: 10px; font-style: normal; color: var(--fg-2); }
   .stair-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.5fr) minmax(0, 1fr); align-items: end; }
-  .stair-step { align-content: start; padding: 40px 22px 26px; margin-bottom: calc(var(--i) * var(--rise)); border-top: 0; }
+  .stair-step { align-content: start; padding: 40px 18px 26px; margin-bottom: calc(var(--i) * var(--rise)); border-top: 0; min-width: 0; }
   .stair-step.is-app .stair-who { display: none; }
   /* tread: the line the step stands on; riser: down to the previous tread */
   .stair-step::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--off-white); transform-origin: left; }
@@ -301,14 +295,15 @@ button { font: inherit; }
 .row-copy .t-h2 { max-width: 13ch; }
 .row-copy .para { max-width: 34ch; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
-/* Tags: tinted glass pills (Kayla's reference), one Brand Guide accent each.
-   --tone is an "r, g, b" triplet from the accent 400 shades, set per tag. */
-:root { --tone-gold: 236, 208, 130; --tone-blue: 72, 143, 255; --tone-green: 72, 180, 99; --tone-purple: 184, 107, 255; --tone-orange: 239, 139, 82; --tone-pink: 228, 76, 180; }
+/* Tags: tinted pills, one Brand Guide accent each (pink, blue, green, purple,
+   orange from 'Color in use'). --tone is an "r, g, b" triplet, set per tag. */
+/* Brand Guide 'Color in use' (Figma 747:6103): the five accent 500s, exact. */
+:root { --tone-pink: 219, 19, 156; --tone-blue: 14, 107, 255; --tone-green: 14, 156, 50; --tone-purple: 161, 60, 255; --tone-orange: 234, 103, 27; }
 .tags li { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; white-space: nowrap; border-radius: var(--radius-pill); color: var(--off-white);
   background: linear-gradient(180deg, rgba(var(--tone), 0.26) 0%, rgba(var(--tone), 0.12) 100%), rgba(17,17,17,0.92);
   border: 1px solid rgba(var(--tone), 0.55);
-  box-shadow: inset 0 1px 0 rgba(255,252,245,0.14); }
-.tag-ic { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; flex: none; color: var(--midnight); font-size: 13px; background: rgb(var(--tone)); }
+}
+.tag-ic { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; flex: none; color: var(--off-white); font-size: 13px; background: rgb(var(--tone)); }
 .row-media { --wa: clamp(220px, 60vw, 300px); position: relative; height: calc(var(--wa) * 2.2); }
 .row-media .screen { position: absolute; box-shadow: 0 0 0 1px rgba(17,17,17,0.1), 0 60px 90px -40px rgba(70,35,0,0.65), 0 10px 30px rgba(70,35,0,0.15); }
 .row-media .screen--a { width: var(--wa); left: 4%; top: 0; z-index: 2; }
