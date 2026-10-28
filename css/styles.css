@@ -296,11 +296,11 @@ button { font: inherit; }
 .row-copy .para { max-width: 34ch; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
 /* Tags, in the Brand Guide's own language ('Color in use', Figma 747:6103):
-   flat off-white chip, 4px radius, midnight Body/Tag label and one small accent
-   dot. No border, no fill tint, no shading, no glow. */
+   flat chip, 4px radius, 1px outline in the accent with a 10% fill of the same
+   accent, midnight Body/Tag label and a small accent dot. No shading, no glow. */
 /* the five accent 500s, exact, as "r, g, b" */
 :root { --tone-pink: 219, 19, 156; --tone-blue: 14, 107, 255; --tone-green: 14, 156, 50; --tone-purple: 161, 60, 255; --tone-orange: 234, 103, 27; }
-.tags li { display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; white-space: nowrap; border-radius: var(--radius-control); background: var(--off-white); color: var(--midnight); }
+.tags li { display: inline-flex; align-items: center; gap: 10px; padding: 7px 11px; white-space: nowrap; border-radius: var(--radius-control); border: 1px solid rgb(var(--tone)); background: rgba(var(--tone), 0.1); color: var(--midnight); }
 .tag-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; background: rgb(var(--tone)); }
 .row-media { --wa: clamp(220px, 60vw, 300px); position: relative; height: calc(var(--wa) * 2.2); }
 .row-media .screen { position: absolute; box-shadow: 0 0 0 1px rgba(17,17,17,0.1), 0 60px 90px -40px rgba(70,35,0,0.65), 0 10px 30px rgba(70,35,0,0.15); }
