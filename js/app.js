@@ -489,19 +489,6 @@
   }
 
   // ---------------------------------------------------------------------
-  // Recognition: "For yourself" warms into colour once the closing line
-  // ("Your dreams deserve the same commitment.") comes into view.
-  // ---------------------------------------------------------------------
-  var rec = document.querySelector('[data-warm]');
-  var recClose = rec && rec.querySelector('.rec-close');
-  if (rec && recClose) {
-    if (reduceMotion) rec.classList.add('is-warm');
-    else new IntersectionObserver(function (e, o) {
-      if (e[0].isIntersecting) { rec.classList.add('is-warm'); o.disconnect(); }
-    }, { rootMargin: '0px 0px -25% 0px' }).observe(recClose);
-  }
-
-  // ---------------------------------------------------------------------
   // How it works: on desktop the sticky screens follow the active step.
   // ---------------------------------------------------------------------
   var walk = document.querySelector('[data-walk]');

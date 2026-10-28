@@ -60,14 +60,28 @@ button { font: inherit; }
 }
 
 /* ---------- BUTTONS (radius 4, Satoshi; shipped app) ---------- */
-.btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: 10px; height: 52px; padding: 0 24px; border: 0; border-radius: var(--radius-control); background: var(--gold); color: var(--fg-on-brand); font-family: var(--font-sans); font-weight: 500; font-size: 16px; line-height: 20px; /* Button/Default */ white-space: nowrap; cursor: pointer; transition: transform var(--dur-fast) var(--ease-standard), background var(--dur-fast), box-shadow var(--dur-base); }
-.btn-gold:hover { background: var(--gold-400); transform: translateY(-1px); box-shadow: var(--glow-gold); }
-.btn-gold:active { transform: translateY(0); }
-.btn-gold:disabled { opacity: 0.7; cursor: progress; transform: none; }
-.btn-gold .ic { font-size: 18px; transition: transform var(--dur-base) var(--ease-emphasized); }
-.btn-gold:hover .ic { transform: translateX(3px); }
-.btn-lg { height: 56px; padding: 0 28px; font-weight: 700; font-size: 18px; line-height: 22px; } /* Button/Large */
-.btn-sm { height: 40px; padding: 0 16px; font-weight: 500; font-size: 14px; line-height: 20px; } /* Button/Small */
+/* Primary button: brand gold with real depth. A fine top highlight, a soft
+   edge, and on hover a light sheen sweeps across while it lifts and glows.
+   Radius stays 4px (shipped app). Type: Button/Default, /Large, /Small. */
+.btn-gold { position: relative; isolation: isolate; overflow: hidden; display: inline-flex; align-items: center; justify-content: center; gap: 12px; height: 52px; padding: 0 24px; border: 0; border-radius: var(--radius-control);
+  background: linear-gradient(180deg, var(--gold-300) 0%, var(--gold) 46%, var(--gold-600) 100%);
+  color: var(--fg-on-brand); font-family: var(--font-sans); font-weight: 500; font-size: 16px; line-height: 20px; /* Button/Default */
+  white-space: nowrap; cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,252,245,0.65), inset 0 -1px 0 rgba(98,83,43,0.35), 0 1px 0 rgba(0,0,0,0.4);
+  transition: transform 0.35s var(--ease-emphasized), box-shadow 0.35s var(--ease-standard), filter 0.35s; }
+.btn-gold::after { content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: -60%; width: 45%; pointer-events: none;
+  background: linear-gradient(105deg, rgba(255,252,245,0) 0%, rgba(255,252,245,0.7) 50%, rgba(255,252,245,0) 100%);
+  transform: translateX(0) skewX(-18deg); opacity: 0; transition: transform 0.75s var(--ease-emphasized), opacity 0.2s; }
+.btn-gold:hover { transform: translateY(-2px); filter: saturate(1.08) brightness(1.04);
+  box-shadow: inset 0 1px 0 rgba(255,252,245,0.75), inset 0 -1px 0 rgba(98,83,43,0.35), 0 1px 0 rgba(0,0,0,0.4), 0 10px 20px -12px rgba(0,0,0,0.6); }
+.btn-gold:hover::after { opacity: 1; transform: translateX(380%) skewX(-18deg); }
+.btn-gold:active { transform: translateY(0) scale(0.985); box-shadow: inset 0 2px 6px rgba(98,83,43,0.45); transition-duration: 0.12s; }
+.btn-gold:disabled { opacity: 0.7; cursor: progress; transform: none; filter: none; }
+.btn-gold .ic { font-size: 18px; transition: transform 0.45s var(--ease-emphasized); }
+.btn-gold:hover .ic { transform: translateX(5px); }
+.btn-lg { height: 58px; padding: 0 30px; font-weight: 700; font-size: 18px; line-height: 22px; } /* Button/Large */
+.btn-sm { height: 40px; padding: 0 16px; font-weight: 500; font-size: 14px; line-height: 20px; box-shadow: inset 0 1px 0 rgba(255,252,245,0.6); } /* Button/Small */
+@media (prefers-reduced-motion: reduce) { .btn-gold::after { display: none; } .btn-gold:hover { transform: none; } }
 
 /* ---------- WAITLIST FORMS (behaviour in app.js; see CLAUDE.md) ---------- */
 .wl-form { display: flex; gap: 12px; width: 100%; }
@@ -107,7 +121,7 @@ button { font: inherit; }
 .header.scrolled { background: var(--surface-overlay); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border-1); }
 .header.hidden { transform: translateY(-100%); }
 .header .shell { display: flex; align-items: center; justify-content: space-between; padding-block: 20px; }
-.brand { display: inline-flex; align-items: center; }
+.brand { display: inline-flex; align-items: center; min-height: 44px; }
 .brand .logo { display: block; height: 22px; width: auto; aspect-ratio: 398.4 / 64.8; }
 @media (min-width: 900px) { .brand .logo { height: 24px; } }
 /* legal pages still use the text wordmark */
@@ -135,7 +149,9 @@ button { font: inherit; }
 
 /* Hero device: the real Home screen rising out of the fold. */
 .hero-device { --pw: clamp(280px, 27vw, 400px); position: relative; width: min(1240px, 100%); margin: clamp(64px, 12vh, 120px) auto 0; padding-inline: var(--shell); height: calc(var(--pw) * 1.26); }
-.screen--hero { position: absolute; left: 50%; top: 0; width: var(--pw); transform: translateX(-50%); -webkit-mask-image: linear-gradient(180deg, #000 66%, transparent 99%); mask-image: linear-gradient(180deg, #000 66%, transparent 99%); }
+.screen--hero { position: absolute; left: 50%; top: 0; width: var(--pw); transform: translateX(-50%);
+  /* fade measured from the visible part of the phone (the device box is pw x 1.26) so it dissolves before the hero ends */
+  -webkit-mask-image: linear-gradient(180deg, #000 calc(var(--pw) * 0.62), transparent calc(var(--pw) * 1.2)); mask-image: linear-gradient(180deg, #000 calc(var(--pw) * 0.62), transparent calc(var(--pw) * 1.2)); }
 .hero-quote { position: absolute; z-index: 2; display: flex; flex-direction: column; gap: 6px; padding: 18px 22px; border-radius: var(--radius-control); background: rgba(10,10,15,0.66); border: 1px solid var(--border-2); backdrop-filter: blur(20px); box-shadow: var(--shadow-md); }
 .hero-quote .lbl { font-family: var(--mono); font-weight: 500; font-size: 10px; line-height: 14px; letter-spacing: var(--tracking-wider); text-transform: uppercase; color: var(--fg-3); }
 .hero-quote .q { font-family: var(--font-display); font-weight: 700; font-size: 20px; line-height: 1.25; color: var(--gold); white-space: nowrap; }
@@ -170,16 +186,12 @@ button { font: inherit; }
 .rec-copy { width: 100%; max-width: 560px; }
 .rec-head { margin: 18px 0 clamp(24px, 3vw, 40px); color: var(--fg-1); text-wrap: balance; }
 .rec-list li { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 0; border-top: 1px solid var(--border-2); }
-.rec-list .tick { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--gold); color: var(--fg-on-brand); font-size: 16px; flex: none; }
+.rec-list .tick { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; flex: none; color: var(--midnight); font-size: 18px;
+  background: radial-gradient(120% 120% at 30% 20%, var(--gold-300) 0%, var(--gold) 45%, var(--gold-600) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,252,245,0.6), inset 0 -2px 3px rgba(98,83,43,0.35); }
 .rec-list .when { flex: none; color: var(--orange-400); }
-/* "For yourself": muted until the closing line arrives */
-.rec-panel--self .rec-photo img { filter: grayscale(1) brightness(0.5) contrast(1.05); transition: filter 1.8s var(--ease-standard); }
-.rec-panel--self .rec-head, .rec-panel--self .rec-list li { color: var(--fg-3); transition: color 1.2s var(--ease-standard); }
-.rec-panel--self .rec-head .g { color: var(--fg-2); transition: color 1.2s var(--ease-standard); }
-.rec.is-warm .rec-panel--self .rec-photo img { filter: none; }
-.rec.is-warm .rec-panel--self .rec-head { color: var(--fg-1); }
-.rec.is-warm .rec-panel--self .rec-head .g { color: var(--gold); }
-.rec.is-warm .rec-panel--self .rec-list li { color: var(--fg-2); }
+/* "For yourself": full colour like "For everyone else" (Kayla, 28 Oct); the list reads slightly softer. */
+.rec-panel--self .rec-list li { color: var(--fg-2); }
 /* Closing band: gold > oregon > black (Kayla's Figma), full width, 120/80 padding. */
 .rec-band { margin-top: var(--section-y); background: var(--grad-band); padding-block: var(--section-y); }
 .rec-close { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
@@ -220,24 +232,24 @@ button { font: inherit; }
 .chip--done { color: var(--green-300); border-color: rgba(14,156,50,0.4); background: var(--success-bg); }
 .chip--done .ic { color: var(--green-300); }
 /* mobile: an indented climb with a gold rail for the Vest Self steps */
-@media (max-width: 1099px) {
+@media (max-width: 1239px) {
   .stair-step { padding-left: calc(var(--i) * 10px); }
   .stair-step.is-app { border-top-color: rgba(230,193,90,0.35); }
   .stair-step.is-app::before { content: ""; position: absolute; left: -14px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--gold), rgba(230,193,90,0.25)); border-radius: 2px; }
   .stair { padding-left: 14px; }
 }
-@media (min-width: 1100px) {
+@media (min-width: 1240px) {
   .stair { --rise: 52px; --unit: calc(100% / 6.5); padding-top: 64px; }
-  .stair-band { display: block; position: absolute; top: 0; bottom: 0; left: var(--unit); width: calc(var(--unit) * 4.5); border-radius: var(--radius-neon) var(--radius-neon) 0 0; border-top: 1px solid rgba(230,193,90,0.55); background: radial-gradient(55% 45% at 100% 0%, rgba(255,120,14,0.6) 0%, rgba(197,2,119,0.5) 30%, rgba(23,21,20,0) 75%), linear-gradient(180deg, rgba(230,193,90,0.09), rgba(230,193,90,0.02) 70%, rgba(230,193,90,0)); }
+  .stair-band { display: block; position: absolute; top: 0; bottom: 0; left: var(--unit); width: calc(var(--unit) * 4.5); border-radius: var(--radius-neon) var(--radius-neon) 0 0; border-top: 1px solid rgba(230,193,90,0.55); background: radial-gradient(55% 45% at 100% 0%, rgba(255,120,14,0.6) 0%, rgba(197,2,119,0.5) 30%, rgba(23,21,20,0) 75%), linear-gradient(180deg, rgba(230,193,90,0.09), rgba(230,193,90,0.02) 70%, rgba(230,193,90,0));  /* bottom edge steps down with the treads of Goal, Plan, Steps and Accountability */ clip-path: polygon(0 0, 100% 0, 100% calc(100% - var(--rise) * 4), 66.667% calc(100% - var(--rise) * 4), 66.667% calc(100% - var(--rise) * 3), 44.444% calc(100% - var(--rise) * 3), 44.444% calc(100% - var(--rise) * 2), 22.222% calc(100% - var(--rise) * 2), 22.222% calc(100% - var(--rise)), 0 calc(100% - var(--rise))); }
   .stair-band span { position: absolute; left: 24px; top: 20px; color: var(--gold); }
   .band-say { position: absolute; left: 24px; top: 52px; color: var(--fg-1); }
   .band-say em { display: block; margin-top: 10px; font-style: normal; color: var(--fg-2); }
-  .stair-steps { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr 1.5fr 1fr; align-items: end; }
+  .stair-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)) minmax(0, 1.5fr) minmax(0, 1fr); align-items: end; }
   .stair-step { align-content: start; padding: 40px 22px 26px; margin-bottom: calc(var(--i) * var(--rise)); border-top: 0; }
   .stair-step.is-app .stair-who { display: none; }
   /* tread: the line the step stands on; riser: down to the previous tread */
   .stair-step::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--off-white); transform-origin: left; }
-  .stair-step.is-app::after { background: var(--gold); box-shadow: 0 0 18px rgba(255,201,25,0.4); }
+  .stair-step.is-app::after { background: var(--gold); }
   .stair-step::before { content: ""; position: absolute; left: 0; bottom: calc(var(--rise) * -1); width: 2px; height: var(--rise); background: var(--border-2); }
   .stair-step:first-child::before { display: none; }
   .js .stair-step::after { transform: scaleX(0); transition: transform 0.7s var(--ease-emphasized); }
@@ -288,8 +300,15 @@ button { font: inherit; }
 .row-num { font-family: var(--font-display); font-weight: 900; font-size: clamp(80px, 8vw, 128px); line-height: 0.8; letter-spacing: -0.06em; color: var(--border-1); margin-bottom: -4px; }
 .row-copy .t-h2 { max-width: 13ch; }
 .row-copy .para { max-width: 34ch; }
-.tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-.tags li { padding: 8px 10px; border-radius: var(--radius-control); border: 1px solid var(--border-2); background: rgba(162,162,162,0.4); color: var(--fg-1); }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+/* Tags: tinted glass pills (Kayla's reference), one Brand Guide accent each.
+   --tone is an "r, g, b" triplet from the accent 400 shades, set per tag. */
+:root { --tone-gold: 236, 208, 130; --tone-blue: 72, 143, 255; --tone-green: 72, 180, 99; --tone-purple: 184, 107, 255; --tone-orange: 239, 139, 82; --tone-pink: 228, 76, 180; }
+.tags li { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 6px; white-space: nowrap; border-radius: var(--radius-pill); color: var(--off-white);
+  background: linear-gradient(180deg, rgba(var(--tone), 0.26) 0%, rgba(var(--tone), 0.12) 100%), rgba(17,17,17,0.92);
+  border: 1px solid rgba(var(--tone), 0.55);
+  box-shadow: inset 0 1px 0 rgba(255,252,245,0.14); }
+.tag-ic { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; flex: none; color: var(--midnight); font-size: 13px; background: rgb(var(--tone)); }
 .row-media { --wa: clamp(220px, 60vw, 300px); position: relative; height: calc(var(--wa) * 2.2); }
 .row-media .screen { position: absolute; box-shadow: 0 0 0 1px rgba(17,17,17,0.1), 0 60px 90px -40px rgba(70,35,0,0.65), 0 10px 30px rgba(70,35,0,0.15); }
 .row-media .screen--a { width: var(--wa); left: 4%; top: 0; z-index: 2; }
@@ -323,7 +342,7 @@ button { font: inherit; }
   .tile--partner .tile-copy { align-self: center; padding-bottom: 40px; }
   .tile--partner .tile-shot { align-self: end; max-height: 340px; }
   .tile--community { grid-column: 8 / 13; grid-row: 1 / 3; }
-  .tile--community .tile-shot { flex: 1 1 0; min-height: 360px; max-height: none; width: 100%; max-width: none; }
+  .tile--community .tile-shot { flex: 1 1 0; min-height: 360px; max-height: none; width: 100%; max-width: none; object-position: left top; }
   .tile--streak { grid-column: 1 / 5; }
   .tile--stakes { grid-column: 5 / 8; }
   .tile--streak .tile-shot, .tile--stakes .tile-shot { max-height: 250px; }
@@ -442,7 +461,8 @@ footer { background: var(--void); border-top: 1px solid var(--border-1); padding
 .foot .tag { color: var(--fg-3); }
 .foot .cr { color: var(--fg-4); }
 .socials { display: flex; gap: 22px; margin-top: 4px; }
-.socials a { display: inline-flex; color: var(--fg-3); font-size: 20px; transition: color var(--dur-fast); }
+.socials { gap: 6px; }
+.socials a { display: inline-grid; place-items: center; width: 44px; height: 44px; color: var(--fg-3); font-size: 20px; transition: color var(--dur-fast); } /* 44px tap target */
 .socials a:hover { color: var(--gold); }
 
 /* ============================================================
@@ -468,7 +488,6 @@ html.review [data-confirm] { text-decoration: underline dotted var(--accent-oran
   html { scroll-behavior: auto; }
   .js [data-reveal], .js [data-seq] li, .js .rec-list .tick, .js .stair-step > *, .js .stair-step::after, .js .achieve-photo img { opacity: 1 !important; transform: none !important; transition: none !important; }
   .js .screen--hero[data-reveal] { transform: translateX(-50%) !important; }
-  .rec-panel--self .rec-photo img, .rec-panel--self .rec-head, .rec-panel--self .rec-list li { transition: none; }
   .btn-gold, .btn-gold .ic { transition: none; }
 }
 
@@ -552,7 +571,7 @@ html.review [data-confirm] { text-decoration: underline dotted var(--accent-oran
 .legal-todo { background: var(--danger-bg); color: var(--danger-500); padding: 1px 6px; border-radius: 3px; font-weight: 600; }
 
 /* footer legal links (all pages) */
-.foot-legal { display: flex; gap: 20px; font-size: 12px; }
+.foot-legal { display: flex; gap: 20px; font-size: 12px; line-height: 16px; } /* Body/Caption */
 .foot-legal a { color: var(--fg-4); text-decoration: none; transition: color var(--dur-fast); }
 .foot-legal a:hover { color: var(--brand); }
 
@@ -567,4 +586,4 @@ html.review [data-confirm] { text-decoration: underline dotted var(--accent-oran
 html:not(.review) .community .founding { margin-top: 0; }
 
 /* How it works: keep each step's tags on one line on wide screens (Kayla's Figma). */
-@media (min-width: 1100px) { .row-copy .tags { flex-wrap: nowrap; } }
+
