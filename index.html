@@ -6,7 +6,7 @@
 <title>Vest Self | The accountability app that helps you follow through</title>
 <meta name="description" content="You have the ambition. Vest Self brings the accountability. Turn the goal you keep putting off into a real commitment, with a clear plan, people in your corner and a reason to keep showing up. Join the waitlist." />
 <link rel="canonical" href="https://www.vestself.app/" />
-<meta name="theme-color" content="#0A0A0F" />
+<meta name="theme-color" content="#000000" />
 
 <!-- Unfinished content never shows to visitors:
        [data-slot]       empty slots waiting for real content (founder photo, member cards).
@@ -82,8 +82,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="css/tokens.css?v=20261108g" />
-<link rel="stylesheet" href="css/styles.css?v=20261108g" />
+<link rel="stylesheet" href="css/tokens.css?v=20261108i" />
+<link rel="stylesheet" href="css/styles.css?v=20261108i" />
 <script defer src="https://cdn.vercel-insights.com/v1/script.js"></script>
 </head>
 <body>
@@ -256,12 +256,14 @@
       </article>
     </div>
 
+    <div class="shell rec-band-wrap">
     <div class="rec-band">
       <svg class="band-mark" viewBox="0 0 151 93" aria-hidden="true"><use href="#vs-chevron"/></svg>
-      <div class="rec-close shell" data-reveal>
+      <div class="rec-close" data-reveal>
         <p class="t-hero statement">Your dreams deserve<br /> the same <span class="g">commitment.</span></p>
         <p class="t-body para">We built Vest Self to close the gap between what you dream of doing and what you actually do. With the structure, support, and accountability to help you follow through.</p>
       </div>
+    </div>
     </div>
   </section>
 
@@ -334,7 +336,7 @@
   <!-- ===================== 4. HOW IT WORKS =====================
        Champagne-to-gold band kept. Alternating rows, large layered real
        screens. Works without video. -->
-  <section class="how section section--tight" id="how" aria-labelledby="how-title">
+  <section class="how surface-light section section--tight" id="how" aria-labelledby="how-title">
     <div class="shell">
       <header class="split-head" data-reveal>
         <div>
@@ -344,30 +346,30 @@
         <p class="t-body para">No complicated setup. Just a clear goal, people in your corner, and a reason to keep going.</p>
       </header>
 
-      <ol class="how-cards">
-        <li class="how-card nb-card" data-tone="energy" data-reveal>
+      <ol class="how-steps">
+        <li class="how-step" data-reveal>
+          <figure class="how-mock"><img src="assets/app/mock-goal.webp" width="600" height="1000" alt="Vest Self goal setup screen with example goals" loading="lazy" decoding="async" /></figure>
           <div class="how-copy">
             <span class="how-num t-mono-title">01</span>
             <h3 class="t-sh2">Tell us what you want to achieve.</h3>
             <p class="t-body para">We help turn it into a goal with steps you can take.</p>
           </div>
-          <figure class="device" aria-hidden="true"><img src="assets/app/goal.webp" width="786" height="1704" alt="" loading="lazy" decoding="async" /></figure>
         </li>
-        <li class="how-card nb-card" data-tone="discipline" data-reveal>
+        <li class="how-step" data-reveal>
+          <figure class="how-mock"><img src="assets/app/mock-invest.webp" width="600" height="1000" alt="Vest Self profile showing money invested in your best self" loading="lazy" decoding="async" /></figure>
           <div class="how-copy">
             <span class="how-num t-mono-title">02</span>
             <h3 class="t-sh2">Give your promise some weight.</h3>
             <p class="t-body para">Invite an accountability partner, find community, and choose your level of commitment.</p>
           </div>
-          <figure class="device" aria-hidden="true"><img src="assets/app/partner.webp" width="786" height="1704" alt="" loading="lazy" decoding="async" /></figure>
         </li>
-        <li class="how-card nb-card" data-tone="growth" data-reveal>
+        <li class="how-step" data-reveal>
+          <figure class="how-mock"><img src="assets/app/mock-track.webp" width="600" height="1000" alt="Vest Self tracking screen with a partner verifying progress" loading="lazy" decoding="async" /></figure>
           <div class="how-copy">
             <span class="how-num t-mono-title">03</span>
             <h3 class="t-sh2">Show up. Check in. Keep going.</h3>
             <p class="t-body para">Complete steps, build streaks, and make your progress visible.</p>
           </div>
-          <figure class="device" aria-hidden="true"><img src="assets/app/streak.webp" width="786" height="1704" alt="" loading="lazy" decoding="async" /></figure>
         </li>
       </ol>
 
@@ -377,20 +379,16 @@
   </section>
 
   <!-- ===================== 3b. ACHIEVEMENT BANNER (Kayla's Figma, 28 Oct) ===================== -->
-  <section class="achieve-section section" aria-label="Achievement">
-    <div class="shell">
-      <div class="achieve" data-reveal>
-        <picture class="achieve-photo" aria-hidden="true">
-          <source media="(max-width: 760px)" srcset="assets/img/achieve-stage-900.webp" />
-          <img src="assets/img/achieve-stage-1690.webp" alt="" width="1690" height="931" loading="lazy" decoding="async" />
-        </picture>
-        <div class="achieve-copy">
-          <p class="kicker t-mono-title">Achievement</p>
-          <p class="achieve-title t-hero">Action turns dreams into achievements.</p>
-          <p class="t-body para">We help you build the path. <span class="fg1">You make it happen.</span></p>
-          <a class="btn-gold btn-lg" href="#join" data-sticky-target data-track="achieve_cta">Let's make it happen <span class="btn-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span></a>
-        </div>
-      </div>
+  <section class="promise promise--flip achieve-split" aria-labelledby="achieve-title">
+    <picture class="promise-photo" aria-hidden="true">
+      <source media="(max-width: 760px)" srcset="assets/img/achieve-stage-900.webp" />
+      <img src="assets/img/achieve-stage-1690.webp" alt="" width="1690" height="931" loading="lazy" decoding="async" />
+    </picture>
+    <div class="promise-copy" data-reveal>
+      <p class="kicker t-mono-title">Achievement</p>
+      <h2 class="t-h1 h-sec" id="achieve-title">Action turns dreams <span class="g">into achievements.</span></h2>
+      <p class="promise-close t-body para">We help you build the path. <span class="fg1">You make it happen.</span></p>
+      <a class="btn-gold btn-lg" href="#join" data-sticky-target data-track="achieve_cta">Let's make it happen <span class="btn-arrow" aria-hidden="true"><svg class="ic"><use href="#i-arrow-right"/></svg></span></a>
     </div>
   </section>
 
@@ -557,6 +555,6 @@
     </div>
   </footer>
 
-  <script src="js/app.js?v=20261108g"></script>
+  <script src="js/app.js?v=20261108i"></script>
 </body>
 </html>

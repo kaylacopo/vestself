@@ -43,7 +43,7 @@
   --lightning-gold:#FFC919;   /* Secondary 05 — high-energy gold */
   --champagne:     #F9F1C8;   /* Secondary 05 — soft warm light */
   --oregon:        #9C3807;   /* deep amber-brown, gradient mid */
-  --void:          #0A0A0F;   /* all gradients dissolve to this */
+  --void:          #000000;   /* all gradients dissolve to this */
   --true-black:    #000000;
 
   /* primary stop used when a single brand color is needed */
@@ -115,12 +115,12 @@
      ============================================================ */
 
   /* The signature brand gradient: Lightning Gold → Oregon → void */
-  --grad-brand:  linear-gradient(135deg, #FFC919 0%, #9C3807 55%, #0A0A0F 100%);
-  --grad-brand-soft: linear-gradient(135deg, rgba(255,201,25,0.22) 0%, rgba(156,56,7,0.18) 55%, rgba(10,10,15,0) 100%);
+  --grad-brand:  linear-gradient(135deg, #FFC919 0%, #9C3807 55%, #000000 100%);
+  --grad-brand-soft: linear-gradient(135deg, rgba(255,201,25,0.22) 0%, rgba(156,56,7,0.18) 55%, rgba(0,0,0,0) 100%);
   --grad-gold:   linear-gradient(135deg, #FFC919 0%, #E6C15A 100%);
   --grad-champagne: linear-gradient(135deg, #F9F1C8 0%, #E6C15A 100%);
   /* Recognition closing band (Kayla's Figma, Nov 2026): gold glow from the bottom-left corner into void */
-  --grad-band-corner: linear-gradient(to top right, #E6C15A 0%, #9C3807 34%, #53210B 53%, #2F160D 64%, #170A04 75%, #0A0A0F 86%);
+  --grad-band-corner: linear-gradient(to top right, #E6C15A 0%, #9C3807 34%, #53210B 53%, #2F160D 64%, #170A04 75%, #000000 86%);
 
   /* Named usage gradients, CONFIRMED from Brand Guide 3.2 (Figma 747:5087).
      Each is a blurred blob running steel (#4E575F) into the hue, laid along a
@@ -131,10 +131,10 @@
   --tone-discipline: linear-gradient(100deg, #4E575F 0%, #DB139C 55%, #A13CFF 80%, #0E6BFF 100%); /* magenta > purple > blue, as Kayla's bento (Nov 2026) */ /* premium, streaks, earned reward */
   --dot-energy: #E6C15A; --dot-focus: #FF8032; --dot-growth: #59D98E; --dot-discipline: #9B7BFF;
   /* legacy names kept for anything still referencing them */
-  --grad-energy:     radial-gradient(120% 120% at 8% 92%, #EACC47 0%, #F3003D 30%, #0A0A0F 78%);
-  --grad-focus:      radial-gradient(120% 120% at 92% 92%, #FF780E 0%, #FF0800 30%, #0A0A0F 78%);
-  --grad-growth:     radial-gradient(120% 120% at 8% 92%, #E6C15A 0%, #00FFB7 30%, #0A0A0F 78%);
-  --grad-discipline: radial-gradient(120% 120% at 92% 92%, #120EFF 0%, #FF0800 30%, #0A0A0F 78%); /* premium, mindset, earned reward */
+  --grad-energy:     radial-gradient(120% 120% at 8% 92%, #EACC47 0%, #F3003D 30%, #000000 78%);
+  --grad-focus:      radial-gradient(120% 120% at 92% 92%, #FF780E 0%, #FF0800 30%, #000000 78%);
+  --grad-growth:     radial-gradient(120% 120% at 8% 92%, #E6C15A 0%, #00FFB7 30%, #000000 78%);
+  --grad-discipline: radial-gradient(120% 120% at 92% 92%, #120EFF 0%, #FF0800 30%, #000000 78%); /* premium, mindset, earned reward */
 
   /* ============================================================
      NEON BLUR (Elements 5.1) — the signature card treatment.
@@ -163,7 +163,7 @@
   /* ============================================================
      SEMANTIC SURFACES — DARK (default)
      ============================================================ */
-  --bg:           var(--void);        /* #0A0A0F page base */
+  --bg:           var(--void);        /* #000000 page base */
   --bg-elevated:  var(--midnight);    /* #111111 cards */
   --bg-sunken:    var(--true-black);
   --bg-card:      #16161B;
@@ -171,7 +171,7 @@
   --surface-card:    rgba(255,252,245,0.04);
   --surface-card-2:  rgba(255,252,245,0.06);
   --surface-glass:   rgba(255,252,245,0.05);
-  --surface-overlay: rgba(10,10,15,0.74);
+  --surface-overlay: rgba(0,0,0,0.74);
 
   /* foreground on dark */
   --fg-1: #FFFCF5;             /* primary */
@@ -444,7 +444,7 @@
 /* Photo neon-blur: Golden-Glow image with neon bleeding up from the base */
 .neon-photo {
   position: relative; overflow: hidden; border-radius: var(--radius-neon);
-  background: #0A0A0F; isolation: isolate;
+  background: #000000; isolation: isolate;
 }
 .neon-photo > img {
   display: block; width: 100%; height: 100%; object-fit: cover;
