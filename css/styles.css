@@ -931,3 +931,8 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
 .tile--stakes .tile-photo img { object-position: 30% bottom; transform: none; }
 .tile--stakes .tile-photo::after { background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 22%); }
 .nb-photo::after { background-size: 112% 175%; background-position: center 98%; }
+/* mode cards: Invest further left, Stake further right, just kissing */
+@media (min-width: 1024px) {
+  .mode-card--invest { right: calc(clamp(220px, 17vw, 250px) + 64px); top: 15%; z-index: 2; }
+  .mode-card--stake { right: calc(clamp(220px, 17vw, 250px) + 18px); top: 30.5%; z-index: 3; }
+}
