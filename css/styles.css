@@ -818,3 +818,12 @@ html:not(.review) .community .founding { margin-top: 0; }
 .phone-dialog-close:hover { color: var(--fg-1); background: rgba(255,255,255,0.06); }
 .promise-copy .promise-body { color: var(--fg-2); max-width: 46ch; margin: 0; }
 .promise-copy .promise-close { margin-top: -8px; }
+/* Recognition pair: she matches his scale and sits to the right, like him */
+.rec-panel--others .rec-photo img { object-position: 46% 10%; transform: scale(1.32); transform-origin: 52% 12%; }
+.rec-panel--others .rec-photo img { transform: scale(1.48); transform-origin: 46% 8%; }
+/* Commitment card: no fill. Kayla's Glow, smaller, bottom-right, plus a
+   smaller mirrored one top-left; the text sits on clean black. */
+.rec-band { background: #000 url("../assets/img/band-glow-alpha.webp") right bottom / min(56%, 720px) auto no-repeat; }
+.rec-band::after { content: ""; position: absolute; left: 0; top: 0; right: auto; bottom: auto; inset: 0 auto auto 0; width: min(30%, 380px); aspect-ratio: 1080 / 890; z-index: -1;
+  background: url("../assets/img/band-glow-alpha.webp") center / 100% 100% no-repeat; transform: rotate(180deg); opacity: 0.55; mix-blend-mode: normal; }
+.rec-close .para { color: var(--fg-2); }
