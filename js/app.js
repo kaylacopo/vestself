@@ -515,7 +515,7 @@
   // ---------------------------------------------------------------------
   var sticky = document.querySelector('[data-sticky-cta]');
   var heroForm = document.getElementById('join');
-  var finalCta = document.getElementById('join-final');
+  var finalCta = document.getElementById('join-final') || document.querySelector('.founding');
   if (sticky && heroForm && finalCta) {
     var heroVisible = true, finalVisible = false, done = false;
     var syncSticky = function () {

@@ -591,3 +591,107 @@ html:not(.review) .community .founding { margin-top: 0; }
 
 /* How it works: keep each step's tags on one line on wide screens (Kayla's Figma). */
 
+
+/* =====================================================================
+   FINAL POLISH (8 Nov 2026): Brand Guide 3.2 gradients + 5.1 Neon Blur.
+   Corner-anchored light, one hue family per card, everything fades into
+   void. One heading size for every section; the hero is untouched.
+   ===================================================================== */
+
+/* One calm headline size site-wide (hero excluded). */
+.h-sec, .rec-head { font-size: clamp(30px, 3vw, 44px); line-height: 1.1; letter-spacing: -0.015em; text-wrap: balance; max-width: 20ch; }
+.rec-close .statement, .achieve-title { font-size: clamp(34px, 3.6vw, 54px); line-height: 1.05; letter-spacing: -0.02em; }
+.split-head .para { max-width: 40ch; }
+.br-d { display: none; }
+@media (min-width: 1024px) { .br-d { display: inline; } }
+
+/* Recognition: photo recedes to the top-right corner and fades into black. */
+.rec-photo { inset: 0 0 auto auto; width: 78%; height: 82%; opacity: 0.8;
+  -webkit-mask-image: radial-gradient(110% 100% at 100% 0%, #000 30%, transparent 78%); mask-image: radial-gradient(110% 100% at 100% 0%, #000 30%, transparent 78%); }
+.rec-panel::after { background: linear-gradient(0deg, var(--void) 34%, rgba(10,10,15,0.55) 58%, rgba(10,10,15,0) 82%); }
+
+/* Commitment statement: dark space, gold light rising from one corner. */
+.rec-band { background: var(--void); isolation: isolate; overflow: hidden; }
+.rec-band::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    radial-gradient(55% 95% at 0% 100%, rgba(230,193,90,0.42) 0%, rgba(156,56,7,0.34) 26%, rgba(83,33,11,0.18) 48%, rgba(10,10,15,0) 70%),
+    radial-gradient(35% 55% at 100% 0%, rgba(210,148,24,0.12) 0%, rgba(10,10,15,0) 70%); }
+.rec-band::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background: url("../assets/noise.svg"); opacity: 0.06; mix-blend-mode: overlay; }
+.rec-close .para { color: var(--fg-3); max-width: 60ch; }
+
+/* ---- Neon Blur card (Brand Guide 5.1) ---- */
+.nb-card { --nb-bloom: var(--neon-blob-dark); position: relative; isolation: isolate; overflow: hidden; border-radius: var(--radius-card, 12px); border: 0;
+  background: radial-gradient(70% 38% at 0% 0%, rgba(210,148,24,0.20) 0%, rgba(0,0,0,0) 70%), #000; }
+.nb-card[data-tone="energy"] { --nb-bloom: var(--tone-energy); }
+.nb-card[data-tone="focus"] { --nb-bloom: var(--tone-focus); }
+.nb-card[data-tone="growth"] { --nb-bloom: var(--tone-growth); }
+.nb-card[data-tone="discipline"] { --nb-bloom: var(--tone-discipline); }
+/* bloom: low, soft, anchored to the bottom corner, dissolving upward */
+.nb-card::after { content: ""; position: absolute; z-index: -1; left: 10%; right: -35%; bottom: -34%; height: 58%; border-radius: 50%;
+  background: var(--nb-bloom); filter: blur(64px); opacity: 0.85; pointer-events: none; }
+/* edge light: 1px of light catching the corners, not a flat border */
+.nb-card::before { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: 1px; pointer-events: none;
+  background: radial-gradient(55% 40% at 0% 0%, rgba(255,252,245,0.32), transparent 70%), radial-gradient(55% 40% at 100% 0%, rgba(255,252,245,0.16), transparent 70%), radial-gradient(70% 40% at 60% 100%, rgba(255,252,245,0.18), transparent 70%), rgba(255,252,245,0.05);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+
+/* ---- How it works: three cards, one device each ---- */
+.how { background: var(--void); }
+.how-cards { list-style: none; margin: 40px 0 0; padding: 0; display: grid; gap: 16px; }
+@media (min-width: 900px) { .how-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.how-card { display: flex; flex-direction: column; min-height: clamp(500px, 64vh, 580px); padding: 32px 32px 0; }
+.how-copy { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 10px; }
+.how-num { color: var(--gold); }
+.how-copy .t-sh2 { max-width: 15ch; }
+.how-copy .para { color: var(--fg-3); max-width: 32ch; }
+.device { position: relative; z-index: 1; margin: auto auto 0; padding-top: 32px; width: min(250px, 74%); }
+.device img { display: block; width: 100%; height: auto; aspect-ratio: 250 / 330; object-fit: cover; object-position: top;
+  border: 7px solid #141416; border-bottom: 0; border-radius: 40px 40px 0 0;
+  box-shadow: 0 0 0 1px rgba(255,252,245,0.16), inset 0 0 0 1px rgba(0,0,0,0.6), 0 -30px 80px -30px rgba(0,0,0,0.9); background: #000; }
+.js .how-card .device { transform: translateY(40px); transition: transform 1.2s var(--ease-out); }
+.js .how-card.in .device { transform: none; }
+.js .how-cards .how-card:nth-child(2) { transition-delay: 0.08s; } .js .how-cards .how-card:nth-child(3) { transition-delay: 0.16s; }
+
+/* ---- Accountability: four photo Neon Blur cards ---- */
+.bento { grid-template-columns: 1fr; grid-template-rows: none; gap: 16px; margin-top: 40px; }
+@media (min-width: 640px) { .bento { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .bento { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: none; } }
+.bento .tile { grid-column: auto !important; grid-row: auto !important; }
+.tile.nb-photo { justify-content: space-between; gap: 0; min-height: clamp(420px, 54vh, 500px); padding: 24px; box-shadow: none; }
+.tile-photo { position: absolute; inset: 0; z-index: -2; }
+.tile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 18%; }
+.tile-photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 22%, rgba(0,0,0,0) 40%, rgba(0,0,0,0.82) 72%, #000 100%); }
+.nb-photo::after { opacity: 0.7; bottom: -40%; }
+.tile-foot { display: flex; flex-direction: column; gap: 8px; }
+.tile-foot .t-sh2 { max-width: 14ch; }
+.tile.nb-photo .tile-text { color: var(--fg-3); max-width: 30ch; }
+
+/* ---- Money: copy left, screen right, mode crop overlapping only its corner ---- */
+@media (min-width: 1024px) {
+  .money-copy { grid-column: 1 / 7; max-width: 600px; }
+  .money-visual { grid-column: 7 / 13; }
+}
+.money-visual { height: clamp(500px, 66vh, 600px); }
+.money-screen { right: 4%; top: 0; width: clamp(230px, 20vw, 280px); opacity: 1;
+  -webkit-mask-image: linear-gradient(180deg, #000 62%, transparent 96%); mask-image: linear-gradient(180deg, #000 62%, transparent 96%); }
+.mode-zoom { left: 0; bottom: 4%; width: min(380px, 64%); }
+@media (max-width: 1023px) { .money-visual { height: 520px; } .money-screen { right: 0; } .mode-zoom { width: min(340px, 82%); } }
+
+/* ---- Promise: headline, one line, one button ---- */
+@media (min-width: 1024px) { .promise { min-height: clamp(520px, 70vh, 640px); max-height: none; } }
+.promise-copy .h-sec { max-width: 16ch; }
+.promise-close { color: var(--fg-3); }
+.promise-copy .btn-gold { align-self: flex-start; margin-top: 8px; }
+
+/* ---- Founding banner: mark aligned to the text top, one button ---- */
+.community { padding-bottom: var(--section-y); }
+.founding-copy .t-sh1 { max-width: none; }
+.founding-copy .para { color: var(--fg-3); max-width: 56ch; }
+.founding-mark { align-self: start; margin-top: 6px; width: 40px; }
+.founding-cta { justify-self: start; }
+@media (min-width: 1024px) { .founding { align-items: start; } .founding-cta { align-self: center; justify-self: end; } }
+/* band light fades out before the band's edges, so no hard seams */
+.rec-band::before { background: radial-gradient(50% 80% at 6% 88%, rgba(230,193,90,0.36) 0%, rgba(156,56,7,0.30) 28%, rgba(83,33,11,0.14) 52%, rgba(10,10,15,0) 74%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 70%, transparent 100%); }
+.nb-card::after { opacity: 0.72; }
+.nb-photo::after { opacity: 0.6; }
+@media (max-width: 1023px) { .promise-photo { min-height: 46svh; } }
