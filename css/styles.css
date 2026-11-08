@@ -1010,3 +1010,13 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
   mask-image: linear-gradient(90deg, transparent 0%, #000 20%, #000 80%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 14%, #000 74%, transparent 100%);
   mask-composite: intersect; }
 .tile.nb-photo .tile-photo img { object-fit: cover; }
+/* Accountability cards, final: full-bleed photos (no inset square), text over a
+   bottom gradient, faces always in the clear band between label and title. */
+.tile.nb-photo { padding: 24px; justify-content: space-between; min-height: clamp(470px, 60vh, 540px); }
+.tile.nb-photo .tile-photo { position: absolute; inset: 0; margin: 0; width: 100%; height: 100%; aspect-ratio: auto; z-index: -2;
+  -webkit-mask-image: none; mask-image: none; }
+.tile.nb-photo .tile-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top !important; transform: none !important; }
+.tile.nb-photo .tile-photo::after { display: block; content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0) 14%, rgba(0,0,0,0) 46%, rgba(0,0,0,0.75) 62%, rgba(0,0,0,0.95) 76%, #000 100%); }
+.tile.nb-photo .tile-label { position: static; }
+.tile.nb-photo .tile-foot { margin-top: 0; padding: 0; }
