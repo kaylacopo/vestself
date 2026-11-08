@@ -32,6 +32,9 @@ button { font: inherit; }
 .shell { width: 100%; max-width: calc(var(--maxw) + var(--shell) * 2); margin-inline: auto; padding-inline: var(--shell); }
 .section { padding-block: var(--section-y); }
 .section--tight { padding-block: var(--section-y-tight); }
+/* Same background as the section above: tighter shared edge (Kayla's rule). */
+.section--tight-top { padding-top: var(--section-y-tight); }
+.achieve-section { padding-bottom: var(--section-y-tight); }
 .g { color: var(--gold); }
 .fg1 { color: var(--fg-1); }
 .mono { font-family: var(--mono); letter-spacing: var(--tracking-wide); }
