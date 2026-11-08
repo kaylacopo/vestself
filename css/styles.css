@@ -761,3 +761,58 @@ html:not(.review) .community .founding { margin-top: 0; }
 /* Recognition photos: fade from the centre so no edge shows */
 .rec-photo { -webkit-mask-image: radial-gradient(closest-side at 55% 45%, #000 50%, transparent 100%); mask-image: radial-gradient(closest-side at 55% 45%, #000 50%, transparent 100%); }
 @media (min-width: 900px) { .how-mock { height: clamp(340px, 45vh, 440px); } .how-steps { margin-top: 24px; } }
+
+/* ===== Round 3 (8 Nov) ===== */
+/* Fixed rhythm on desktop: 120px between sections, 60+60 where backgrounds match. */
+@media (min-width: 1024px) { :root { --section-y: 120px; --section-y-tight: 60px; } }
+
+/* Commitment card: Kayla's own Glow (Figma 1143:2254), not a CSS imitation. */
+.rec-band { background: #0A0A0F url("../assets/img/band-glow.webp") right bottom / cover no-repeat; }
+
+/* How it works: two even lines for headings and body; step copy at 16/24. */
+.how-step .t-sh2 { max-width: none; }
+.how-step .para { max-width: 44ch; text-wrap: balance; font-size: 16px; line-height: 24px; }
+.how-step .how-copy { min-height: 0; }
+
+/* Money: two mode cards floating left of the phone, staggered, never over it. */
+.mode-zoom { display: none; }
+.mode-card { position: absolute; margin: 0; width: min(360px, 58%); border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,252,245,0.12);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.9), 0 0 0 1px rgba(0,0,0,0.5); background: #1a1a1a; }
+.mode-card img { display: block; width: 100%; height: auto; }
+@media (min-width: 1024px) {
+  .money-visual { height: clamp(520px, 66vh, 600px); }
+  .money-screen { right: 0; }
+  .mode-card { width: calc(100% - clamp(230px, 20vw, 280px) - 32px); max-width: 380px; }
+  .mode-card--invest { left: 0; top: 14%; }
+  .mode-card--stake { left: 6%; top: 50%; }
+}
+@media (max-width: 1023px) {
+  .money-visual { height: auto; display: grid; justify-items: center; gap: 12px; }
+  .money-screen, .mode-card { position: relative; inset: auto; }
+  .money-screen { width: min(280px, 72%); }
+  .mode-card { width: min(380px, 100%); }
+  .mode-card--invest { margin-top: -120px; justify-self: start; }
+  .mode-card--stake { justify-self: end; }
+}
+/* even 120px rhythm between sections (measured content to content) */
+.formula { padding-top: 0; }
+.how { padding-block: var(--section-y); }
+.system { padding-top: var(--section-y); }
+.community { padding-top: var(--section-y); }
+.formula { padding-bottom: var(--section-y); }
+
+/* Desktop "lives on your phone" panel (Neon Blur card language) */
+.phone-dialog { width: min(420px, calc(100vw - 32px)); padding: 40px 36px 32px; border: 1px solid rgba(255,252,245,0.12); border-radius: 12px; color: var(--fg-1); text-align: center;
+  background: radial-gradient(70% 40% at 50% 112%, rgba(230,193,90,0.30), rgba(156,56,7,0.18) 45%, transparent 75%), #0A0A0F; box-shadow: 0 40px 120px rgba(0,0,0,0.8); }
+.phone-dialog[open] { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+.phone-dialog::backdrop { background: rgba(0,0,0,0.72); backdrop-filter: blur(8px); }
+.phone-dialog-mark { width: 36px; height: auto; }
+.phone-dialog .t-sh1 { font-size: 26px; line-height: 32px; }
+.phone-dialog .para { color: var(--fg-3); margin: 0 0 6px; max-width: 30ch; }
+.phone-dialog-qr { padding: 14px; background: #FFFCF5; border-radius: 12px; line-height: 0; }
+.phone-dialog-qr img { width: 180px; height: 180px; }
+.phone-dialog .btn-gold { width: 100%; justify-content: center; margin-top: 8px; }
+.phone-dialog-anyway { color: var(--fg-3); text-decoration: underline; text-underline-offset: 3px; }
+.phone-dialog-anyway:hover { color: var(--fg-1); }
+.phone-dialog-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--fg-3); cursor: pointer; }
+.phone-dialog-close:hover { color: var(--fg-1); background: rgba(255,255,255,0.06); }

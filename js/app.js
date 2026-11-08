@@ -369,6 +369,10 @@
 
     function advance() {
       var goal = combo.input.value.trim();
+      combo.close();
+      track('goal_next');
+      // Vest Self is the web app now: hand the goal over (the app can read ?goal=).
+      if (window.vsOpenApp) { window.vsOpenApp(goal); return; }
       if (goal.length < 3) { combo.close(); combo.input.focus(); nudge(goalStep.querySelector('.field')); return; }
       combo.input.value = goal;
       combo.close();
@@ -527,11 +531,34 @@
     new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; syncSticky(); }).observe(heroForm);
     new IntersectionObserver(function (e) { finalVisible = e[0].isIntersecting; syncSticky(); }, { rootMargin: '0px 0px -10% 0px' }).observe(finalCta);
     document.addEventListener('waitlist:done', function () { done = true; syncSticky(); });
-    sticky.addEventListener('click', function (ev) {
-      ev.preventDefault();
-      heroForm.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
-      var goal = document.getElementById('goal-input');
-      if (goal && !goal.closest('[hidden]')) setTimeout(function () { goal.focus({ preventScroll: true }); }, reduceMotion ? 0 : 600);
+  }
+
+  // ---------------------------------------------------------------------
+  // App buttons. Phones and tablets go straight to the web app; desktop gets
+  // a "this lives on your phone" panel with a QR code and a copy-link button.
+  // ---------------------------------------------------------------------
+  var APP_URL = 'https://web.vestself.app/onboarding/0?step=0';
+  var isTouch = window.matchMedia('(pointer: coarse)').matches;
+  var dialog = document.querySelector('[data-phone-dialog]');
+  function appUrl(goal) { return goal ? APP_URL + '&goal=' + encodeURIComponent(goal) : APP_URL; }
+  window.vsOpenApp = function (goal) {
+    var url = appUrl(goal);
+    if (isTouch || !dialog || typeof dialog.showModal !== 'function') { track('app_open', { device: 'phone' }); window.location.href = url; return; }
+    track('app_open', { device: 'desktop' });
+    var anyway = dialog.querySelector('[data-app-anyway]'); if (anyway) anyway.href = url;
+    dialog.showModal();
+  };
+  document.querySelectorAll('a[data-app-cta]').forEach(function (a) {
+    a.addEventListener('click', function (ev) { ev.preventDefault(); window.vsOpenApp(''); });
+  });
+  if (dialog) {
+    dialog.querySelector('[data-phone-close]').addEventListener('click', function () { dialog.close(); });
+    dialog.addEventListener('click', function (ev) { if (ev.target === dialog) dialog.close(); });
+    var copy = dialog.querySelector('[data-copy-link]');
+    copy.addEventListener('click', function () {
+      var label = copy.firstChild;
+      var done = function () { label.textContent = 'Link copied '; track('desktop_copy_link'); setTimeout(function () { label.textContent = 'Copy the link '; }, 2400); };
+      if (navigator.clipboard) navigator.clipboard.writeText(APP_URL).then(done, done); else done();
     });
   }
 })();
