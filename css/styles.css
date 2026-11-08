@@ -877,3 +877,57 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
 .rec-list .tick { width: 20px; height: 20px; font-size: 10px; }
 .rec-list li { grid-template-columns: 1fr auto 20px; }
 .rec-panel--others .rec-photo img { object-position: 46% 10%; transform-origin: 46% 8%; transform: translateX(16%) scale(1.48); }
+
+/* ===== Final pass (8 Nov) ===== */
+/* Commitment card: the full signature curve, bottom-right, plus a smaller echo top-left. */
+.rec-band { background: #000 url("../assets/img/band-glow-curve.webp") right bottom / min(64%, 820px) auto no-repeat; }
+.rec-band::after { background-image: url("../assets/img/band-glow-curve.webp"); width: min(34%, 430px); opacity: 0.5; }
+
+/* We build the path: Kayla's Discipline curve (Brand Guide 3.2) in place of the CSS blob. */
+@media (min-width: 1240px) {
+  .stair-band { background: url("../assets/img/grad-discipline.webp") right top / 100% 100% no-repeat, linear-gradient(180deg, rgba(230,193,90,0.06), rgba(230,193,90,0) 70%); }
+}
+/* Step content steps back so the section heading leads. */
+.stair-word { color: rgba(255,252,245,0.82); }
+.is-app .stair-word { color: rgba(230,193,90,0.82); }
+.stair-text { color: var(--fg-3); }
+.chip { opacity: 0.85; }
+.band-say { color: rgba(255,252,245,0.9); }
+
+/* How it works: phones rise into place one after another as you scroll. */
+.js .how-step { opacity: 0; transform: none; transition: opacity 0.9s var(--ease-out); }
+.js .how-step .how-mock { transform: translateY(80px) scale(0.94); opacity: 0; transition: transform 1.3s var(--ease-out), opacity 1s var(--ease-out); }
+.js .how-step .how-copy { transform: translateY(24px); opacity: 0; transition: transform 1s var(--ease-out) 0.25s, opacity 1s var(--ease-out) 0.25s; }
+.js .how-step.in, .js .how-step.in .how-mock, .js .how-step.in .how-copy { opacity: 1; transform: none; }
+.js .how-steps .how-step:nth-child(2), .js .how-steps .how-step:nth-child(2) .how-mock { transition-delay: 0.18s; }
+.js .how-steps .how-step:nth-child(3), .js .how-steps .how-step:nth-child(3) .how-mock { transition-delay: 0.36s; }
+@media (prefers-reduced-motion: reduce) { .js .how-step, .js .how-step .how-mock, .js .how-step .how-copy { opacity: 1 !important; transform: none !important; transition: none !important; } }
+
+/* Accountability: Kayla's preset gradients along the bottom of each card. */
+.nb-photo[data-tone="energy"] { --grad-img: url("../assets/img/grad-energy.webp"); }
+.nb-photo[data-tone="focus"] { --grad-img: url("../assets/img/grad-focus.webp"); }
+.nb-photo[data-tone="growth"] { --grad-img: url("../assets/img/grad-growth.webp"); }
+.nb-photo[data-tone="discipline"] { --grad-img: url("../assets/img/grad-discipline.webp"); }
+.nb-photo::after { height: 70%; background: var(--grad-img) center bottom / 100% 160% no-repeat; }
+.tile--partner .tile-photo img { object-position: center 12%; }
+.tile--community .tile-photo img { object-position: center 18%; }
+.tile--stakes .tile-photo img { object-position: center bottom; transform: translateY(-20%) scale(1.1); transform-origin: center bottom; }
+
+/* Promise heading: two lines. */
+@media (min-width: 1024px) {
+  .promise:not(.promise--flip) { grid-template-columns: 4fr 8fr; }
+  .promise:not(.promise--flip) .promise-copy .h-sec { max-width: none; white-space: nowrap; }
+}
+
+/* Optional stakes: smaller phone, cards stacked close, offset and slightly overlapping, near the phone. */
+@media (min-width: 1024px) {
+  .money-screen { width: clamp(220px, 17vw, 250px); }
+  .mode-card { width: 300px; max-width: none; }
+  .mode-card--invest { left: auto; right: calc(clamp(220px, 17vw, 250px) + 20px); top: 18%; z-index: 2; }
+  .mode-card--stake { left: auto; right: calc(clamp(220px, 17vw, 250px) + 56px); top: 34%; z-index: 3; }
+}
+@media (min-width: 1240px) { .stair-band { background-size: 108% 112%, auto; background-position: 60% 30%, 0 0; } }
+.tile--stakes .tile-photo { bottom: 24%; -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent 100%); mask-image: linear-gradient(180deg, #000 70%, transparent 100%); }
+.tile--stakes .tile-photo img { object-position: 30% bottom; transform: none; }
+.tile--stakes .tile-photo::after { background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 22%); }
+.nb-photo::after { background-size: 112% 175%; background-position: center 98%; }
