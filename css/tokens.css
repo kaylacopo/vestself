@@ -119,6 +119,8 @@
   --grad-brand-soft: linear-gradient(135deg, rgba(255,201,25,0.22) 0%, rgba(156,56,7,0.18) 55%, rgba(10,10,15,0) 100%);
   --grad-gold:   linear-gradient(135deg, #FFC919 0%, #E6C15A 100%);
   --grad-champagne: linear-gradient(135deg, #F9F1C8 0%, #E6C15A 100%);
+  /* Recognition closing band (Kayla's Figma, Nov 2026): gold glow from the bottom-left corner into void */
+  --grad-band-corner: linear-gradient(to top right, #E6C15A 0%, #9C3807 34%, #53210B 53%, #2F160D 64%, #170A04 75%, #0A0A0F 86%);
 
   /* Named usage gradients, CONFIRMED from Brand Guide 3.2 (Figma 747:5087).
      Each is a blurred blob running steel (#4E575F) into the hue, laid along a
@@ -126,7 +128,7 @@
   --tone-energy:     linear-gradient(100deg, #4E575F 0%, #F3003D 80%, #EACC47 100%); /* workouts, achievements, streak milestones */
   --tone-focus:      linear-gradient(100deg, #4E575F 0%, #FF0800 80%, #FF780E 100%); /* focus sessions, deep work */
   --tone-growth:     linear-gradient(100deg, #4E575F 0%, #00FFB7 74%, #E6C15A 91%); /* progress, momentum */
-  --tone-discipline: linear-gradient(100deg, #4E575F 0%, #FF0800 80%, #120EFF 100%); /* premium, streaks, earned reward */
+  --tone-discipline: linear-gradient(100deg, #4E575F 0%, #DB139C 55%, #A13CFF 80%, #0E6BFF 100%); /* magenta > purple > blue, as Kayla's bento (Nov 2026) */ /* premium, streaks, earned reward */
   --dot-energy: #E6C15A; --dot-focus: #FF8032; --dot-growth: #59D98E; --dot-discipline: #9B7BFF;
   /* legacy names kept for anything still referencing them */
   --grad-energy:     radial-gradient(120% 120% at 8% 92%, #EACC47 0%, #F3003D 30%, #0A0A0F 78%);
@@ -378,10 +380,14 @@
   font-feature-settings: "tnum" 1, "lnum" 1;
 }
 
-/* Mono/Caption and Mono/Label (JetBrains Mono) */
-.t-mono-caption {
-  font-family: var(--font-mono); font-weight: 400;
-  font-size: 12px; line-height: 16px; color: var(--fg-3);
+/* Mono styles (JetBrains Mono), as updated in Figma (Nov 2026) */
+.t-mono-caption {   /* Mono/Caption: Medium 12/16, 2% tracking, uppercase */
+  font-family: var(--font-mono); font-weight: 500;
+  font-size: 12px; line-height: 16px; letter-spacing: 0.02em; text-transform: uppercase; color: var(--fg-3);
+}
+.t-mono-title {     /* Mono/Title Subheading's: Medium 14/16, 2px tracking, uppercase (section eyebrows) */
+  font-family: var(--font-mono); font-weight: 500;
+  font-size: 14px; line-height: 16px; letter-spacing: 2px; text-transform: uppercase; color: var(--fg-2);
 }
 .t-mono-label {
   font-family: var(--font-mono); font-weight: 400;
