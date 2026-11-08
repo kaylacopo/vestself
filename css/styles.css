@@ -953,3 +953,16 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
 .tile--stakes .tile-photo { bottom: 0; -webkit-mask-image: none; mask-image: none; }
 .tile--stakes .tile-photo img { object-position: 62% 40%; transform: none; }
 .tile--stakes .tile-photo::after { background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 42%, rgba(0,0,0,0.9) 70%, #000 100%); }
+
+/* Accountability photos (Kayla's picks): tight, editorial crops around the face. */
+.tile .tile-photo img { object-position: center top; transform: none; }
+.tile--partner .tile-photo img { transform: scale(1.55); transform-origin: 63% 14%; }
+.tile--community .tile-photo img { transform: scale(1.4); transform-origin: 38% 24%; }
+.tile--streak .tile-photo img { transform: scale(1.5); transform-origin: 36% 18%; }
+.tile--stakes .tile-photo img { transform: scale(1.45); transform-origin: 56% 18%; }
+/* gradients: quieter, pushed into the corners */
+.nb-photo::after { opacity: 0.5;
+  -webkit-mask-image: radial-gradient(55% 22% at 100% 100%, #000 0%, transparent 100%), radial-gradient(45% 16% at 0% 0%, #000 0%, transparent 100%);
+  mask-image: radial-gradient(55% 22% at 100% 100%, #000 0%, transparent 100%), radial-gradient(45% 16% at 0% 0%, #000 0%, transparent 100%); }
+/* Stake card sits just under Invest's bottom edge at any screen height (card is 300px wide = 97px tall) */
+@media (min-width: 1024px) { .mode-card--invest { top: 15%; } .mode-card--stake { top: calc(15% + 94px); } }
