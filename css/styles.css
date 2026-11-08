@@ -936,3 +936,20 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
   .mode-card--invest { right: calc(clamp(220px, 17vw, 250px) + 64px); top: 15%; z-index: 2; }
   .mode-card--stake { right: calc(clamp(220px, 17vw, 250px) + 18px); top: 30.5%; z-index: 3; }
 }
+
+/* Accountability cards, refined: brand gradient as a quiet glow in two corners,
+   never under the text; photos framed with intent. */
+.nb-photo::after { inset: 0; height: auto; opacity: 0.7;
+  background: var(--grad-img) center / 100% 100% no-repeat;
+  -webkit-mask-image: radial-gradient(70% 34% at 100% 100%, #000 0%, transparent 100%), radial-gradient(60% 26% at 0% 0%, #000 0%, transparent 100%);
+  mask-image: radial-gradient(70% 34% at 100% 100%, #000 0%, transparent 100%), radial-gradient(60% 26% at 0% 0%, #000 0%, transparent 100%); }
+.tile-foot { position: relative; z-index: 1; }
+.tile-foot .t-sh2 { white-space: nowrap; font-size: 22px; line-height: 28px; min-height: 56px; }
+.tile-photo::after { background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 42%, rgba(0,0,0,0.9) 70%, #000 100%); }
+/* framing */
+.tile--partner .tile-photo img { object-position: 40% 18%; }
+.tile--community .tile-photo img { object-position: center 22%; }
+.tile--streak .tile-photo img { object-position: 60% 14%; }
+.tile--stakes .tile-photo { bottom: 0; -webkit-mask-image: none; mask-image: none; }
+.tile--stakes .tile-photo img { object-position: 62% 40%; transform: none; }
+.tile--stakes .tile-photo::after { background: linear-gradient(180deg, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 20%, rgba(0,0,0,0) 42%, rgba(0,0,0,0.9) 70%, #000 100%); }
