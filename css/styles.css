@@ -816,3 +816,5 @@ html:not(.review) .community .founding { margin-top: 0; }
 .phone-dialog-anyway:hover { color: var(--fg-1); }
 .phone-dialog-close { position: absolute; top: 14px; right: 14px; width: 36px; height: 36px; display: grid; place-items: center; border: 0; border-radius: 50%; background: transparent; color: var(--fg-3); cursor: pointer; }
 .phone-dialog-close:hover { color: var(--fg-1); background: rgba(255,255,255,0.06); }
+.promise-copy .promise-body { color: var(--fg-2); max-width: 46ch; margin: 0; }
+.promise-copy .promise-close { margin-top: -8px; }
