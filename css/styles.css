@@ -871,3 +871,9 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
 .para, .tile-text { text-wrap: pretty; }
 .achieve-split .promise-body { max-width: 48ch; }
 @media (min-width: 1024px) { .mode-card--stake { left: 2%; } }
+/* she fills her panel like he does: shifted right, reaching the panel edge */
+.rec-panel--others .rec-photo img { object-position: 22% 10%; transform: scale(1.48); transform-origin: 18% 8%; }
+/* smaller status circles */
+.rec-list .tick { width: 20px; height: 20px; font-size: 10px; }
+.rec-list li { grid-template-columns: 1fr auto 20px; }
+.rec-panel--others .rec-photo img { object-position: 46% 10%; transform-origin: 46% 8%; transform: translateX(16%) scale(1.48); }
