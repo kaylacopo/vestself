@@ -1053,3 +1053,8 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
   .js .ht-right[data-reveal] { transform: translateX(16px); }
   .js .hero-device .hq-right.in, .js .hero-device .ht-right.in { transform: none; }
 }
+
+/* Mobile: no one-word orphans in the founding banner. */
+@media (max-width: 600px) {
+  .founding h2, .founding .credibility { text-wrap: balance; }
+}
