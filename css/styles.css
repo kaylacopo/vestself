@@ -1058,3 +1058,37 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
 @media (max-width: 600px) {
   .founding h2, .founding .credibility { text-wrap: balance; }
 }
+
+/* Mobile hero, back to the September layout (Kayla, 9 Nov) with the new copy.
+   The tall two-portrait image renders 1:1 (786x2622), so the hero is that
+   tall. Screen 1: his face clear, then eyebrow, a three-line headline,
+   a three-line intro and the goal question inside the field. Screen 2: both
+   goal pairs over her portrait, no phone. The sticky CTA waits for the whole
+   hero to scroll past (app.js). */
+@media (max-width: 600px) {
+  .hero { padding-top: 0; height: calc(100vw * 3.3359); }
+  .hero-bg { height: 100%; background-size: 100% auto; background-position: center top; }
+  .hero-bg::after { background: linear-gradient(0deg, var(--void) 0%, rgba(0,0,0,0.12) 20%, rgba(0,0,0,0) 44%, rgba(0,0,0,0) 70%, rgba(0,0,0,0.4) 100%); }
+  .hero-scrim { top: 40%; transform: translate(-50%, -50%); width: 92%; height: 660px; background: radial-gradient(ellipse 58% 54% at 50% 50%, rgba(0,0,0,0.74) 0%, rgba(0,0,0,0.5) 42%, rgba(0,0,0,0) 76%); }
+  .hero-inner { position: absolute; top: 22.4%; /* starts below his chin */ left: 0; right: 0; padding-inline: 16px; }
+  .hero .kicker-mark { display: none; }
+  .hero-title.t-hero { margin-top: 12px; font-size: min(44px, 11vw); line-height: 1.1; letter-spacing: -0.025em; } /* three lines: widest is "followed through?" */
+  .hero-sub { margin-top: 12px; line-height: 20px; }
+  .hero-sub .sub-more { display: none; }
+  .hero-join { margin-top: 18px; gap: 10px; }
+  #goal-label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  .hero-device { position: static; height: 0; margin: 0; padding: 0; }
+  .screen--hero { display: none; }
+  .hero-quote { display: flex; width: max-content; max-width: none; margin: 0; padding: 16px 19px; gap: 6px; bottom: auto; right: auto; }
+  .hero-quote .lbl { font-size: 8px; line-height: 11px; }
+  .hero-quote .q { font-size: 15px; line-height: 19px; white-space: nowrap; }
+  .hero-task { display: block; width: 271px; max-width: calc(100vw - 32px); margin: 0; bottom: auto; right: auto; filter: drop-shadow(0 8px 14px rgba(0,0,0,0.45)); }
+  .hq-left  { left: 16px;    top: 63.8%; }
+  .ht-left  { left: 16px;    top: 69.8%; }
+  .hq-right { left: 22.9%;   top: 79.6%; }
+  .ht-right { left: 26.9%;   top: 85.6%; }
+  .js .hq-left[data-reveal], .js .ht-left[data-reveal] { transform: translateX(-28px); }
+  .js .hq-right[data-reveal], .js .ht-right[data-reveal] { transform: translateX(28px); }
+  .js .hero-device .hero-quote.in, .js .hero-device .hero-task.in { transform: none; }
+}

@@ -512,8 +512,19 @@
     wsteps.forEach(function (s) { wio.observe(s); });
   }
 
+  // Phones: the goal question moves inside the field (the label is hidden there).
+  var goalInput = document.getElementById('goal-input');
+  var goalLabel = document.getElementById('goal-label');
+  if (goalInput && goalLabel && window.matchMedia) {
+    var phoneMq = window.matchMedia('(max-width: 600px)');
+    var deskPh = goalInput.placeholder;
+    var syncPh = function () { goalInput.placeholder = phoneMq.matches ? goalLabel.textContent : deskPh; };
+    syncPh();
+    if (phoneMq.addEventListener) phoneMq.addEventListener('change', syncPh);
+  }
+
   // ---------------------------------------------------------------------
-  // Sticky mobile CTA: shown once the hero form has scrolled away, hidden
+  // Sticky mobile CTA: shown once the whole hero has scrolled away, hidden
   // again while the closing form is on screen. Tapping it returns to the
   // hero goal field rather than skipping the goal step.
   // ---------------------------------------------------------------------
@@ -528,7 +539,7 @@
       sticky.setAttribute('aria-hidden', on ? 'false' : 'true');
       sticky.tabIndex = on ? 0 : -1;
     };
-    new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; syncSticky(); }).observe(heroForm);
+    new IntersectionObserver(function (e) { heroVisible = e[0].isIntersecting; syncSticky(); }).observe(document.getElementById('top') || heroForm);
     new IntersectionObserver(function (e) { finalVisible = e[0].isIntersecting; syncSticky(); }, { rootMargin: '0px 0px -10% 0px' }).observe(finalCta);
     document.addEventListener('waitlist:done', function () { done = true; syncSticky(); });
   }
