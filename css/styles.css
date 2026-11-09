@@ -1040,3 +1040,16 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
 /* Scrolled header: solid black behind the logo and button (the old see-through
    fade let the headline show through on phones), with a short soft edge below. */
 .header::before { inset: 0 0 -20px 0; background: linear-gradient(180deg, #000 0%, #000 calc(100% - 20px), rgba(0,0,0,0) 100%); }
+
+/* Mobile hero: the goal quote ("I want to launch my own business.") and its task
+   card, stacked over the lower part of the phone, quote left / task right. */
+@media (max-width: 600px) {
+  .hero-device { height: calc(var(--pw) * 1.66); }
+  .screen--hero { -webkit-mask-image: linear-gradient(180deg, #000 calc(var(--pw) * 1.15), transparent calc(var(--pw) * 1.66)); mask-image: linear-gradient(180deg, #000 calc(var(--pw) * 1.15), transparent calc(var(--pw) * 1.66)); }
+  .hq-right { display: flex; top: auto; right: auto; left: var(--shell); bottom: calc(var(--pw) * 0.12 + 86px); max-width: min(280px, calc(100% - var(--shell) * 2)); padding: 14px 18px; }
+  .hq-right .q { white-space: normal; }
+  .ht-right { right: var(--shell); left: auto; bottom: calc(var(--pw) * 0.12); transform: none; width: min(290px, calc(100% - var(--shell) * 2)); }
+  .js .hq-right[data-reveal] { transform: translateX(-16px); }
+  .js .ht-right[data-reveal] { transform: translateX(16px); }
+  .js .hero-device .hq-right.in, .js .hero-device .ht-right.in { transform: none; }
+}
