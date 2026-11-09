@@ -1036,3 +1036,7 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
   .hero::after { height: 96px; }
 }
 @media (max-width: 400px) { .hero-title.t-hero { font-size: min(44px, 11.1vw); line-height: 1.09; } }
+
+/* Scrolled header: solid black behind the logo and button (the old see-through
+   fade let the headline show through on phones), with a short soft edge below. */
+.header::before { inset: 0 0 -20px 0; background: linear-gradient(180deg, #000 0%, #000 calc(100% - 20px), rgba(0,0,0,0) 100%); }
