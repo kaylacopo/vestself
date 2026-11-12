@@ -1092,3 +1092,6 @@ footer { border-top: 0 !important; padding-top: 24px !important; }
   .js .hq-right[data-reveal], .js .ht-right[data-reveal] { transform: translateX(28px); }
   .js .hero-device .hero-quote.in, .js .hero-device .hero-task.in { transform: none; }
 }
+
+/* Mobile only (Kayla, 12 Nov): hide the "For everyone else" photo for now. */
+@media (max-width: 760px) { .rec-panel--others .rec-photo { display: none; } .rec-panel--others { min-height: 0; } }
