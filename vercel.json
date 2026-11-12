@@ -4,6 +4,11 @@
   "trailingSlash": false,
   "redirects": [
     {
+      "source": "/",
+      "destination": "/waitlist",
+      "permanent": false
+    },
+    {
       "source": "/invite/:token",
       "destination": "https://app.vestself.app/invite/:token",
       "permanent": false
